@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SuperSize.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UseCustomScript" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Script" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ShortcutKey" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ShortcutModifier" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="BuiltinScript" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ScreenBorderColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">45, 125, 154</Value>
+    </Setting>
+    <Setting Name="ScreenFillColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Blue</Value>
+    </Setting>
+    <Setting Name="PrimaryScreenFillColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 120, 215</Value>
+    </Setting>
+    <Setting Name="ScreenTextColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="ScreenTextFontFamily" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Segoe UI, 9pt, style=Bold</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
