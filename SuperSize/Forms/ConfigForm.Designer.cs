@@ -31,6 +31,7 @@ namespace SuperSize
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TabPage _aboutPage;
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -46,7 +47,6 @@ namespace SuperSize
             this.keybindLabel = new System.Windows.Forms.Label();
             this._configPreview = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             _aboutPage = new System.Windows.Forms.TabPage();
             _aboutPage.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -65,6 +65,15 @@ namespace SuperSize
             _aboutPage.TabIndex = 1;
             _aboutPage.Text = "About";
             _aboutPage.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(92, 153);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "SuperSize 0.1\r\nmade with the power of kittens\r\n";
             // 
             // tabControl1
             // 
@@ -119,6 +128,7 @@ namespace SuperSize
             this.textBox1.Location = new System.Drawing.Point(47, 107);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "Enter custom Python code here.";
             this.textBox1.Size = new System.Drawing.Size(318, 114);
             this.textBox1.TabIndex = 13;
             // 
@@ -229,15 +239,6 @@ namespace SuperSize
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 153);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "SuperSize 0.1\r\nmade with the power of kittens\r\n";
             // 
             // ConfigForm
             // 
