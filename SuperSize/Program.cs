@@ -1,3 +1,4 @@
+using SuperSize.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,12 @@ namespace SuperSize
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ConfigForm());
         }
+
+        public static KeyboardShortcut GetGlobalKeyboardShortcut()
+            => new()
+            {
+                Modifier = (KeyboardShortcut.ModifierKeys)Properties.Settings.Default.ShortcutModifier,
+                Key = (Keys)Properties.Settings.Default.ShortcutKey
+            };
     }
 }

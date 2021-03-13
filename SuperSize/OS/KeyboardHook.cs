@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using static SuperSize.Model.KeyboardShortcut;
 
 namespace SuperSize.OS
 {
@@ -127,17 +128,5 @@ namespace SuperSize.OS
         {
             get { return _key; }
         }
-    }
-
-    /// <summary>
-    /// The enumeration of possible modifiers.
-    /// </summary>
-    [Flags]
-    public enum ModifierKeys : uint
-    {
-        Control = 2,
-        Win = 8,
-        Alt = 1,
-        Shift = 4,
     }
 }

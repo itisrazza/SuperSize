@@ -1,4 +1,5 @@
-﻿using SuperSize.OS;
+﻿using SuperSize.Model;
+using SuperSize.OS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,80 +9,92 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ModKeys = SuperSize.Model.KeyboardShortcut.ModifierKeys;
 
 namespace SuperSize.Forms
 {
     public partial class KeyboardShortcutDialog : Form
     {
-        private ModifierKeys _modifiers = 0;
-        private Keys _key = 0;
+        private KeyboardShortcut _shortcut;
 
-        public ModifierKeys Modifiers
+        public KeyboardShortcut Shortcut
         {
-            get => _modifiers;
+            get => _shortcut;
             set
             {
-                _modifiers = value;
+                _shortcut = value;
 
-                shiftCheckbox.Checked = ((_modifiers & OS.ModifierKeys.Shift) == OS.ModifierKeys.Shift);
-                controlCheckbox.Checked = ((_modifiers & OS.ModifierKeys.Control) == OS.ModifierKeys.Control);
-                windowsCheckbox.Checked = ((_modifiers & OS.ModifierKeys.Win) == OS.ModifierKeys.Win);
-                altCheckbox.Checked = ((_modifiers & OS.ModifierKeys.Alt) == OS.ModifierKeys.Alt);
+                keySelector.SelectedItem = _shortcut.Key;
+                shiftCheckbox.Checked = ((_shortcut.Modifier & ModKeys.Shift) == ModKeys.Shift);
+                controlCheckbox.Checked = ((_shortcut.Modifier & ModKeys.Control) == ModKeys.Control);
+                windowsCheckbox.Checked = ((_shortcut.Modifier & ModKeys.Windows) == ModKeys.Windows);
+                altCheckbox.Checked = ((_shortcut.Modifier & ModKeys.Alt) == ModKeys.Alt);
             }
         }
 
-        public Keys Key
-        {
-            get => _key;
-            set
-            {
-                _key = value;
-                comboBox1.SelectedItem = _key;
-            }
-        }
+        public Keys Key => Shortcut.Key;
+
+        public ModKeys Modifier => Shortcut.Modifier;
 
         public KeyboardShortcutDialog()
         {
             InitializeComponent();
             PopulateKeysComboBox();
-            okButton.Enabled = comboBox1.SelectedIndex >= 0;
-            comboBox1.SelectedIndex = 0;
+            AssignModifierTags();
+            Shortcut = KeyboardShortcut.None;
+            okButton.Enabled = keySelector.SelectedIndex >= 0;
         }
 
-        public KeyboardShortcutDialog(ModifierKeys modifiers, Keys keys)
+        public KeyboardShortcutDialog(KeyboardShortcut shortcut = default)
         {
             InitializeComponent();
             PopulateKeysComboBox();
-            Modifiers = modifiers;
-            Key = keys;
-            okButton.Enabled = comboBox1.SelectedIndex >= 0;
+            AssignModifierTags();
+            Shortcut = shortcut;
+            okButton.Enabled = keySelector.SelectedIndex >= 0;
+        }
+
+        private void AssignModifierTags()
+        {
+            controlCheckbox.Tag = ModKeys.Control;
+            windowsCheckbox.Tag = ModKeys.Windows;
+            altCheckbox.Tag = ModKeys.Alt;
+            shiftCheckbox.Tag = ModKeys.Shift;
         }
 
         private void PopulateKeysComboBox()
-            => comboBox1.Items.AddRange(Enum.GetValues<Keys>().Select(k => (object)k).ToArray());
+            => keySelector.Items.AddRange(Enum.GetValues<Keys>().Select(k => (object)k).ToArray());
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            _modifiers = 0;
-            if (shiftCheckbox.Checked) _modifiers |= OS.ModifierKeys.Shift;
-            if (controlCheckbox.Checked) _modifiers |= OS.ModifierKeys.Control;
-            if (windowsCheckbox.Checked) _modifiers |= OS.ModifierKeys.Win;
-            if (altCheckbox.Checked) _modifiers |= OS.ModifierKeys.Alt;
-
-            _key = (Keys)comboBox1.SelectedItem;
-
             DialogResult = DialogResult.OK;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            okButton.Enabled = comboBox1.SelectedIndex >= 0;
+            okButton.Enabled = keySelector.SelectedIndex >= 0;
+        }
+
+        private void modifierCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is not CheckBox checkBox) return;
+            if (checkBox.Tag is not ModKeys mod) return;
+
+            if (checkBox.Checked)
+                _shortcut.Modifier |= mod;
+            else
+                _shortcut.Modifier ^= mod;
+        }
+
+        private void keySelector_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _shortcut.Key = (Keys)keySelector.SelectedItem;
         }
     }
 }
