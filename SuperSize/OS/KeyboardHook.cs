@@ -35,10 +35,7 @@ namespace SuperSize.OS
                     ModifierKeys modifier = (ModifierKeys)((int)m.LParam & 0xFFFF);
 
                     // invoke the event to notify the parent.
-                    if (KeyPressed != null)
-                    {
-                        KeyPressed(this, new KeyPressedEventArgs(modifier, key));
-                    }
+                    KeyPressed?.Invoke(this, new KeyPressedEventArgs(modifier, key));
                 }
             }
 
