@@ -15,6 +15,9 @@ namespace SuperSize.Model
 
         public override string ToString()
         {
+            if (Key == Keys.None || Modifier == ModifierKeys.None)
+                return "(none)";
+
             var sb = new StringBuilder();
             foreach (var mod in Enum.GetValues<ModifierKeys>())
             {

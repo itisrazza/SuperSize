@@ -51,22 +51,30 @@ namespace SuperSize.Forms
         {
             switch (e.Button)
             {
-                case MouseButtons.Left:
-                    break;
-                case MouseButtons.None:
-                    break;
                 case MouseButtons.Right:
-                    //PopulateWindowList();
-                    break;
-                case MouseButtons.Middle:
-                    break;
-                case MouseButtons.XButton1:
-                    break;
-                case MouseButtons.XButton2:
+                    PopulateWindowList();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void NotifyIconForm_Shown(object sender, EventArgs e) => Hide();
+
+        private void openConfigForm_Click(object sender, EventArgs e)
+        {
+            var configForm = new ConfigForm();
+            configForm.Show();
+        }
+
+        private void maxActiveWindow_Click(object sender, EventArgs e)
+        {
+            // TODO: get active window and pass it to Service.Sizer
+        }
+
+        private void quit_Click(object sender, EventArgs e)
+        {
+            // TODO: quit the program, cleaning up native resources
         }
     }
 }

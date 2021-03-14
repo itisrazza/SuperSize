@@ -77,6 +77,7 @@ namespace SuperSize.Forms
             this.maxActiveWindow.Name = "maxActiveWindow";
             this.maxActiveWindow.Size = new System.Drawing.Size(207, 22);
             this.maxActiveWindow.Text = "SuperSize &Active Window";
+            this.maxActiveWindow.Click += new System.EventHandler(this.maxActiveWindow_Click);
             // 
             // maxWindowMenu
             // 
@@ -90,6 +91,7 @@ namespace SuperSize.Forms
             this.windowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.windowMenu.Name = "windowMenu";
+            this.windowMenu.OwnerItem = this.maxWindowMenu;
             this.windowMenu.Size = new System.Drawing.Size(427, 26);
             // 
             // toolStripMenuItem1
@@ -103,21 +105,25 @@ namespace SuperSize.Forms
             this.openConfigForm.Name = "openConfigForm";
             this.openConfigForm.Size = new System.Drawing.Size(207, 22);
             this.openConfigForm.Text = "&Settings...";
+            this.openConfigForm.Click += new System.EventHandler(this.openConfigForm_Click);
             // 
             // quit
             // 
             this.quit.Name = "quit";
             this.quit.Size = new System.Drawing.Size(207, 22);
             this.quit.Text = "&Quit";
+            this.quit.Click += new System.EventHandler(this.quit_Click);
             // 
             // NotifyIconForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(431, 211);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "NotifyIconForm";
             this.Text = "NotifyIconForm";
+            this.Shown += new System.EventHandler(this.NotifyIconForm_Shown);
             this.contextMenuStrip.ResumeLayout(false);
             this.windowMenu.ResumeLayout(false);
             this.ResumeLayout(false);

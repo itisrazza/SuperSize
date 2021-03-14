@@ -49,7 +49,7 @@ namespace SuperSize.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("27")]
         public uint ShortcutKey {
             get {
                 return ((uint)(this["ShortcutKey"]));
@@ -61,7 +61,7 @@ namespace SuperSize.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
         public uint ShortcutModifier {
             get {
                 return ((uint)(this["ShortcutModifier"]));

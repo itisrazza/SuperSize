@@ -15,6 +15,7 @@ using Screen = SuperSize.Model.Screen;
 using SuperSize.OS;
 using SuperSize.Forms;
 using static SuperSize.Model.KeyboardShortcut;
+using SuperSize.Service;
 
 namespace SuperSize
 {
@@ -23,11 +24,20 @@ namespace SuperSize
         public ConfigForm()
         {
             InitializeComponent();
+            
+            // populate the script chooser
+            builtinScriptChooser.Items.Clear();
+            builtinScriptChooser.Items.AddRange(Sizer.KnownBuiltInScripts.ToArray());
         }
 
         private void ConfigForm_Load(object sender, EventArgs e)
         {
             keybindPreview_Update();
+
+            var settings = Properties.Settings.Default;
+            customScriptRadio.Checked = settings.UseCustomScript;
+            builtinScriptChooser.SelectedItem = settings.BuiltinScript;
+            textBox1.Text = settings.Script;
         }
 
         private void RenderDisplayConfiguration(Bitmap bmp)
@@ -89,12 +99,13 @@ namespace SuperSize
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            var screen = System.Windows.Forms.Screen.PrimaryScreen;
+            var logic = Sizer.SelectedLogic();
+            var result = logic.Calculate();
 
-            new Forms.TestForm
+            new TestForm
             {
-                Location = screen.Bounds.Location,
-                Size = screen.WorkingArea.Size
+                Location = result.Location,
+                Size = result.Size
             }.Show();
         }
 
@@ -149,6 +160,20 @@ namespace SuperSize
             {
                 tabControl1.SelectedTab = tabPage1;
                 new AboutBox().ShowDialog();
+            }
+        }
+
+        private void ConfigForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // save the config
+            var settings = Properties.Settings.Default;
+            if (settings.UseCustomScript = customScriptRadio.Checked)
+            {
+                settings.Script = textBox1.Text;
+            }
+            else
+            {
+                settings.BuiltinScript = builtinScriptChooser.SelectedItem as string;
             }
         }
     }

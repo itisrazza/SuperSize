@@ -9,10 +9,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ShortcutKey" Type="System.UInt32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">27</Value>
     </Setting>
     <Setting Name="ShortcutModifier" Type="System.UInt32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">8</Value>
     </Setting>
     <Setting Name="BuiltinScript" Type="System.String" Scope="User">
       <Value Profile="(Default)">Fill out completely</Value>

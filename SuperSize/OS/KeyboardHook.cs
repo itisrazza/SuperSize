@@ -60,7 +60,7 @@ namespace SuperSize.OS
         public KeyboardHook()
         {
             // register the event of the inner native window.
-            _window.KeyPressed += delegate (object sender, KeyPressedEventArgs args)
+            _window.KeyPressed += (sender, args) =>
             {
                 KeyPressed?.Invoke(this, args);
             };

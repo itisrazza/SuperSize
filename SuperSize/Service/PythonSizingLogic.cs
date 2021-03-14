@@ -80,7 +80,7 @@ namespace SuperSize.Service
                 { "get_all_screen_bounds", new Func<Rectangle>(() => Utilities.GetAllScreenBounds()) },
 
                 // .NET object constructors
-                { "rectange", new Func<int, int, int, int, Rectangle>((x, y, w, h) => new Rectangle(x, y, w, h)) },
+                { "rectangle", new Func<int, int, int, int, Rectangle>((x, y, w, h) => new Rectangle(x, y, w, h)) },
                 { "point", new Func<int, int, Point>((x, y) => new Point(x, y)) },
             });
 

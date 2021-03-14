@@ -15,6 +15,9 @@ namespace SuperSize
         [STAThread]
         static void Main()
         {
+            // for testing, reset all settings to default
+            Properties.Settings.Default.Reset();
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

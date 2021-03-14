@@ -13,8 +13,10 @@ namespace SuperSize.Service
 
         private static Dictionary<string, Func<SizingLogic>> _builtInScripts = new()
         {
-            { "Fill out completely", () => new Scripts.FillOutCompletely() }
+            { "Fill out completely", () => new Scripts.FillOutCompletely() },
         };
+
+        public static ICollection<string> KnownBuiltInScripts { get; } = _builtInScripts.Keys;
 
         public static SizingLogic SelectedLogic()
         {
@@ -29,6 +31,7 @@ namespace SuperSize.Service
         public static void SizeWindow(IntPtr window, SizingLogic logic)
         {
             NativeImports.SetForegroundWindow(window);
+            NativeImports.ShowWindowAsync(window, nCmdShow: 3 /* maximise */);
 
             var calculateSize = logic.Calculate();
             NativeImports.SetWindowPos(

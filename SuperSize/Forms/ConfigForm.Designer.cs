@@ -36,10 +36,10 @@ namespace SuperSize
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.importButton = new System.Windows.Forms.Button();
+            this.customScriptRadio = new System.Windows.Forms.RadioButton();
+            this.builtinScriptChooser = new System.Windows.Forms.ComboBox();
+            this.builtinScriptRadio = new System.Windows.Forms.RadioButton();
             this.testButton = new System.Windows.Forms.Button();
             this.previewButton = new System.Windows.Forms.Button();
             this.keybindPreview = new System.Windows.Forms.Label();
@@ -106,10 +106,10 @@ namespace SuperSize
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.importButton);
+            this.groupBox1.Controls.Add(this.customScriptRadio);
+            this.groupBox1.Controls.Add(this.builtinScriptChooser);
+            this.groupBox1.Controls.Add(this.builtinScriptRadio);
             this.groupBox1.Controls.Add(this.testButton);
             this.groupBox1.Controls.Add(this.previewButton);
             this.groupBox1.Location = new System.Drawing.Point(3, 203);
@@ -132,48 +132,49 @@ namespace SuperSize
             this.textBox1.Size = new System.Drawing.Size(318, 114);
             this.textBox1.TabIndex = 13;
             // 
-            // button1
+            // importButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(289, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "&Import...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.importButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.importButton.Location = new System.Drawing.Point(289, 78);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(75, 23);
+            this.importButton.TabIndex = 12;
+            this.importButton.Text = "&Import...";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // radioButton2
+            // customScriptRadio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 82);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(116, 19);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Use custom code";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.customScriptRadio.AutoSize = true;
+            this.customScriptRadio.Location = new System.Drawing.Point(6, 82);
+            this.customScriptRadio.Name = "customScriptRadio";
+            this.customScriptRadio.Size = new System.Drawing.Size(116, 19);
+            this.customScriptRadio.TabIndex = 11;
+            this.customScriptRadio.Text = "Use custom code";
+            this.customScriptRadio.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // builtinScriptChooser
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.builtinScriptChooser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(46, 49);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(318, 23);
-            this.comboBox1.TabIndex = 10;
+            this.builtinScriptChooser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.builtinScriptChooser.FormattingEnabled = true;
+            this.builtinScriptChooser.Location = new System.Drawing.Point(46, 49);
+            this.builtinScriptChooser.Name = "builtinScriptChooser";
+            this.builtinScriptChooser.Size = new System.Drawing.Size(318, 23);
+            this.builtinScriptChooser.TabIndex = 10;
             // 
-            // radioButton1
+            // builtinScriptRadio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 24);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(162, 19);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Use a built-in window size";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.builtinScriptRadio.AutoSize = true;
+            this.builtinScriptRadio.Checked = true;
+            this.builtinScriptRadio.Location = new System.Drawing.Point(6, 24);
+            this.builtinScriptRadio.Name = "builtinScriptRadio";
+            this.builtinScriptRadio.Size = new System.Drawing.Size(162, 19);
+            this.builtinScriptRadio.TabIndex = 9;
+            this.builtinScriptRadio.TabStop = true;
+            this.builtinScriptRadio.Text = "Use a built-in window size";
+            this.builtinScriptRadio.UseVisualStyleBackColor = true;
             // 
             // testButton
             // 
@@ -251,6 +252,7 @@ namespace SuperSize
             this.MinimizeBox = false;
             this.Name = "ConfigForm";
             this.Text = "SuperSize Settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigForm_FormClosing);
             this.Load += new System.EventHandler(this.ConfigForm_Load);
             _aboutPage.ResumeLayout(false);
             _aboutPage.PerformLayout();
@@ -278,10 +280,10 @@ namespace SuperSize
         private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button importButton;
+        private System.Windows.Forms.RadioButton customScriptRadio;
+        private System.Windows.Forms.ComboBox builtinScriptChooser;
+        private System.Windows.Forms.RadioButton builtinScriptRadio;
         private System.Windows.Forms.Label label1;
     }
 }
