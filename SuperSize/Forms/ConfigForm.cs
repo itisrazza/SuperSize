@@ -147,20 +147,10 @@ namespace SuperSize
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab == _aboutPage)
-            {
-                tabControl1.SelectedTab = tabPage1;
-                new AboutBox().ShowDialog();
-            }
         }
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if (tabControl1.SelectedTab == _aboutPage)
-            {
-                tabControl1.SelectedTab = tabPage1;
-                new AboutBox().ShowDialog();
-            }
         }
 
         private void ConfigForm_FormClosing(object sender, FormClosingEventArgs e)

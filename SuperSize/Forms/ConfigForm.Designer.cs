@@ -30,7 +30,7 @@ namespace SuperSize
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TabPage _aboutPage;
+            this._aboutPage = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -47,8 +47,7 @@ namespace SuperSize
             this.keybindLabel = new System.Windows.Forms.Label();
             this._configPreview = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            _aboutPage = new System.Windows.Forms.TabPage();
-            _aboutPage.SuspendLayout();
+            this._aboutPage.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -57,14 +56,14 @@ namespace SuperSize
             // 
             // _aboutPage
             // 
-            _aboutPage.Controls.Add(this.label1);
-            _aboutPage.Location = new System.Drawing.Point(4, 24);
-            _aboutPage.Name = "_aboutPage";
-            _aboutPage.Padding = new System.Windows.Forms.Padding(3);
-            _aboutPage.Size = new System.Drawing.Size(376, 433);
-            _aboutPage.TabIndex = 1;
-            _aboutPage.Text = "About";
-            _aboutPage.UseVisualStyleBackColor = true;
+            this._aboutPage.Controls.Add(this.label1);
+            this._aboutPage.Location = new System.Drawing.Point(4, 24);
+            this._aboutPage.Name = "_aboutPage";
+            this._aboutPage.Padding = new System.Windows.Forms.Padding(3);
+            this._aboutPage.Size = new System.Drawing.Size(376, 433);
+            this._aboutPage.TabIndex = 1;
+            this._aboutPage.Text = "About";
+            this._aboutPage.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -78,7 +77,7 @@ namespace SuperSize
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(_aboutPage);
+            this.tabControl1.Controls.Add(this._aboutPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -254,8 +253,8 @@ namespace SuperSize
             this.Text = "SuperSize Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigForm_FormClosing);
             this.Load += new System.EventHandler(this.ConfigForm_Load);
-            _aboutPage.ResumeLayout(false);
-            _aboutPage.PerformLayout();
+            this._aboutPage.ResumeLayout(false);
+            this._aboutPage.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
