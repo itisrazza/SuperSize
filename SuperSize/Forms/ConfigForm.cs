@@ -14,6 +14,7 @@ using SuperSize.Model;
 using Screen = SuperSize.Model.Screen;
 using SuperSize.OS;
 using SuperSize.Forms;
+using static SuperSize.Model.KeyboardShortcut;
 
 namespace SuperSize
 {
@@ -104,31 +105,25 @@ namespace SuperSize
 
         private void keybindPreview_Update()
         {
-            var settings = Properties.Settings.Default;
-            var modifier = (ModifierKeys)settings.ShortcutModifier;
-            var key = (Keys)settings.ShortcutKey;
-
-            var names = new List<ModifierKeys>();
-            foreach (var mod in Enum.GetValues<ModifierKeys>())
-            {
-                if ((modifier & mod) == mod) names.Add(mod);
-            }
-            var modifierStr = string.Join(" + ", names);
-            keybindPreview.Text = $"{modifierStr} + {key}";
+            var globalShortcut = Program.GetGlobalKeyboardShortcut();
+            keybindPreview.Text = globalShortcut.ToString();
         }
 
         private void keybindChangeButton_Click(object sender, EventArgs e)
         {
             var settings = Properties.Settings.Default;
-            using var keyboardShortcutDialog = new Forms.KeyboardShortcutDialog(
-                (ModifierKeys)settings.ShortcutModifier,
-                (Keys)settings.ShortcutKey);
+            using var keyboardShortcutDialog = new KeyboardShortcutDialog(
+                new()
+                {
+                    Modifier = (ModifierKeys)settings.ShortcutModifier,
+                    Key = (Keys)settings.ShortcutKey
+                });
 
             var result = keyboardShortcutDialog.ShowDialog();
             if (result != DialogResult.OK) return;
 
             settings.ShortcutKey = (uint)keyboardShortcutDialog.Key;
-            settings.ShortcutModifier = (uint)keyboardShortcutDialog.Modifiers;
+            settings.ShortcutModifier = (uint)keyboardShortcutDialog.Modifier;
             settings.Save();
 
             keybindPreview_Update();

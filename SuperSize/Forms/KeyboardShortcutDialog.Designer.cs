@@ -35,7 +35,7 @@ namespace SuperSize.Forms
             this.altCheckbox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.keySelector = new System.Windows.Forms.ComboBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -51,6 +51,7 @@ namespace SuperSize.Forms
             this.controlCheckbox.TabIndex = 0;
             this.controlCheckbox.Text = "Control";
             this.controlCheckbox.UseVisualStyleBackColor = true;
+            this.controlCheckbox.CheckedChanged += new System.EventHandler(this.modifierCheckbox_CheckedChanged);
             // 
             // windowsCheckbox
             // 
@@ -61,6 +62,7 @@ namespace SuperSize.Forms
             this.windowsCheckbox.TabIndex = 1;
             this.windowsCheckbox.Text = "Windows";
             this.windowsCheckbox.UseVisualStyleBackColor = true;
+            this.windowsCheckbox.CheckedChanged += new System.EventHandler(this.modifierCheckbox_CheckedChanged);
             // 
             // shiftCheckbox
             // 
@@ -71,6 +73,7 @@ namespace SuperSize.Forms
             this.shiftCheckbox.TabIndex = 2;
             this.shiftCheckbox.Text = "Shift";
             this.shiftCheckbox.UseVisualStyleBackColor = true;
+            this.shiftCheckbox.CheckedChanged += new System.EventHandler(this.modifierCheckbox_CheckedChanged);
             // 
             // altCheckbox
             // 
@@ -81,6 +84,7 @@ namespace SuperSize.Forms
             this.altCheckbox.TabIndex = 3;
             this.altCheckbox.Text = "&Alt";
             this.altCheckbox.UseVisualStyleBackColor = true;
+            this.altCheckbox.CheckedChanged += new System.EventHandler(this.modifierCheckbox_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -101,7 +105,7 @@ namespace SuperSize.Forms
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.keySelector);
             this.groupBox2.Location = new System.Drawing.Point(12, 72);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(327, 56);
@@ -109,17 +113,18 @@ namespace SuperSize.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Keys";
             // 
-            // comboBox1
+            // keySelector
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.keySelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(315, 23);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.keySelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.keySelector.FormattingEnabled = true;
+            this.keySelector.Location = new System.Drawing.Point(6, 22);
+            this.keySelector.Name = "keySelector";
+            this.keySelector.Size = new System.Drawing.Size(315, 23);
+            this.keySelector.TabIndex = 0;
+            this.keySelector.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.keySelector.SelectedValueChanged += new System.EventHandler(this.keySelector_SelectedValueChanged);
             // 
             // cancelButton
             // 
@@ -175,7 +180,7 @@ namespace SuperSize.Forms
         private System.Windows.Forms.CheckBox altCheckbox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox keySelector;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;
     }
