@@ -21,10 +21,12 @@ namespace SuperSize
 {
     public partial class ConfigForm : Form
     {
+        private Rectangle? _windowPreview = null;
+
         public ConfigForm()
         {
             InitializeComponent();
-            
+
             // populate the script chooser
             builtinScriptChooser.Items.Clear();
             builtinScriptChooser.Items.AddRange(Sizer.KnownBuiltInScripts.ToArray());
@@ -38,11 +40,13 @@ namespace SuperSize
             customScriptRadio.Checked = settings.UseCustomScript;
             builtinScriptChooser.SelectedItem = settings.BuiltinScript;
             textBox1.Text = settings.Script;
+            customScriptRadio_CheckedChanged(sender, e);
         }
 
         private void RenderDisplayConfiguration(Bitmap bmp)
         {
             var gfx = Graphics.FromImage(bmp);
+            var dpiScale = Math.Max(gfx.DpiX, gfx.DpiY) / 96;
 
             // get displays
             var screens = Screen.GetAllScreens();
@@ -50,8 +54,8 @@ namespace SuperSize
 
             // calculate scaling factors
             var scale = Math.Min(
-                (double)(bmp.Width - 4) / screenBounds.Width,
-                (double)(bmp.Height - 4) / screenBounds.Height);
+                (double)(bmp.Width - 4 * dpiScale) / screenBounds.Width,
+                (double)(bmp.Height - 4 * dpiScale) / screenBounds.Height);
             var mappedScreenBounds = new Rectangle(
                 bmp.Width / 2 - (int)(scale * screenBounds.Width) / 2,
                 bmp.Height / 2 - (int)(scale * screenBounds.Height) / 2,
@@ -63,7 +67,7 @@ namespace SuperSize
             using var screenFill = new SolidBrush(settings.ScreenFillColor);
             using var primaryScreenFill = new SolidBrush(settings.PrimaryScreenFillColor);
             using var screenText = new SolidBrush(settings.ScreenTextColor);
-            using var screenBorder = new Pen(settings.ScreenBorderColor);
+            using var screenBorder = new Pen(settings.ScreenBorderColor, dpiScale);
             using var screenFont = new Font("Segoe UI", 9);
             var count = 0;
             foreach (var screen in screens)
@@ -86,6 +90,32 @@ namespace SuperSize
                     rect.X + rect.Width / 2 - strSize.Width / 2,
                     rect.Y + rect.Height / 2 - strSize.Height / 2);
             }
+
+            // draw the preview
+            if (_windowPreview != null)
+            {
+                using var previewBorder = new Pen(settings.WindowPreviewBorder, dpiScale);
+                var rect = _windowPreview.Value;
+                var previewRect = new Rectangle(
+                    (int)(mappedScreenBounds.X + scale * (rect.X - screenBounds.X)),
+                    (int)(mappedScreenBounds.Y + scale * (rect.Y - screenBounds.Y)),
+                    (int)(scale * rect.Width),
+                    (int)(scale * rect.Height));
+                gfx.DrawRectangle(previewBorder, previewRect);
+            }
+        }
+
+        private void SaveScript()
+        {
+            var settings = Properties.Settings.Default;
+            if (settings.UseCustomScript = customScriptRadio.Checked)
+            {
+                settings.Script = textBox1.Text;
+            }
+            else
+            {
+                settings.BuiltinScript = builtinScriptChooser.SelectedItem as string;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -99,19 +129,45 @@ namespace SuperSize
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            var logic = Sizer.SelectedLogic();
-            var result = logic.Calculate();
-
-            new TestForm
+            try
             {
-                Location = result.Location,
-                Size = result.Size
-            }.Show();
+                var logic = Sizer.SelectedLogic();
+                var result = logic.Calculate();
+
+                new TestForm
+                {
+                    Location = result.Location,
+                    Size = result.Size
+                }.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    ex.ToString(),
+                    $"Script error occurred: {ex.Message}",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void previewButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var logic = Sizer.SelectedLogic();
+                var result = logic.Calculate();
+                _windowPreview = result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    ex.ToString(),
+                    $"Script error occurred: {ex.Message}",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void keybindPreview_Update()
@@ -156,15 +212,21 @@ namespace SuperSize
         private void ConfigForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // save the config
-            var settings = Properties.Settings.Default;
-            if (settings.UseCustomScript = customScriptRadio.Checked)
-            {
-                settings.Script = textBox1.Text;
-            }
-            else
-            {
-                settings.BuiltinScript = builtinScriptChooser.SelectedItem as string;
-            }
+            SaveScript();
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            SaveScript();
+        }
+
+        private void customScriptRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            var useCustomScript = customScriptRadio.Checked;
+            textBox1.Enabled = useCustomScript;
+            textBox1.ReadOnly = !useCustomScript;
+            builtinScriptChooser.Enabled = !useCustomScript;
+            SaveScript();
         }
     }
 }

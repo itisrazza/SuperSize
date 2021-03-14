@@ -21,16 +21,19 @@
       <Value Profile="(Default)">45, 125, 154</Value>
     </Setting>
     <Setting Name="ScreenFillColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Blue</Value>
+      <Value Profile="(Default)">238, 238, 238</Value>
     </Setting>
     <Setting Name="PrimaryScreenFillColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">0, 120, 215</Value>
+      <Value Profile="(Default)">224, 224, 224</Value>
     </Setting>
     <Setting Name="ScreenTextColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="ScreenTextFontFamily" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Segoe UI, 9pt, style=Bold</Value>
+    </Setting>
+    <Setting Name="WindowPreviewBorder" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">232, 17, 35</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -97,7 +97,7 @@ namespace SuperSize.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("238, 238, 238")]
         public global::System.Drawing.Color ScreenFillColor {
             get {
                 return ((global::System.Drawing.Color)(this["ScreenFillColor"]));
@@ -109,7 +109,7 @@ namespace SuperSize.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 120, 215")]
+        [global::System.Configuration.DefaultSettingValueAttribute("224, 224, 224")]
         public global::System.Drawing.Color PrimaryScreenFillColor {
             get {
                 return ((global::System.Drawing.Color)(this["PrimaryScreenFillColor"]));
@@ -121,7 +121,7 @@ namespace SuperSize.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
         public global::System.Drawing.Color ScreenTextColor {
             get {
                 return ((global::System.Drawing.Color)(this["ScreenTextColor"]));
@@ -140,6 +140,18 @@ namespace SuperSize.Properties {
             }
             set {
                 this["ScreenTextFontFamily"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("232, 17, 35")]
+        public global::System.Drawing.Color WindowPreviewBorder {
+            get {
+                return ((global::System.Drawing.Color)(this["WindowPreviewBorder"]));
+            }
+            set {
+                this["WindowPreviewBorder"] = value;
             }
         }
     }

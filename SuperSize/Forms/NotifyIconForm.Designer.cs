@@ -48,7 +48,7 @@ namespace SuperSize.Forms
             // s1
             // 
             s1.Name = "s1";
-            s1.Size = new System.Drawing.Size(204, 6);
+            s1.Size = new System.Drawing.Size(356, 6);
             // 
             // notifyIcon
             // 
@@ -69,13 +69,13 @@ namespace SuperSize.Forms
             this.openConfigForm,
             this.quit});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(208, 98);
+            this.contextMenuStrip.Size = new System.Drawing.Size(360, 162);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // maxActiveWindow
             // 
             this.maxActiveWindow.Name = "maxActiveWindow";
-            this.maxActiveWindow.Size = new System.Drawing.Size(207, 22);
+            this.maxActiveWindow.Size = new System.Drawing.Size(359, 38);
             this.maxActiveWindow.Text = "SuperSize &Active Window";
             this.maxActiveWindow.Click += new System.EventHandler(this.maxActiveWindow_Click);
             // 
@@ -83,44 +83,45 @@ namespace SuperSize.Forms
             // 
             this.maxWindowMenu.DropDown = this.windowMenu;
             this.maxWindowMenu.Name = "maxWindowMenu";
-            this.maxWindowMenu.Size = new System.Drawing.Size(207, 22);
+            this.maxWindowMenu.Size = new System.Drawing.Size(359, 38);
             this.maxWindowMenu.Text = "SuperSize &Window";
             // 
             // windowMenu
             // 
+            this.windowMenu.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.windowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.windowMenu.Name = "windowMenu";
             this.windowMenu.OwnerItem = this.maxWindowMenu;
-            this.windowMenu.Size = new System.Drawing.Size(427, 26);
+            this.windowMenu.Size = new System.Drawing.Size(809, 42);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(426, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(808, 38);
             this.toolStripMenuItem1.Text = "Hello World - This is an example item. It\'s here only to size the box.";
             // 
             // openConfigForm
             // 
             this.openConfigForm.Name = "openConfigForm";
-            this.openConfigForm.Size = new System.Drawing.Size(207, 22);
+            this.openConfigForm.Size = new System.Drawing.Size(359, 38);
             this.openConfigForm.Text = "&Settings...";
             this.openConfigForm.Click += new System.EventHandler(this.openConfigForm_Click);
             // 
             // quit
             // 
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(207, 22);
+            this.quit.Size = new System.Drawing.Size(359, 38);
             this.quit.Text = "&Quit";
             this.quit.Click += new System.EventHandler(this.quit_Click);
             // 
             // NotifyIconForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(431, 211);
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "NotifyIconForm";
             this.Text = "NotifyIconForm";
             this.Shown += new System.EventHandler(this.NotifyIconForm_Shown);
