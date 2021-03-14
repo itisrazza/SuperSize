@@ -15,7 +15,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="BuiltinScript" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Fill out completely</Value>
     </Setting>
     <Setting Name="ScreenBorderColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">45, 125, 154</Value>

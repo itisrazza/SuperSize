@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSize.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,26 @@ namespace SuperSize.Forms
         public NotifyIconForm()
         {
             InitializeComponent();
+            PopulateWindowList();
+        }
+
+        private void PopulateWindowList()
+        {
+            // generate a window list
+            windowMenu.Items.Clear();
+            windowMenu.Items.AddRange(
+                OS.Utilities.GetOpenWindows()
+                    .Select((window) =>
+                    {
+                        var item = new ToolStripMenuItem
+                        {
+                            Text = window.Title
+                        };
+                        item.Click += (_, _) => Sizer.SizeWindow(window.Handle);
+
+                        return item;
+                    })
+                    .ToArray());
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -24,12 +45,28 @@ namespace SuperSize.Forms
 
         private void contextMenuStrip_Opening(object sender, CancelEventArgs e)
         {
-            // generate a window list
-            maxWindowMenu.DropDownItems.Clear();
-            maxWindowMenu.DropDownItems.AddRange(
-                OS.Utilities.GetOpenWindows()
-                    .Select((window) => new ToolStripDropDownButton { Text = window.Title })
-                    .ToArray());
+        }
+
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    break;
+                case MouseButtons.None:
+                    break;
+                case MouseButtons.Right:
+                    //PopulateWindowList();
+                    break;
+                case MouseButtons.Middle:
+                    break;
+                case MouseButtons.XButton1:
+                    break;
+                case MouseButtons.XButton2:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

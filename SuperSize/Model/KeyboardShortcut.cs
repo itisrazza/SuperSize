@@ -51,5 +51,15 @@ namespace SuperSize.Model
             Alt = 1,
             Shift = 4
         }
+
+        public static bool operator ==(KeyboardShortcut left, KeyboardShortcut right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(KeyboardShortcut left, KeyboardShortcut right)
+        {
+            return !(left == right);
+        }
     }
 }

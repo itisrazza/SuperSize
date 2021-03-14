@@ -9,6 +9,9 @@ namespace SuperSize.Model
 {
     public abstract class SizingLogic
     {
+
+        public Rectangle Calculate() => Calculate(Screen.GetAllScreens());
+
         public abstract Rectangle Calculate(Screen[] screens);
     }
 }

@@ -36,16 +36,19 @@ namespace SuperSize.Forms
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.maxActiveWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.maxWindowMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openConfigForm = new System.Windows.Forms.ToolStripMenuItem();
             this.quit = new System.Windows.Forms.ToolStripMenuItem();
             s1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip.SuspendLayout();
+            this.windowMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // s1
             // 
             s1.Name = "s1";
-            s1.Size = new System.Drawing.Size(356, 6);
+            s1.Size = new System.Drawing.Size(204, 6);
             // 
             // notifyIcon
             // 
@@ -53,6 +56,7 @@ namespace SuperSize.Forms
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "SuperSize";
             this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // contextMenuStrip
@@ -65,41 +69,57 @@ namespace SuperSize.Forms
             this.openConfigForm,
             this.quit});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(360, 162);
+            this.contextMenuStrip.Size = new System.Drawing.Size(208, 98);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // maxActiveWindow
             // 
             this.maxActiveWindow.Name = "maxActiveWindow";
-            this.maxActiveWindow.Size = new System.Drawing.Size(359, 38);
+            this.maxActiveWindow.Size = new System.Drawing.Size(207, 22);
             this.maxActiveWindow.Text = "SuperSize &Active Window";
             // 
             // maxWindowMenu
             // 
+            this.maxWindowMenu.DropDown = this.windowMenu;
             this.maxWindowMenu.Name = "maxWindowMenu";
-            this.maxWindowMenu.Size = new System.Drawing.Size(359, 38);
+            this.maxWindowMenu.Size = new System.Drawing.Size(207, 22);
             this.maxWindowMenu.Text = "SuperSize &Window";
+            // 
+            // windowMenu
+            // 
+            this.windowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.windowMenu.Name = "windowMenu";
+            this.windowMenu.Size = new System.Drawing.Size(427, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(426, 22);
+            this.toolStripMenuItem1.Text = "Hello World - This is an example item. It\'s here only to size the box.";
             // 
             // openConfigForm
             // 
             this.openConfigForm.Name = "openConfigForm";
-            this.openConfigForm.Size = new System.Drawing.Size(359, 38);
+            this.openConfigForm.Size = new System.Drawing.Size(207, 22);
             this.openConfigForm.Text = "&Settings...";
             // 
             // quit
             // 
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(359, 38);
+            this.quit.Size = new System.Drawing.Size(207, 22);
             this.quit.Text = "&Quit";
             // 
             // NotifyIconForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(431, 211);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "NotifyIconForm";
             this.Text = "NotifyIconForm";
             this.contextMenuStrip.ResumeLayout(false);
+            this.windowMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -112,5 +132,7 @@ namespace SuperSize.Forms
         private System.Windows.Forms.ToolStripMenuItem maxWindowMenu;
         private System.Windows.Forms.ToolStripMenuItem openConfigForm;
         private System.Windows.Forms.ToolStripMenuItem quit;
+        private System.Windows.Forms.ContextMenuStrip windowMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

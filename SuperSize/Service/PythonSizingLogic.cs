@@ -1,6 +1,7 @@
 ﻿using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
 using SuperSize.Model;
+using SuperSize.OS;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -76,7 +77,7 @@ namespace SuperSize.Service
 
                 // screen detail
                 { "get_screens", new Func<Screen[]>(() => Screen.GetAllScreens()) },
-                { "get_all_screen_bounds", new Func<Rectangle>(() => DisplayUtils.GetAllScreenBounds()) },
+                { "get_all_screen_bounds", new Func<Rectangle>(() => Utilities.GetAllScreenBounds()) },
 
                 // .NET object constructors
                 { "rectange", new Func<int, int, int, int, Rectangle>((x, y, w, h) => new Rectangle(x, y, w, h)) },
