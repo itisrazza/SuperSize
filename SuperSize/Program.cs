@@ -17,7 +17,7 @@ namespace SuperSize
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConfigForm());
+            Application.Run(new Forms.NotifyIconForm());
         }
     }
 }
