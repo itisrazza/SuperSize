@@ -30,7 +30,9 @@ namespace SuperSize
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this._aboutPage = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -48,6 +50,7 @@ namespace SuperSize
             this._configPreview = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this._aboutPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -56,6 +59,7 @@ namespace SuperSize
             // 
             // _aboutPage
             // 
+            this._aboutPage.Controls.Add(this.pictureBox1);
             this._aboutPage.Controls.Add(this.label1);
             this._aboutPage.Location = new System.Drawing.Point(8, 46);
             this._aboutPage.Margin = new System.Windows.Forms.Padding(6);
@@ -66,10 +70,19 @@ namespace SuperSize
             this._aboutPage.Text = "About";
             this._aboutPage.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(125, 48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(429, 405);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(171, 326);
+            this.label1.Location = new System.Drawing.Point(146, 556);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(348, 64);
@@ -266,6 +279,7 @@ namespace SuperSize
             this.ClientSize = new System.Drawing.Size(713, 983);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -275,6 +289,7 @@ namespace SuperSize
             this.Load += new System.EventHandler(this.ConfigForm_Load);
             this._aboutPage.ResumeLayout(false);
             this._aboutPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -304,6 +319,7 @@ namespace SuperSize
         private System.Windows.Forms.ComboBox builtinScriptChooser;
         private System.Windows.Forms.RadioButton builtinScriptRadio;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
