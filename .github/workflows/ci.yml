@@ -5,9 +5,31 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+      # prep the environment
       - uses: actions/checkout@v1
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: "5.0.201"
+
+      # build and test the code
       - run: dotnet build
       - run: dotnet test
+
+      # publish and archive the different executables
+      - name: Build executables
+        working-directory: ./SuperSize
+        run: dotnet publish -f net5.0-windows -r win-x86
+
+      - name: Archive release
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: win-x86.zip
+          path: SuperSize/bin/Release/net5.0-windows/win-x86/publish
+
+      # publish releases
+      - name: Publish release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            win-x86.zip
