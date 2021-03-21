@@ -1,4 +1,5 @@
 
+$configuration = "Release"
 $dotnetVersion = "net5.0-windows"
 $targetPlatforms = @(
     "win-x86"
@@ -16,9 +17,11 @@ foreach ($platform in $targetPlatforms) {
     echo ""
     echo "++ BUILDING FOR $platform"
 
-    dotnet publish -f $dotnetVersion -r $platform
+    cd SuperSize
+    dotnet publish -c $configuration -f $dotnetVersion -r $platform
+    cd ..
 
-    $publishFiles = (Get-ChildItem -Path "SuperSize/bin/Release/$dotnetVersion/publish").FullName
+    $publishFiles = (Get-ChildItem -Path "SuperSize/bin/Release/$dotnetVersion/$platform").FullName
     Compress-Archive `
         -Force `
         -LiteralPath $publishFiles `

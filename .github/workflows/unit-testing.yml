@@ -13,4 +13,4 @@ jobs:
 
       # build and test the code
       - run: dotnet build
-      - run: dotnet Testing
+      - run: dotnet test
