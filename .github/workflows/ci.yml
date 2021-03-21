@@ -21,9 +21,10 @@ jobs:
         run: dotnet publish -f net5.0-windows -r win-x86
 
       - name: Archive release
-        uses: montudor/action-zip@v0.1.1
+        uses: papeloto/action-zip@v1
         with:
-          args: zip -qq -r win-x86.zip ./SuperSize/bin/Release/net5.0-windows/win-x86/publish/*
+          files: ./SuperSize/bin/Release/net5.0-windows/win-x86/publish/*
+          dest: win-x86.zip
 
       # publish releases
       - name: Publish release
