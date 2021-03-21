@@ -1,4 +1,4 @@
-name: Testing
+name: Unit Testing
 on: [push]
 
 jobs:
@@ -17,7 +17,6 @@ jobs:
 
       # publish and archive the different executables
       - name: Build executables
-        working-directory: ./SuperSize
         run: ./BuildScripts/BuildAll.ps1
 
       # publish releases
