@@ -21,10 +21,9 @@ jobs:
         run: dotnet publish -f net5.0-windows -r win-x86
 
       - name: Archive release
-        uses: thedoctor0/zip-release@master
+        uses: montudor/action-zip@v0.1.1
         with:
-          filename: win-x86.zip
-          path: SuperSize/bin/Release/net5.0-windows/win-x86/publish
+          args: zip -qq -r win-x86.zip ./SuperSize/bin/Release/net5.0-windows/win-x86/publish/*
 
       # publish releases
       - name: Publish release
