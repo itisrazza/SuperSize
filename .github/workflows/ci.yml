@@ -33,3 +33,6 @@ jobs:
         with:
           files: |
             win-x86.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
