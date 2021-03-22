@@ -8,6 +8,8 @@
 
 ## Download
 
-I'm still getting a CI/CD pipeline going. Until that happens, I periodically manually upload a [release]. You can always download and build it from source. If you have VS2019 with .NET installed, you should be up and going fairly quickly.
+Preview builds are periodically tagged and released [here][release].
+
+This is at best, **alpha** quality software.
 
 [release]: https://github.com/thegreatrazz/SuperSize/releases
