@@ -44,10 +44,10 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\SuperSize\bin\Release\net5.0-windows\win-x86\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\SuperSize\bin\Release\net5.0-windows\win-x86\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\SuperSize\bin\Release\net5.0-windows\{#AppPlatform}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\SuperSize\bin\Release\net5.0-windows\{#AppPlatform}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "windowsdesktop-runtime-5.0.4-win-x86.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

@@ -1,3 +1,4 @@
+. .\BuildScripts\Utilities.ps1
 
 $configuration = "Release"
 $dotnetVersion = "net5.0-windows"
