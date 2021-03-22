@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # Releases
 Releases/
+Installer/Output/
+Installer/*.exe

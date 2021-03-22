@@ -13,6 +13,9 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: "5.0.201"
+      - uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install innosetup
 
       # build and test the code
       - run: dotnet build
@@ -28,7 +31,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            Releases/win-x86.zip
-            Releases/win-x64.zip
+            Releases/win-x86-installer.exe
+            Releases/win-x86-portable.zip
+            Releases/win-x64-portable.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
