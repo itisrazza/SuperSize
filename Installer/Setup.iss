@@ -2,12 +2,17 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SuperSize"
-#ifndef MyAppVersion
-#define MyAppVersion "TEST SETUP BUILD"
-#endif
 #define MyAppPublisher "Raresh Nistor"
 #define MyAppURL "https://github.com/thegreatrazz/SuperSize"
 #define MyAppExeName "SuperSize.exe"
+
+#ifndef MyAppVersion
+#define MyAppVersion "TEST SETUP BUILD"
+#endif
+
+#ifndef AppPlatform
+#define AppPlatform "win-x86"
+#endif
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
