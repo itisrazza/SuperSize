@@ -1,4 +1,4 @@
-<p align="center"><img src="Assets/Logo/Logo.svg" alt="SuperSize Logo" /></p>
+<p align="center"><img src="Assets/Logo/Logo.vector.svg" alt="SuperSize Logo" height="128" /></p>
 <h1 align="center">SuperSize</h1>
 <p align="center">Customisable, Multi-Display Resizer</p>
 
