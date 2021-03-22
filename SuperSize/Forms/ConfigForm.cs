@@ -30,6 +30,9 @@ namespace SuperSize
             // populate the script chooser
             builtinScriptChooser.Items.Clear();
             builtinScriptChooser.Items.AddRange(Sizer.KnownBuiltInScripts.ToArray());
+
+            //
+            versionLbl.Text = Program.Version;
         }
 
         private void ConfigForm_Load(object sender, EventArgs e)

@@ -63,19 +63,9 @@ namespace SuperSize.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo {
+        internal static System.Drawing.Bitmap Logo_64 {
             get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Logo_2x {
-            get {
-                object obj = ResourceManager.GetObject("Logo@2x", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo.64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

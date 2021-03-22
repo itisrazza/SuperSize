@@ -1,7 +1,9 @@
 using SuperSize.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,5 +32,15 @@ namespace SuperSize
                 Modifier = (KeyboardShortcut.ModifierKeys)Properties.Settings.Default.ShortcutModifier,
                 Key = (Keys)Properties.Settings.Default.ShortcutKey
             };
+
+        public static string Version
+        {
+            get
+            {
+                var execAssembly = Assembly.GetExecutingAssembly();
+                var fileVersionInfo = FileVersionInfo.GetVersionInfo(execAssembly.Location);
+                return fileVersionInfo.ProductVersion;
+            }
+        }
     }
 }
