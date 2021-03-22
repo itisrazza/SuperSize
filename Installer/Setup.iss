@@ -30,12 +30,12 @@ DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputBaseFilename=win-x86-installer
-SetupIconFile=D:\Sources\SuperSize\Assets\Logo\Installer.ico
+OutputBaseFilename={#AppPlatform}-installer
+SetupIconFile=..\Assets\Logo\Installer.ico
 Compression=lzma
 SolidCompression=yes
-WizardImageFile=D:\Sources\SuperSize\Installer\WizModernImage.bmp
-WizardSmallImageFile=D:\Sources\SuperSize\Installer\WizModernSmallImage.bmp
+WizardImageFile=WizModernImage.bmp
+WizardSmallImageFile=WizModernSmallImage.bmp
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -55,7 +55,7 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
-Filename: "{app}\windowsdesktop-runtime-5.0.4-win-x86.exe"; Parameters: "/install /quiet /norestart"; Description: "Install .NET Runtime"; StatusMsg: "Installing .NET 5 Desktop Runtime"
+Filename: "{app}\windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"; Parameters: "/install /quiet /norestart"; Description: "Install .NET Runtime"; StatusMsg: "Installing .NET 5 Desktop Runtime"
 
 [InstallDelete]
-Type: files; Name: "{app}\windowsdesktop-runtime-5.0.4-win-x86.exe"
+Type: files; Name: "{app}\windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"

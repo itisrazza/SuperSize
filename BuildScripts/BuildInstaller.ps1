@@ -2,7 +2,9 @@
 
 $innoPath = "C:\Program Files (x86)\Inno Setup 6"
 $projectVersion = Get-ProjectVersion
-$runtimeInstallerPath = "Installer/windowsdesktop-runtime-5.0.4-win-x86.exe"
+$platform = "win-x86"       # installer is always x86, cbf making x64 or arm64 for now
+
+$runtimeInstallerPath = "Installer/windowsdesktop-runtime-5.0.4-$platform.exe"
 
 # if the .net runtime isn't downloaded, download it
 if (-not ( Test-Path -Path $runtimeInstallerPath )) {
@@ -15,7 +17,8 @@ if (-not ( Test-Path -Path $runtimeInstallerPath )) {
 & "$innoPath/iscc.exe" `
     /DMyAppVersion="$projectVersion" `
     /DRuntimeInstallerPath="$runtimeInstallerPath" `
+    /DAppPlatform="$platform" `
     Installer/Setup.iss
 
 # move the installer to releases
-mv -Force "Installer/Output/win-x86-installer.exe" "Releases/"
+mv -Force "Installer/Output/$platform-installer.exe" "Releases/"
