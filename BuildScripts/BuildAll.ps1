@@ -19,7 +19,7 @@ foreach ($platform in $targetPlatforms) {
 
     echo " + Creating fat executables for portable ZIPs"
     cd SuperSize
-    rm -Recurse -Force "bin/Release/$dotnetVersion/$platform"
+    if (Test-Path "bin/Release/$dotnetVersion/$platform") { Remove-Item -Recurse -Force "bin/Release/$dotnetVersion/$platform" }
     dotnet publish -c $configuration -f $dotnetVersion -r $platform --self-contained true
     cd ..
 
@@ -32,7 +32,7 @@ foreach ($platform in $targetPlatforms) {
 
     echo " + Creating slim executables to be picked up by installer"
     cd SuperSize
-    rm -Recurse -Force "bin/Release/$dotnetVersion/$platform"
+    if (Test-Path "bin/Release/$dotnetVersion/$platform") { Remove-Item -Recurse -Force "bin/Release/$dotnetVersion/$platform" }
     dotnet publish -c $configuration -f $dotnetVersion -r $platform --self-contained false
     cd ..
 }
