@@ -32,6 +32,7 @@ namespace SuperSize
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this._aboutPage = new System.Windows.Forms.TabPage();
+            this.versionLbl = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -49,7 +50,6 @@ namespace SuperSize
             this.keybindLabel = new System.Windows.Forms.Label();
             this._configPreview = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.versionLbl = new System.Windows.Forms.Label();
             this._aboutPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -70,6 +70,15 @@ namespace SuperSize
             this._aboutPage.TabIndex = 1;
             this._aboutPage.Text = "About";
             this._aboutPage.UseVisualStyleBackColor = true;
+            // 
+            // versionLbl
+            // 
+            this.versionLbl.AutoSize = true;
+            this.versionLbl.Location = new System.Drawing.Point(77, 201);
+            this.versionLbl.Name = "versionLbl";
+            this.versionLbl.Size = new System.Drawing.Size(38, 15);
+            this.versionLbl.TabIndex = 2;
+            this.versionLbl.Text = "label2";
             // 
             // pictureBox1
             // 
@@ -260,15 +269,6 @@ namespace SuperSize
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // versionLbl
-            // 
-            this.versionLbl.AutoSize = true;
-            this.versionLbl.Location = new System.Drawing.Point(77, 201);
-            this.versionLbl.Name = "versionLbl";
-            this.versionLbl.Size = new System.Drawing.Size(38, 15);
-            this.versionLbl.TabIndex = 2;
-            this.versionLbl.Text = "label2";
-            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -280,6 +280,7 @@ namespace SuperSize
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuperSize Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigForm_FormClosing);
             this.Load += new System.EventHandler(this.ConfigForm_Load);

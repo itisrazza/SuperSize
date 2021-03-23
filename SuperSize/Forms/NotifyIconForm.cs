@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -86,6 +87,17 @@ namespace SuperSize.Forms
         private void quit_Click(object sender, EventArgs e)
         {
             Program.Exit();
+        }
+
+        private void sendFeedback_Click(object sender, EventArgs e)
+        {
+            var procInfo = new ProcessStartInfo();
+            procInfo.FileName = "cmd.exe";
+            procInfo.ArgumentList.Add("/c");
+            procInfo.ArgumentList.Add("start");
+            procInfo.ArgumentList.Add("https://github.com/thegreatrazz/SuperSize/issues/new");
+            
+            Process.Start(procInfo);
         }
     }
 }

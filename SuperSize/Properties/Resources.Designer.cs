@@ -73,9 +73,19 @@ namespace SuperSize.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Finish {
+            get {
+                object obj = ResourceManager.GetObject("Finish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Keyboard_Shortcut {
             get {
-                object obj = ResourceManager.GetObject("Keyboard Shortcut", resourceCulture);
+                object obj = ResourceManager.GetObject("Keyboard_Shortcut", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

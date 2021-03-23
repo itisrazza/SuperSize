@@ -37,6 +37,8 @@ namespace SuperSize.Forms
             this.maxWindowMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.windowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendFeedback = new System.Windows.Forms.ToolStripMenuItem();
+            this.s2 = new System.Windows.Forms.ToolStripSeparator();
             this.openConfigForm = new System.Windows.Forms.ToolStripMenuItem();
             this.quit = new System.Windows.Forms.ToolStripMenuItem();
             s1 = new System.Windows.Forms.ToolStripSeparator();
@@ -64,10 +66,12 @@ namespace SuperSize.Forms
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maxWindowMenu,
             s1,
+            this.sendFeedback,
+            this.s2,
             this.openConfigForm,
             this.quit});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(172, 76);
+            this.contextMenuStrip.Size = new System.Drawing.Size(172, 104);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // maxWindowMenu
@@ -84,13 +88,25 @@ namespace SuperSize.Forms
             this.toolStripMenuItem1});
             this.windowMenu.Name = "windowMenu";
             this.windowMenu.OwnerItem = this.maxWindowMenu;
-            this.windowMenu.Size = new System.Drawing.Size(809, 42);
+            this.windowMenu.Size = new System.Drawing.Size(427, 26);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(808, 38);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(426, 22);
             this.toolStripMenuItem1.Text = "Hello World - This is an example item. It\'s here only to size the box.";
+            // 
+            // sendFeedback
+            // 
+            this.sendFeedback.Name = "sendFeedback";
+            this.sendFeedback.Size = new System.Drawing.Size(171, 22);
+            this.sendFeedback.Text = "Send &Feedback...";
+            this.sendFeedback.Click += new System.EventHandler(this.sendFeedback_Click);
+            // 
+            // s2
+            // 
+            this.s2.Name = "s2";
+            this.s2.Size = new System.Drawing.Size(168, 6);
             // 
             // openConfigForm
             // 
@@ -108,12 +124,12 @@ namespace SuperSize.Forms
             // 
             // NotifyIconForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(431, 211);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "NotifyIconForm";
             this.Text = "NotifyIconForm";
             this.Shown += new System.EventHandler(this.NotifyIconForm_Shown);
@@ -132,5 +148,7 @@ namespace SuperSize.Forms
         private System.Windows.Forms.ToolStripMenuItem quit;
         private System.Windows.Forms.ContextMenuStrip windowMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sendFeedback;
+        private System.Windows.Forms.ToolStripSeparator s2;
     }
 }
