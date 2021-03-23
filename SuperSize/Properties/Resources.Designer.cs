@@ -63,9 +63,49 @@ namespace SuperSize.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dev_Build_Warning {
+            get {
+                object obj = ResourceManager.GetObject("Dev Build Warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keyboard_Shortcut {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard Shortcut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_64 {
             get {
                 object obj = ResourceManager.GetObject("Logo.64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap System_Tray {
+            get {
+                object obj = ResourceManager.GetObject("System Tray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Welcome {
+            get {
+                object obj = ResourceManager.GetObject("Welcome", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
