@@ -32,9 +32,10 @@ namespace SuperSize
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this._aboutPage = new System.Windows.Forms.TabPage();
-            this.versionLbl = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.versionLbl = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -50,19 +51,26 @@ namespace SuperSize
             this.keybindLabel = new System.Windows.Forms.Label();
             this._configPreview = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this._aboutPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._configPreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // _aboutPage
             // 
-            this._aboutPage.Controls.Add(this.versionLbl);
-            this._aboutPage.Controls.Add(this.pictureBox1);
+            this._aboutPage.Controls.Add(this.groupBox2);
+            this._aboutPage.Controls.Add(this.label2);
             this._aboutPage.Controls.Add(this.label1);
+            this._aboutPage.Controls.Add(this.pictureBox1);
+            this._aboutPage.Controls.Add(this.versionLbl);
             this._aboutPage.Location = new System.Drawing.Point(4, 24);
             this._aboutPage.Name = "_aboutPage";
             this._aboutPage.Padding = new System.Windows.Forms.Padding(3);
@@ -71,35 +79,42 @@ namespace SuperSize
             this._aboutPage.Text = "About";
             this._aboutPage.UseVisualStyleBackColor = true;
             // 
-            // versionLbl
+            // label2
             // 
-            this.versionLbl.AutoSize = true;
-            this.versionLbl.Location = new System.Drawing.Point(77, 201);
-            this.versionLbl.Name = "versionLbl";
-            this.versionLbl.Size = new System.Drawing.Size(38, 15);
-            this.versionLbl.TabIndex = 2;
-            this.versionLbl.Text = "label2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::SuperSize.Properties.Resources.Logo_64;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(370, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(88, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(209, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "© 2021 Raresh Nistor and contributors";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 91);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(86, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "SuperSize 0.1\r\nmade with the power of kittens\r\n";
+            this.label1.Size = new System.Drawing.Size(103, 30);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "SuperSize";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SuperSize.Properties.Resources.Logo_64;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // versionLbl
+            // 
+            this.versionLbl.AutoSize = true;
+            this.versionLbl.Location = new System.Drawing.Point(195, 36);
+            this.versionLbl.Name = "versionLbl";
+            this.versionLbl.Size = new System.Drawing.Size(102, 15);
+            this.versionLbl.TabIndex = 2;
+            this.versionLbl.Text = "undefined version";
             // 
             // tabControl1
             // 
@@ -155,8 +170,10 @@ namespace SuperSize
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Enter custom Python code here.";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(318, 114);
             this.textBox1.TabIndex = 13;
+            this.textBox1.WordWrap = false;
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // importButton
@@ -269,6 +286,36 @@ namespace SuperSize
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SuperSize.Properties.Resources.Bella;
+            this.pictureBox2.Location = new System.Drawing.Point(51, 68);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Location = new System.Drawing.Point(3, 86);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(370, 344);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Bella";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(100, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(194, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "You\'ve been visited by Bella the cat.";
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -293,6 +340,9 @@ namespace SuperSize
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._configPreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -315,9 +365,13 @@ namespace SuperSize
         private System.Windows.Forms.RadioButton customScriptRadio;
         private System.Windows.Forms.ComboBox builtinScriptChooser;
         private System.Windows.Forms.RadioButton builtinScriptRadio;
+        private System.Windows.Forms.Label versionLbl;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label versionLbl;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

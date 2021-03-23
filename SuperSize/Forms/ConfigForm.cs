@@ -40,10 +40,12 @@ namespace SuperSize
             keybindPreview_Update();
 
             var settings = Properties.Settings.Default;
+            textBox1.Text = settings.Script;        // load the script before checkbox
             customScriptRadio.Checked = settings.UseCustomScript;
             builtinScriptChooser.SelectedItem = settings.BuiltinScript;
-            textBox1.Text = settings.Script;
             customScriptRadio_CheckedChanged(sender, e);
+
+            groupBox2.Visible = new Random().Next(0, 10) < 2;
         }
 
         private void RenderDisplayConfiguration(Bitmap bmp)
@@ -119,6 +121,7 @@ namespace SuperSize
             {
                 settings.BuiltinScript = builtinScriptChooser.SelectedItem as string;
             }
+            settings.Save();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -63,6 +63,16 @@ namespace SuperSize.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bella {
+            get {
+                object obj = ResourceManager.GetObject("Bella", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dev_Build_Warning {
             get {
                 object obj = ResourceManager.GetObject("Dev Build Warning", resourceCulture);
