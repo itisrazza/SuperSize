@@ -1,4 +1,5 @@
-﻿using SuperSize.Service;
+﻿using SuperSize.Model;
+using SuperSize.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,6 +27,7 @@ namespace SuperSize.Forms
             windowMenu.Items.Clear();
             windowMenu.Items.AddRange(
                 OS.Utilities.GetOpenWindows()
+                    .OrderBy(a => a.Title)
                     .Select((window) =>
                     {
                         var item = new ToolStripMenuItem
@@ -69,12 +72,16 @@ namespace SuperSize.Forms
 
         private void maxActiveWindow_Click(object sender, EventArgs e)
         {
-            // TODO: get active window and pass it to Service.Sizer
+            Task.Run(() =>
+            {
+                Thread.Sleep(100);
+                MessageBox.Show(Window.GetForegroundWindow().Text);
+            });
         }
 
         private void quit_Click(object sender, EventArgs e)
         {
-            // TODO: quit the program, cleaning up native resources
+            Program.Exit();
         }
     }
 }

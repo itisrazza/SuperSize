@@ -34,7 +34,6 @@ namespace SuperSize.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotifyIconForm));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.maxActiveWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.maxWindowMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.windowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +47,7 @@ namespace SuperSize.Forms
             // s1
             // 
             s1.Name = "s1";
-            s1.Size = new System.Drawing.Size(204, 6);
+            s1.Size = new System.Drawing.Size(168, 6);
             // 
             // notifyIcon
             // 
@@ -63,27 +62,19 @@ namespace SuperSize.Forms
             // 
             this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.maxActiveWindow,
             this.maxWindowMenu,
             s1,
             this.openConfigForm,
             this.quit});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(208, 98);
+            this.contextMenuStrip.Size = new System.Drawing.Size(172, 76);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
-            // 
-            // maxActiveWindow
-            // 
-            this.maxActiveWindow.Name = "maxActiveWindow";
-            this.maxActiveWindow.Size = new System.Drawing.Size(207, 22);
-            this.maxActiveWindow.Text = "SuperSize &Active Window";
-            this.maxActiveWindow.Click += new System.EventHandler(this.maxActiveWindow_Click);
             // 
             // maxWindowMenu
             // 
             this.maxWindowMenu.DropDown = this.windowMenu;
             this.maxWindowMenu.Name = "maxWindowMenu";
-            this.maxWindowMenu.Size = new System.Drawing.Size(207, 22);
+            this.maxWindowMenu.Size = new System.Drawing.Size(171, 22);
             this.maxWindowMenu.Text = "SuperSize &Window";
             // 
             // windowMenu
@@ -104,14 +95,14 @@ namespace SuperSize.Forms
             // openConfigForm
             // 
             this.openConfigForm.Name = "openConfigForm";
-            this.openConfigForm.Size = new System.Drawing.Size(207, 22);
+            this.openConfigForm.Size = new System.Drawing.Size(171, 22);
             this.openConfigForm.Text = "&Settings...";
             this.openConfigForm.Click += new System.EventHandler(this.openConfigForm_Click);
             // 
             // quit
             // 
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(207, 22);
+            this.quit.Size = new System.Drawing.Size(171, 22);
             this.quit.Text = "&Quit";
             this.quit.Click += new System.EventHandler(this.quit_Click);
             // 
@@ -136,7 +127,6 @@ namespace SuperSize.Forms
 
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem maxActiveWindow;
         private System.Windows.Forms.ToolStripMenuItem maxWindowMenu;
         private System.Windows.Forms.ToolStripMenuItem openConfigForm;
         private System.Windows.Forms.ToolStripMenuItem quit;

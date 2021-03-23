@@ -54,6 +54,10 @@ namespace SuperSize.OS
         [DllImport("user32.dll")]
         public static extern bool SetForegroundWindow(IntPtr hWnd);
 
+        /// <see cref="Model.Window.GetForeground"/>
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetForegroundWindow();
+
         /// <see cref="Model.Window.SetPosition(int, int, int, int)"/>
         [DllImport("user32.dll")]
         public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);

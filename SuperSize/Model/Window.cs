@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSize.OS;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -46,11 +47,14 @@ namespace SuperSize.Model
             }
         }
 
+        public static Window GetForegroundWindow() => new Window(NativeImports.GetForegroundWindow());
+
         public void BringToTop() => BringWindowToTop(Handle);
 
         public void Show(int nCmdShow) => ShowWindowAsync(Handle, nCmdShow);
 
         public void Focus() => SetForegroundWindow(Handle);
+
 
         public void SetPosition(Rectangle rectangle) => SetPosition(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
 

@@ -13,6 +13,8 @@ namespace SuperSize.Model
 
         public ModifierKeys Modifier { get; set; }
 
+        public bool IsInvalid => Key == Keys.None || Modifier == ModifierKeys.None;
+
         public override string ToString()
         {
             if (Key == Keys.None || Modifier == ModifierKeys.None)

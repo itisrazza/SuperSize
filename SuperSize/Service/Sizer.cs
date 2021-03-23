@@ -31,7 +31,7 @@ namespace SuperSize.Service
         public static void SizeWindow(IntPtr window, SizingLogic logic)
         {
             NativeImports.SetForegroundWindow(window);
-            NativeImports.ShowWindowAsync(window, nCmdShow: 3 /* maximise */);
+            NativeImports.ShowWindowAsync(window, nCmdShow: 1 /* regular */);
 
             var calculateSize = logic.Calculate();
             NativeImports.SetWindowPos(
