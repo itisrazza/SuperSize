@@ -7,9 +7,9 @@
     <Nullable>enable</Nullable>
     <StartupObject>SuperSize.Program</StartupObject>
     <ApplicationIcon>Logo.ico</ApplicationIcon>
-    <Version>0.0.1.0</Version>
-    <FileVersion>0.0.1.0</FileVersion>
-    <InformationalVersion>0.0.1</InformationalVersion>
+    <Version>0.1.0.0</Version>
+    <FileVersion>0.1.0.0</FileVersion>
+    <InformationalVersion>0.1.0</InformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
