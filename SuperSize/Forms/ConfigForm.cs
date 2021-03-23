@@ -234,5 +234,30 @@ namespace SuperSize
             builtinScriptChooser.Enabled = !useCustomScript;
             SaveScript();
         }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show(
+                this,
+                "What have you royally screwed up so much that you need to reset the program settings? Are you sure you want to do this?",
+                "Settings Reset",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
+            if (response != DialogResult.Yes)
+            {
+                MessageBox.Show(
+                    this,
+                    "I'll let you off the hook for now...",
+                    "Operation Cancelled");
+                return;
+            }
+
+            Properties.Settings.Default.Reset();
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show("Please restart the application.");
+            Program.Exit();
+        }
     }
 }

@@ -66,7 +66,12 @@ namespace SuperSize.Forms
         private void NotifyIconForm_Shown(object sender, EventArgs e)
         {
             Hide();
-            new WelcomeForm().Show();
+
+            // if the user hasn't been onboarded, do that now
+            if (!Properties.Settings.Default.WasOnboarded)
+            {
+                new WelcomeForm().Show();
+            }
         }
 
         private void openConfigForm_Click(object sender, EventArgs e)
@@ -96,7 +101,7 @@ namespace SuperSize.Forms
             procInfo.ArgumentList.Add("/c");
             procInfo.ArgumentList.Add("start");
             procInfo.ArgumentList.Add("https://github.com/thegreatrazz/SuperSize/issues/new");
-            
+
             Process.Start(procInfo);
         }
     }

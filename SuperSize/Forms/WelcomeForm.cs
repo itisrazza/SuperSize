@@ -60,5 +60,13 @@ namespace SuperSize.Forms
         {
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
+
+        private void WelcomeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // don't onboard again
+            var settings = Properties.Settings.Default;
+            settings.WasOnboarded = true;
+            settings.Save();
+        }
     }
 }

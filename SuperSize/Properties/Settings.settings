@@ -35,5 +35,8 @@
     <Setting Name="WindowPreviewBorder" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">232, 17, 35</Value>
     </Setting>
+    <Setting Name="WasOnboarded" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
