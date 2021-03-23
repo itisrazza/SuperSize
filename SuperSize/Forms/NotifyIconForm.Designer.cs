@@ -84,12 +84,12 @@ namespace SuperSize.Forms
             this.toolStripMenuItem1});
             this.windowMenu.Name = "windowMenu";
             this.windowMenu.OwnerItem = this.maxWindowMenu;
-            this.windowMenu.Size = new System.Drawing.Size(427, 26);
+            this.windowMenu.Size = new System.Drawing.Size(809, 42);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(426, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(808, 38);
             this.toolStripMenuItem1.Text = "Hello World - This is an example item. It\'s here only to size the box.";
             // 
             // openConfigForm
@@ -108,12 +108,12 @@ namespace SuperSize.Forms
             // 
             // NotifyIconForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(431, 211);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "NotifyIconForm";
             this.Text = "NotifyIconForm";
             this.Shown += new System.EventHandler(this.NotifyIconForm_Shown);

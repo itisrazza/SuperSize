@@ -62,7 +62,11 @@ namespace SuperSize.Forms
             }
         }
 
-        private void NotifyIconForm_Shown(object sender, EventArgs e) => Hide();
+        private void NotifyIconForm_Shown(object sender, EventArgs e)
+        {
+            Hide();
+            new WelcomeForm().Show();
+        }
 
         private void openConfigForm_Click(object sender, EventArgs e)
         {
