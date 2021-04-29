@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperSize.Plugin
 {
-    interface IConfigProvider
+    public interface IConfigProvider
     {
 
         Config.Object GetConfig();
