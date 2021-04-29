@@ -10,20 +10,12 @@ namespace SuperSize.Service
 {
     public static class Sizer
     {
-
-        private static Dictionary<string, Func<SizingLogic>> _builtInScripts = new()
-        {
-            { "Fill out completely", () => new Scripts.FillOutCompletely() },
-        };
-
-        public static ICollection<string> KnownBuiltInScripts { get; } = _builtInScripts.Keys;
+        public static ICollection<string> KnownBuiltInScripts { get; } = new List<string>();
 
         public static SizingLogic SelectedLogic()
         {
             var settings = Properties.Settings.Default;
-            return settings.UseCustomScript
-                ? PythonSizingLogic.FromSource(settings.Script)
-                : _builtInScripts[settings.BuiltinScript]();
+            throw new NotImplementedException("Undergoing plugin rewrite.");
         }
 
         public static void SizeWindow(IntPtr window) => SizeWindow(window, SelectedLogic());

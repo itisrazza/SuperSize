@@ -93,6 +93,16 @@ namespace SuperSize.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Get_More_Plugins {
+            get {
+                object obj = ResourceManager.GetObject("Get_More_Plugins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Keyboard_Shortcut {
             get {
                 object obj = ResourceManager.GetObject("Keyboard_Shortcut", resourceCulture);
@@ -103,9 +113,29 @@ namespace SuperSize.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_128 {
+            get {
+                object obj = ResourceManager.GetObject("Logo.128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_64 {
             get {
                 object obj = ResourceManager.GetObject("Logo.64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Script_128 {
+            get {
+                object obj = ResourceManager.GetObject("Script.128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

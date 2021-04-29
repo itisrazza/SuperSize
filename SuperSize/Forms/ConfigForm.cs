@@ -30,9 +30,6 @@ namespace SuperSize
             // populate the script chooser
             builtinScriptChooser.Items.Clear();
             builtinScriptChooser.Items.AddRange(Sizer.KnownBuiltInScripts.ToArray());
-
-            //
-            versionLbl.Text = Program.Version;
         }
 
         private void ConfigForm_Load(object sender, EventArgs e)
@@ -44,8 +41,6 @@ namespace SuperSize
             customScriptRadio.Checked = settings.UseCustomScript;
             builtinScriptChooser.SelectedItem = settings.BuiltinScript;
             customScriptRadio_CheckedChanged(sender, e);
-
-            groupBox2.Visible = new Random().Next(0, 10) < 2;
         }
 
         private void RenderDisplayConfiguration(Bitmap bmp)

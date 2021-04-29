@@ -18,6 +18,7 @@ namespace SuperSize.Forms
             { (Properties.Resources.System_Tray, "SuperSize runs in the background. You can access it’s settings by right clicking its icon in the system tray.") },
             { (Properties.Resources.Keyboard_Shortcut, "To super-size the active window, use Windows + Esc. You can change the keyboard shortcut in the settings.") },
             { (Properties.Resources.Dev_Build_Warning, "This is an active development build. Please report any issues on GitHub. See ‘Send Feedback’ in the SuperSize tray menu.") },
+            { (Properties.Resources.Get_More_Plugins, "You can add custom logic to SuperSize. Check out the official Python and contributors’ logic from the SuperSize tray menu.") },
             { (Properties.Resources.Finish, "Ka pai. You are ready to go.") }
         };
 

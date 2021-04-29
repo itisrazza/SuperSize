@@ -13,17 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Scripts\SwallowEverything.py" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Scripts\SwallowEverything.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="IronPython" Version="2.7.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SuperSize.Plugin\SuperSize.Plugin.csproj" />
   </ItemGroup>
 
   <ItemGroup>

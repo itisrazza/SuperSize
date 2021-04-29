@@ -2,9 +2,16 @@
 <h1 align="center">SuperSize</h1>
 <p align="center">Customisable, Multi-Display Resizer</p>
 
-**SuperSize** is a utility which maximises your window to multiple displays for maximum work (or play) efficiency. It includes a number of presets to maximise to and it's scriptable with [IronPython] for ultimate adaptability.
+**SuperSize** is a utility which maximises your window to multiple displays for maximum work (or play) efficiency. It includes a number of presets to maximise to and it's extensible with plugins for ultimate adaptability.
 
-[ironpython]: https://ironpython.net/
+Some official plugins:
+
+* [SuperSize.Contrib]
+* [SuperSize.PythonLogic]
+
+[SuperSize.Contrib]: https://github.com/thegreatrazz/SuperSize.Contrib
+[SuperSize.PythonLogic]: https://github.com/thegreatrazz/SuperSize.PythonLogic
+
 
 ## Download
 
