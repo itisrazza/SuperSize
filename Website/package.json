@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "serve": "parcel src/index.html",
+    "watch": "parcel watch src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "*"
+  }
+}

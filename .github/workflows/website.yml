@@ -1,0 +1,46 @@
+name: Publish Website
+
+on:
+  push:
+    branches: # triggers on any push to master
+    - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      website-dir: ./Website
+      plugin-docs-dir: ./SuperSize.Plugin.Docs
+
+    steps:
+      # build website
+    - uses: actions/checkout@v1
+    - run: node --version
+    - name: Cache node modules
+      uses: actions/cache@v1
+      working-directory: ${{ env.website-dir }}
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-
+    - name: Install dependencies
+      working-directory: ${{ env.website-dir }}
+      run: npm ci
+    - name: Build
+      working-directory: ${{ env.website-dir }}
+      run: npm run build --if-present
+
+      # build docs
+    - name: Install Doxygen
+      run: sudo apt-get install -y doxygen
+    - name: Generate docs
+      run: bash
+
+      # deploy
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./Website/dist
+        cname: homepage.thegreatrazz.nz
