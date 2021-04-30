@@ -366,3 +366,4 @@ FodyWeavers.xsd
 Releases/
 Installer/Output/
 Installer/*.exe
+/SuperSize.Plugin/docs/html
