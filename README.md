@@ -6,9 +6,11 @@
 
 Some official plugins:
 
+* [SuperSize.Logic] \(built-in)
 * [SuperSize.Contrib]
 * [SuperSize.PythonLogic]
 
+[SuperSize.Logic]: SuperSize.Logic/
 [SuperSize.Contrib]: https://github.com/thegreatrazz/SuperSize.Contrib
 [SuperSize.PythonLogic]: https://github.com/thegreatrazz/SuperSize.PythonLogic
 
