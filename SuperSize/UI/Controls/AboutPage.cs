@@ -22,5 +22,12 @@ namespace SuperSize.UI.Controls
             versionLbl.Text = Program.Version;
             groupBox2.Visible = new Random().Next(0, 10) < 2;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+            Properties.Settings.Default.Save();
+            Application.Exit();
+        }
     }
 }
