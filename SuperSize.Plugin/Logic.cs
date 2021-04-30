@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SuperSize.Plugin
 {
@@ -33,6 +34,6 @@ namespace SuperSize.Plugin
         /// <param name="screens">Rectangles showing the location of the screens.</param>
         /// <param name="config">The logic configuration, if any.</param>
         /// <returns>Rectangle the window is going to be resized to.</returns>
-        public abstract Rectangle DoSize(Rectangle[] screens, Config.Object? config = null);
+        public abstract Rectangle DoSize(Screen[] screens, Config.Object? config = null);
     }
 }
