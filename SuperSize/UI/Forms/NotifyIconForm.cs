@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SuperSize.Forms
+namespace SuperSize.UI.Forms
 {
     public partial class NotifyIconForm : Form
     {

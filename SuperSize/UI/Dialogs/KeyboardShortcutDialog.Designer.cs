@@ -1,5 +1,5 @@
 ﻿
-namespace SuperSize.Forms
+namespace SuperSize.UI.Dialogs
 {
     partial class KeyboardShortcutDialog
     {

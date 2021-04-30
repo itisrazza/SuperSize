@@ -1,5 +1,5 @@
 ﻿
-namespace SuperSize.Forms
+namespace SuperSize.UI.Forms
 {
     partial class TestForm
     {

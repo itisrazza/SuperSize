@@ -13,11 +13,11 @@ using System.Windows.Forms;
 using SuperSize.Model;
 using Screen = SuperSize.Model.Screen;
 using SuperSize.OS;
-using SuperSize.Forms;
 using static SuperSize.Model.KeyboardShortcut;
 using SuperSize.Service;
+using SuperSize.UI.Dialogs;
 
-namespace SuperSize
+namespace SuperSize.UI.Forms
 {
     public partial class ConfigForm : Form
     {

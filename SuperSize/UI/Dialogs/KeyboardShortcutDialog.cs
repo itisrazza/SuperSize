@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ModKeys = SuperSize.Model.KeyboardShortcut.ModifierKeys;
 
-namespace SuperSize.Forms
+namespace SuperSize.UI.Dialogs
 {
     public partial class KeyboardShortcutDialog : Form
     {

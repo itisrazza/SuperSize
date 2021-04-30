@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SuperSize.Forms
+namespace SuperSize.UI.Forms
 {
     public partial class WelcomeForm : Form
     {

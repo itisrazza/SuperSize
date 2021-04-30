@@ -1,6 +1,7 @@
 using SuperSize.Model;
 using SuperSize.OS;
 using SuperSize.Service;
+using SuperSize.UI.Forms;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,7 +25,7 @@ namespace SuperSize
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ChangeHotkey(GetGlobalKeyboardShortcut());
-            Application.Run(new Forms.NotifyIconForm());
+            Application.Run(new NotifyIconForm());
         }
 
         public static void Exit()

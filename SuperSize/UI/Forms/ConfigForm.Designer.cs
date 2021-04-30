@@ -1,5 +1,5 @@
 ﻿
-namespace SuperSize
+namespace SuperSize.UI.Forms
 {
     partial class ConfigForm
     {
