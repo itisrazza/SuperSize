@@ -1,5 +1,6 @@
 ﻿using SuperSize.Model;
 using SuperSize.OS;
+using SuperSize.Plugin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace SuperSize.Service
 {
+    /// <summary>
+    /// Service class for resizing the windows using the current logic and configuration.
+    /// </summary>
     public static class Sizer
     {
         public static ICollection<string> KnownBuiltInScripts { get; } = new List<string>();
 
-        public static SizingLogic SelectedLogic()
+        public static Logic SelectedLogic()
         {
             var settings = Properties.Settings.Default;
             throw new NotImplementedException("Undergoing plugin rewrite.");
@@ -20,7 +24,7 @@ namespace SuperSize.Service
 
         public static void SizeWindow(IntPtr window) => SizeWindow(window, SelectedLogic());
 
-        public static void SizeWindow(IntPtr window, SizingLogic logic)
+        public static void SizeWindow(IntPtr window, Logic logic)
         {
             NativeImports.SetForegroundWindow(window);
             NativeImports.ShowWindowAsync(window, nCmdShow: 1 /* regular */);

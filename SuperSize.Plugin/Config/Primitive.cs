@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SuperSize.Plugin.Config
 {
+    /// <summary>
+    /// Element primitives. May be <see cref="string"/>, <see cref="int"/>, <see cref="float"/> or <see cref="bool"/>.
+    /// </summary>
     public class Primitive : IElement
     {
 

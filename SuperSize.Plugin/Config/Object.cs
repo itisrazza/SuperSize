@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace SuperSize.Plugin.Config
 {
-    public class Object : IDictionary<string, IElement>
+    /// <summary>
+    /// Object containing unordered key-value pairs of <see cref="string"/> to <see cref="IElement"/>.
+    /// </summary>
+    public class Object : IElement, IDictionary<string, IElement>
     {
 
-        private Dictionary<string, IElement> _dict = new();
+        private readonly Dictionary<string, IElement> _dict = new();
 
         public IElement this[string key] { get => ((IDictionary<string, IElement>)_dict)[key]; set => ((IDictionary<string, IElement>)_dict)[key] = value; }
 

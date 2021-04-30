@@ -32,7 +32,7 @@ namespace SuperSize.Plugin
         /// </summary>
         /// <param name="screens">Rectangles showing the location of the screens.</param>
         /// <param name="config">The logic configuration, if any.</param>
-        /// <returns></returns>
+        /// <returns>Rectangle the window is going to be resized to.</returns>
         public abstract Rectangle DoSize(Rectangle[] screens, Config.Object? config = null);
     }
 }

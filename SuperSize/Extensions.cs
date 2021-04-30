@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSize.Plugin;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
@@ -20,6 +21,11 @@ namespace SuperSize
             y = rectangle.Y;
             width = rectangle.Width;
             height = rectangle.Height;
+        }
+
+        public static Rectangle Calculate(this Logic logic)
+        {
+            throw new NotImplementedException("Plugins being rewritten.");
         }
     }
 }

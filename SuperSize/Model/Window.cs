@@ -54,8 +54,7 @@ namespace SuperSize.Model
         public void Show(int nCmdShow) => ShowWindowAsync(Handle, nCmdShow);
 
         public void Focus() => SetForegroundWindow(Handle);
-
-
+        
         public void SetPosition(Rectangle rectangle) => SetPosition(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
 
         private void SetPosition(int x, int y, int width, int height)
