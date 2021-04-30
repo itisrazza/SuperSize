@@ -42,4 +42,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./Website/dist
-        cname: homepage.thegreatrazz.nz
+        cname: supersize.thegreatrazz.nz
