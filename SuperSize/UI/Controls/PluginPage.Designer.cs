@@ -30,10 +30,13 @@ namespace SuperSize.UI.Controls
         private void InitializeComponent()
         {
             this.footerPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.linkPlugins = new System.Windows.Forms.LinkLabel();
+            this.btnInstall = new System.Windows.Forms.Button();
+            this.pluginListView = new System.Windows.Forms.ListView();
+            this.nameColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.authorColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.locationColumnHeader = new System.Windows.Forms.ColumnHeader();
             this.footerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,9 +47,9 @@ namespace SuperSize.UI.Controls
             this.footerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.footerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.footerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.footerPanel.Controls.Add(this.button2, 2, 0);
-            this.footerPanel.Controls.Add(this.linkLabel1, 0, 0);
-            this.footerPanel.Controls.Add(this.button1, 1, 0);
+            this.footerPanel.Controls.Add(this.btnRemove, 2, 0);
+            this.footerPanel.Controls.Add(this.linkPlugins, 0, 0);
+            this.footerPanel.Controls.Add(this.btnInstall, 1, 0);
             this.footerPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.footerPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.footerPanel.Location = new System.Drawing.Point(0, 404);
@@ -56,54 +59,75 @@ namespace SuperSize.UI.Controls
             this.footerPanel.Size = new System.Drawing.Size(376, 29);
             this.footerPanel.TabIndex = 3;
             // 
-            // button2
+            // btnRemove
             // 
-            this.button2.Location = new System.Drawing.Point(298, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "&Remove";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRemove.Location = new System.Drawing.Point(298, 3);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 2;
+            this.btnRemove.Text = "&Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // linkPlugins
             // 
-            this.linkLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linkLabel1.Location = new System.Drawing.Point(3, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(208, 29);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Get additional plugins...";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkPlugins.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.linkPlugins.Location = new System.Drawing.Point(3, 0);
+            this.linkPlugins.Name = "linkPlugins";
+            this.linkPlugins.Size = new System.Drawing.Size(208, 29);
+            this.linkPlugins.TabIndex = 0;
+            this.linkPlugins.TabStop = true;
+            this.linkPlugins.Text = "Get additional plugins...";
+            this.linkPlugins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button1
+            // btnInstall
             // 
-            this.button1.Location = new System.Drawing.Point(217, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "&Install...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInstall.Location = new System.Drawing.Point(217, 3);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.Size = new System.Drawing.Size(75, 23);
+            this.btnInstall.TabIndex = 1;
+            this.btnInstall.Text = "&Install...";
+            this.btnInstall.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // pluginListView
             // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(376, 404);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.pluginListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.nameColumnHeader,
+            this.authorColumnHeader,
+            this.locationColumnHeader});
+            this.pluginListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pluginListView.HideSelection = false;
+            this.pluginListView.Location = new System.Drawing.Point(0, 0);
+            this.pluginListView.Name = "pluginListView";
+            this.pluginListView.Size = new System.Drawing.Size(376, 404);
+            this.pluginListView.TabIndex = 4;
+            this.pluginListView.UseCompatibleStateImageBehavior = false;
+            this.pluginListView.View = System.Windows.Forms.View.Details;
+            // 
+            // nameColumnHeader
+            // 
+            this.nameColumnHeader.Text = "Name";
+            this.nameColumnHeader.Width = 120;
+            // 
+            // authorColumnHeader
+            // 
+            this.authorColumnHeader.Text = "Author";
+            this.authorColumnHeader.Width = 120;
+            // 
+            // locationColumnHeader
+            // 
+            this.locationColumnHeader.Text = "Location";
+            this.locationColumnHeader.Width = 180;
             // 
             // PluginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.pluginListView);
             this.Controls.Add(this.footerPanel);
             this.Name = "PluginPage";
             this.Size = new System.Drawing.Size(376, 433);
+            this.Load += new System.EventHandler(this.PluginPage_Load);
             this.footerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -112,9 +136,12 @@ namespace SuperSize.UI.Controls
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel footerPanel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.LinkLabel linkPlugins;
+        private System.Windows.Forms.Button btnInstall;
+        private System.Windows.Forms.ListView pluginListView;
+        private System.Windows.Forms.ColumnHeader nameColumnHeader;
+        private System.Windows.Forms.ColumnHeader authorColumnHeader;
+        private System.Windows.Forms.ColumnHeader locationColumnHeader;
     }
 }

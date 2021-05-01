@@ -5,6 +5,7 @@ using SuperSize.UI.Forms;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -20,10 +21,15 @@ namespace SuperSize
         [STAThread]
         static void Main()
         {
-            // start the application
+            // app config
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // preflight stuff
+            ValidateDirectoryStructure();
+
+            // start the application
             ChangeHotkey(GetGlobalKeyboardShortcut());
             Application.Run(new NotifyIconForm());
         }
@@ -32,6 +38,26 @@ namespace SuperSize
         {
             _keyboardHook?.Dispose();
             Application.Exit();
+        }
+
+        public static string AppDataDirectory { get; } = Path.Join(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "SuperSize");
+
+        public static void ValidateDirectoryStructure()
+        {
+            // app folder stuff (should exist in distributable, create for testing)
+            CreateDirectoryIfNotExists(PluginService.ApplicationPluginFolder);
+
+            // create AppData folder stuff
+            CreateDirectoryIfNotExists(AppDataDirectory);
+            CreateDirectoryIfNotExists(PluginService.UserPluginFolder);
+        }
+
+        private static void CreateDirectoryIfNotExists(string path)
+        {
+            if (Directory.Exists(path)) return;
+            Directory.CreateDirectory(path);
         }
 
         private static KeyboardHook? _keyboardHook = new();

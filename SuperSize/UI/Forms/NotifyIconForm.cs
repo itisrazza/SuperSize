@@ -96,13 +96,7 @@ namespace SuperSize.UI.Forms
 
         private void sendFeedback_Click(object sender, EventArgs e)
         {
-            var procInfo = new ProcessStartInfo();
-            procInfo.FileName = "cmd.exe";
-            procInfo.ArgumentList.Add("/c");
-            procInfo.ArgumentList.Add("start");
-            procInfo.ArgumentList.Add("https://github.com/thegreatrazz/SuperSize/issues/new");
-
-            Process.Start(procInfo);
+            Utilities.OpenLink("https://github.com/thegreatrazz/SuperSize/issues/new");
         }
     }
 }

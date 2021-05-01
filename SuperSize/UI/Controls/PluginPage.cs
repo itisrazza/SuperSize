@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSize.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace SuperSize.UI.Controls
         public PluginPage()
         {
             InitializeComponent();
+        }
+
+        private void PluginPage_Load(object sender, EventArgs e)
+        {
+            foreach (var plugin in PluginService.Plugins)
+            {
+                var item = new ListViewItem(new string[] { plugin.Name, plugin.Author, plugin.DllPath() });
+                pluginListView.Items.Add(item);
+            }
         }
     }
 }

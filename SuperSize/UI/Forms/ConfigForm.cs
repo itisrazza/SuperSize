@@ -49,7 +49,7 @@ namespace SuperSize.UI.Forms
 
             // get displays
             var screens = Screen.GetAllScreens();
-            var screenBounds = Utilities.GetAllScreenBounds();
+            var screenBounds = OS.Utilities.GetAllScreenBounds();
 
             // calculate scaling factors
             var scale = Math.Min(

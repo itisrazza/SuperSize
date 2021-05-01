@@ -27,5 +27,8 @@ namespace SuperSize
         {
             throw new NotImplementedException("Plugins being rewritten.");
         }
+
+        public static string DllPath(this PluginBase plugin)
+            => plugin.GetType().Assembly.Location;
     }
 }

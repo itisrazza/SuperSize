@@ -21,6 +21,11 @@ namespace SuperSize.Plugin
         public virtual bool HasConfig { get; } = false;
 
         /// <summary>
+        /// The default configuration object when the logic is selected.
+        /// </summary>
+        public virtual Config.Object DefaultConfig { get; } = new();
+
+        /// <summary>
         /// The action to run when the "Configure..." button is clicked.
         /// </summary>
         public virtual void DoConfig(IConfigProvider configProvider)
