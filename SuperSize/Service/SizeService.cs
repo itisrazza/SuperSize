@@ -12,9 +12,24 @@ namespace SuperSize.Service
     /// <summary>
     /// Service class for resizing the windows using the current logic and configuration.
     /// </summary>
-    public static class Sizer
+    public static class SizeService
     {
         public static ICollection<string> KnownBuiltInScripts { get; } = new List<string>();
+
+        private static HashSet<Logic>? _knownLogic = null;
+        public static ICollection<Logic> KnownLogic
+        {
+            get
+            {
+                if (_knownLogic == null)
+                {
+                    _knownLogic = PluginService.Plugins
+                        .SelectMany((plugin) => plugin.AvailableLogic)
+                        .ToHashSet();
+                }
+                return _knownLogic;
+            }
+        }
 
         public static Logic SelectedLogic()
         {

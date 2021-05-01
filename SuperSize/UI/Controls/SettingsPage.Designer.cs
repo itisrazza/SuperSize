@@ -139,7 +139,7 @@ namespace SuperSize.UI.Controls
             this.flowLayoutPanel1.Location = new System.Drawing.Point(116, 58);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 69);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 70);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // button2
@@ -177,6 +177,7 @@ namespace SuperSize.UI.Controls
             this.Controls.Add(this.previewBox);
             this.Name = "SettingsPage";
             this.Size = new System.Drawing.Size(370, 433);
+            this.Load += new System.EventHandler(this.SettingsPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

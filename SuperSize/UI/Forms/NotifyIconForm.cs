@@ -35,7 +35,7 @@ namespace SuperSize.UI.Forms
                         {
                             Text = window.Title
                         };
-                        item.Click += (_, _) => Sizer.SizeWindow(window.Handle);
+                        item.Click += (_, _) => SizeService.SizeWindow(window.Handle);
 
                         return item;
                     })

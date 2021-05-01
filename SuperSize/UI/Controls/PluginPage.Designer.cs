@@ -29,6 +29,8 @@ namespace SuperSize.UI.Controls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ToolStripSeparator sep_123;
             this.footerPanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnRemove = new System.Windows.Forms.Button();
             this.linkPlugins = new System.Windows.Forms.LinkLabel();
@@ -37,8 +39,20 @@ namespace SuperSize.UI.Controls
             this.nameColumnHeader = new System.Windows.Forms.ColumnHeader();
             this.authorColumnHeader = new System.Windows.Forms.ColumnHeader();
             this.locationColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.pluginMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblName = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblAuthor = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnShowLocation = new System.Windows.Forms.ToolStripMenuItem();
+            sep_123 = new System.Windows.Forms.ToolStripSeparator();
             this.footerPanel.SuspendLayout();
+            this.pluginMenuStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // sep_123
+            // 
+            sep_123.Name = "sep_123";
+            sep_123.Size = new System.Drawing.Size(177, 6);
             // 
             // footerPanel
             // 
@@ -67,6 +81,7 @@ namespace SuperSize.UI.Controls
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // linkPlugins
             // 
@@ -87,6 +102,7 @@ namespace SuperSize.UI.Controls
             this.btnInstall.TabIndex = 1;
             this.btnInstall.Text = "&Install...";
             this.btnInstall.UseVisualStyleBackColor = true;
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
             // pluginListView
             // 
@@ -94,6 +110,7 @@ namespace SuperSize.UI.Controls
             this.nameColumnHeader,
             this.authorColumnHeader,
             this.locationColumnHeader});
+            this.pluginListView.ContextMenuStrip = this.pluginMenuStrip;
             this.pluginListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pluginListView.HideSelection = false;
             this.pluginListView.Location = new System.Drawing.Point(0, 0);
@@ -102,6 +119,7 @@ namespace SuperSize.UI.Controls
             this.pluginListView.TabIndex = 4;
             this.pluginListView.UseCompatibleStateImageBehavior = false;
             this.pluginListView.View = System.Windows.Forms.View.Details;
+            this.pluginListView.SelectedIndexChanged += new System.EventHandler(this.pluginListView_SelectedIndexChanged);
             // 
             // nameColumnHeader
             // 
@@ -118,6 +136,46 @@ namespace SuperSize.UI.Controls
             this.locationColumnHeader.Text = "Location";
             this.locationColumnHeader.Width = 180;
             // 
+            // pluginMenuStrip
+            // 
+            this.pluginMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblName,
+            this.lblAuthor,
+            sep_123,
+            this.btnMenuRemove,
+            this.btnShowLocation});
+            this.pluginMenuStrip.Name = "pluginMenuStrip";
+            this.pluginMenuStrip.Size = new System.Drawing.Size(181, 98);
+            // 
+            // lblName
+            // 
+            this.lblName.Enabled = false;
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(180, 22);
+            this.lblName.Text = "toolStripMenuItem1";
+            this.lblName.ToolTipText = "Plugin Name";
+            // 
+            // lblAuthor
+            // 
+            this.lblAuthor.Enabled = false;
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(180, 22);
+            this.lblAuthor.Text = "Plugin Author";
+            // 
+            // btnMenuRemove
+            // 
+            this.btnMenuRemove.Name = "btnMenuRemove";
+            this.btnMenuRemove.Size = new System.Drawing.Size(180, 22);
+            this.btnMenuRemove.Text = "Remove";
+            this.btnMenuRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnShowLocation
+            // 
+            this.btnShowLocation.Name = "btnShowLocation";
+            this.btnShowLocation.Size = new System.Drawing.Size(180, 22);
+            this.btnShowLocation.Text = "Show in Explorer";
+            this.btnShowLocation.Click += new System.EventHandler(this.btnShowLocation_Click);
+            // 
             // PluginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -129,6 +187,7 @@ namespace SuperSize.UI.Controls
             this.Size = new System.Drawing.Size(376, 433);
             this.Load += new System.EventHandler(this.PluginPage_Load);
             this.footerPanel.ResumeLayout(false);
+            this.pluginMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +202,10 @@ namespace SuperSize.UI.Controls
         private System.Windows.Forms.ColumnHeader nameColumnHeader;
         private System.Windows.Forms.ColumnHeader authorColumnHeader;
         private System.Windows.Forms.ColumnHeader locationColumnHeader;
+        private System.Windows.Forms.ContextMenuStrip pluginMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem lblName;
+        private System.Windows.Forms.ToolStripMenuItem lblAuthor;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuRemove;
+        private System.Windows.Forms.ToolStripMenuItem btnShowLocation;
     }
 }

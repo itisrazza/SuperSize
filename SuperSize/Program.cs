@@ -82,7 +82,7 @@ namespace SuperSize
 
         public static void SuperSizeWindow(IntPtr window)
         {
-            Sizer.SizeWindow(window);
+            SizeService.SizeWindow(window);
         }
 
         public static KeyboardShortcut GetGlobalKeyboardShortcut()

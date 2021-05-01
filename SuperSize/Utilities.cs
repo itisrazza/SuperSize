@@ -20,5 +20,14 @@ namespace SuperSize
         }
 
         public static void OpenLink(Uri uri) => OpenLink(uri.ToString());
+
+        public static void ShowInExplorer(string path)
+        {
+            var procInfo = new ProcessStartInfo();
+            procInfo.FileName = "explorer.exe";
+            procInfo.ArgumentList.Add("/select,");
+            procInfo.ArgumentList.Add(path);
+            Process.Start(procInfo);
+        }
     }
 }
