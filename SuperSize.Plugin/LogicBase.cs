@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SuperSize.Plugin
 {
-    public abstract class Logic
+    public abstract class LogicBase
     {
         /// <summary>
         /// The name of the logic available seen by the user.

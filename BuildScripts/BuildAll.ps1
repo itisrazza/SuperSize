@@ -10,7 +10,19 @@ $targetPlatforms = @(
 )
 
 # create a releases folder
-New-Item -ItemType "directory" -Path "Releases" -Force
+if (Test-Path "Releases") { New-Item -ItemType "directory" -Path "Releases" -Force }
+if (Test-Path "Releases/Plugins") { New-Item -ItemType "directory" -Path "Releases/Plugins" -Force }
+
+# build cross-platform release for core logic library
+echo ""
+echo ""
+echo "++ BUILDING BUILT-IN PLUGIN"
+cd SuperSize.CoreLogic
+if (Test-Path "bin/$configuration/$dotnetVersion/publish") { Remove-Item -Recurse -Force "bin/$configuration/$dotnetVersion/publish" }
+dotnet publish -c $configuration -f $dotnetVersion
+cp "bin/Release/$dotnetVersion/publish/SuperSize.CoreLogic.dll" "../Releases/Plugins" 
+cd ..
+
 
 # build for every platform
 foreach ($platform in $targetPlatforms) {
@@ -37,5 +49,3 @@ foreach ($platform in $targetPlatforms) {
     dotnet publish -c $configuration -f $dotnetVersion -r $platform --self-contained false
     cd ..
 }
-
-# build the installer

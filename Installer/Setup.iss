@@ -45,8 +45,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "..\SuperSize\bin\Release\net5.0-windows\{#AppPlatform}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\SuperSize\bin\Release\net5.0-windows\{#AppPlatform}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\SuperSize\bin\Release\net5.0-windows\{#AppPlatform}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs 32bit
 Source: "windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Releases\Plugins\SuperSize.CoreLogic.dll"; DestDir: "{app}\Plugins"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -59,3 +60,6 @@ Filename: "{app}\windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"; Parameters: "
 
 [InstallDelete]
 Type: files; Name: "{app}\windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"
+
+Name: "{app}\Plugins"
+Name: "{app}\Plugins"

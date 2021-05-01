@@ -23,7 +23,7 @@ namespace SuperSize
             height = rectangle.Height;
         }
 
-        public static Rectangle Calculate(this Logic logic)
+        public static Rectangle Calculate(this LogicBase logic)
         {
             throw new NotImplementedException("Plugins being rewritten.");
         }

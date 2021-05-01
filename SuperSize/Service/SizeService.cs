@@ -16,8 +16,8 @@ namespace SuperSize.Service
     {
         public static ICollection<string> KnownBuiltInScripts { get; } = new List<string>();
 
-        private static HashSet<Logic>? _knownLogic = null;
-        public static ICollection<Logic> KnownLogic
+        private static HashSet<LogicBase>? _knownLogic = null;
+        public static ICollection<LogicBase> KnownLogic
         {
             get
             {
@@ -31,7 +31,7 @@ namespace SuperSize.Service
             }
         }
 
-        public static Logic SelectedLogic()
+        public static LogicBase SelectedLogic()
         {
             var settings = Properties.Settings.Default;
             throw new NotImplementedException("Undergoing plugin rewrite.");
@@ -39,7 +39,7 @@ namespace SuperSize.Service
 
         public static void SizeWindow(IntPtr window) => SizeWindow(window, SelectedLogic());
 
-        public static void SizeWindow(IntPtr window, Logic logic)
+        public static void SizeWindow(IntPtr window, LogicBase logic)
         {
             NativeImports.SetForegroundWindow(window);
             NativeImports.ShowWindowAsync(window, nCmdShow: 1 /* regular */);

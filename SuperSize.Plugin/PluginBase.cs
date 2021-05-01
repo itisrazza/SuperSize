@@ -25,14 +25,14 @@ namespace SuperSize.Plugin
         /// <summary>
         /// Plugin's available logic.
         /// </summary>
-        public virtual IEnumerable<Logic> AvailableLogic { get; } = new List<Logic>();
+        public virtual IEnumerable<LogicBase> AvailableLogic { get; } = new List<LogicBase>();
 
         /// <summary>
         /// Automatically discover the logic in an assembly.
         /// </summary>
         /// <param name="assembly">Assembly to discover logic in.</param>
         /// <returns></returns>
-        public static IEnumerable<Logic> DiscoverLogic(Assembly assembly)
+        public static IEnumerable<LogicBase> DiscoverLogic(Assembly assembly)
         {
             // TODO: make big brain code to automatically discover logic
             // extending the Logic class with a constructor taking 0 arguments.
