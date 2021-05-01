@@ -40,5 +40,10 @@ namespace SuperSize.Plugin
         /// <param name="config">The logic configuration, if any.</param>
         /// <returns>Rectangle the window is going to be resized to.</returns>
         public abstract Rectangle DoSize(Screen[] screens, Config.Object? config = null);
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

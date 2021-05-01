@@ -29,6 +29,22 @@ namespace SuperSize
             // preflight stuff
             ValidateDirectoryStructure();
 
+            // load plugins and refuse from working on failure
+            try
+            {
+                PluginService.GetPlugins();
+            }
+            catch (PluginFailureException e)
+            {
+                MessageBox.Show(
+                    e.ToString(),
+                    $"Failed to load \"{e.PluginPath}\"",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
+                Environment.ExitCode = 1;
+                return;
+            }
+
             // start the application
             ChangeHotkey(GetGlobalKeyboardShortcut());
             Application.Run(new NotifyIconForm());

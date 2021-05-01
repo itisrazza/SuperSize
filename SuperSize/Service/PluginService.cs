@@ -91,9 +91,16 @@ namespace SuperSize.Service
         /// <exception cref="EntryPointNotFoundException" />
         private static PluginBase GetPluginFromAssembly(Assembly assembly)
         {
-            var pluginClass = GetPluginClass(assembly);
-            var pluginBase = Activator.CreateInstance(pluginClass) as PluginBase;
-            return pluginBase ?? throw new NullReferenceException();
+            try
+            {
+                var pluginClass = GetPluginClass(assembly);
+                var pluginBase = Activator.CreateInstance(pluginClass) as PluginBase;
+                return pluginBase ?? throw new NullReferenceException();
+            }
+            catch (Exception e)
+            {
+                throw new PluginFailureException(assembly.Location, "Failed to retrieve plugin information.", e);
+            }
         }
 
         /// <summary>
