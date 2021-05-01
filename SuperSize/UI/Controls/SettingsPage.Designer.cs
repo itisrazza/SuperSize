@@ -32,12 +32,11 @@ namespace SuperSize.UI.Controls
             this.previewBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.keybindLabel = new System.Windows.Forms.Label();
+            this.keybindPreviewLbl = new System.Windows.Forms.Label();
+            this.keybindChangeBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
@@ -61,9 +60,9 @@ namespace SuperSize.UI.Controls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.keybindLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.keybindPreviewLbl, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.keybindChangeBtn, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -88,34 +87,35 @@ namespace SuperSize.UI.Controls
             this.comboBox1.Size = new System.Drawing.Size(248, 23);
             this.comboBox1.TabIndex = 0;
             // 
-            // label1
+            // keybindLabel
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Keyboard Shortcut:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.keybindLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keybindLabel.Location = new System.Drawing.Point(3, 0);
+            this.keybindLabel.Name = "keybindLabel";
+            this.keybindLabel.Size = new System.Drawing.Size(110, 29);
+            this.keybindLabel.TabIndex = 1;
+            this.keybindLabel.Text = "Keyboard Shortcut:";
+            this.keybindLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // keybindPreviewLbl
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(119, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 29);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "-";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.keybindPreviewLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keybindPreviewLbl.Location = new System.Drawing.Point(119, 0);
+            this.keybindPreviewLbl.Name = "keybindPreviewLbl";
+            this.keybindPreviewLbl.Size = new System.Drawing.Size(167, 29);
+            this.keybindPreviewLbl.TabIndex = 2;
+            this.keybindPreviewLbl.Text = "-";
+            this.keybindPreviewLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button1
+            // keybindChangeBtn
             // 
-            this.button1.Location = new System.Drawing.Point(292, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "&Change...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.keybindChangeBtn.Location = new System.Drawing.Point(292, 3);
+            this.keybindChangeBtn.Name = "keybindChangeBtn";
+            this.keybindChangeBtn.Size = new System.Drawing.Size(75, 23);
+            this.keybindChangeBtn.TabIndex = 3;
+            this.keybindChangeBtn.Text = "&Change...";
+            this.keybindChangeBtn.UseVisualStyleBackColor = true;
+            this.keybindChangeBtn.Click += new System.EventHandler(this.keybindChangeBtn_Click);
             // 
             // label3
             // 
@@ -131,7 +131,6 @@ namespace SuperSize.UI.Controls
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -142,27 +141,19 @@ namespace SuperSize.UI.Controls
             this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 70);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(176, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "&Preview";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(95, 3);
+            this.button3.Location = new System.Drawing.Point(176, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 1;
             this.button3.Text = "&Test";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(14, 3);
+            this.button4.Location = new System.Drawing.Point(95, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 2;
@@ -192,12 +183,11 @@ namespace SuperSize.UI.Controls
         private System.Windows.Forms.PictureBox previewBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label keybindLabel;
+        private System.Windows.Forms.Label keybindPreviewLbl;
+        private System.Windows.Forms.Button keybindChangeBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }

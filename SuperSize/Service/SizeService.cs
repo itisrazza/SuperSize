@@ -44,6 +44,7 @@ namespace SuperSize.Service
             {
                 var settings = Properties.Settings.Default;
                 settings.LogicClass = value?.GetType().FullName;
+                settings.Save();
             }
         }
 

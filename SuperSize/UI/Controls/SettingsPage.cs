@@ -1,5 +1,6 @@
 ﻿using SuperSize.Plugin;
 using SuperSize.Service;
+using SuperSize.UI.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SuperSize.Model.KeyboardShortcut;
 
 namespace SuperSize.UI.Controls
 {
@@ -23,9 +25,23 @@ namespace SuperSize.UI.Controls
 
         private void SettingsPage_Load(object sender, EventArgs e)
         {
+            // add logic to the combo box
             comboBox1.Items.AddRange(SizeService.KnownLogic.Select((logic) => logic).ToArray());
             comboBox1.SelectedItem = SizeService.SelectedLogic;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;   // late bind this event
+
+            // update components
+            UpdateSizePreview();
+            UpdateKeybindPreview();
+        }
+
+        private void UpdateSizePreview()
+        {
+            _windowPreview = SizeService.SelectedLogic?.Calculate();
+            var bmp = new Bitmap(previewBox.Width, previewBox.Height);
+            RenderDisplayConfiguration(bmp);
+            previewBox.Image?.Dispose();
+            previewBox.Image = bmp;
         }
 
         private void RenderDisplayConfiguration(Bitmap bmp)
@@ -100,6 +116,42 @@ namespace SuperSize.UI.Controls
                 SizeService.SelectedLogic = logic;
                 button4.Enabled = logic.HasConfig;
             }
+            UpdateSizePreview();
+        }
+
+        //
+        // keybind stuff
+        //
+
+        private void keybindChangeBtn_Click(object sender, EventArgs e)
+        {
+            var settings = Properties.Settings.Default;
+            using var shortcutDialog = new KeyboardShortcutDialog(
+                new()
+                {
+                    Modifier = (ModifierKeys)settings.ShortcutModifier,
+                    Key = (Keys)settings.ShortcutKey
+                });
+
+            var result = shortcutDialog.ShowDialog();
+            if (result != DialogResult.OK) return;
+
+            settings.ShortcutKey = (uint)shortcutDialog.Key;
+            settings.ShortcutModifier = (uint)shortcutDialog.Modifier;
+            settings.Save();
+
+            
+        }
+
+        private void UpdateKeybindPreview()
+        {
+            var globalShortcut = Program.GetGlobalKeyboardShortcut();
+            keybindPreviewLbl.Text = globalShortcut.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
