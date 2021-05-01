@@ -10,8 +10,8 @@ $targetPlatforms = @(
 )
 
 # create a releases folder
-if (Test-Path "Releases") { New-Item -ItemType "directory" -Path "Releases" -Force }
-if (Test-Path "Releases/Plugins") { New-Item -ItemType "directory" -Path "Releases/Plugins" -Force }
+New-Item -ItemType "directory" -Path "Releases" -Force
+New-Item -ItemType "directory" -Path "Releases/Plugins" -Force
 
 
 # build cross-platform release for core logic library
