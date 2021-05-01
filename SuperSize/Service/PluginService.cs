@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using SuperSize.Plugin;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace SuperSize.Service
 {
@@ -50,6 +52,8 @@ namespace SuperSize.Service
                 return _plugins ?? UpdatePlugins();
             }
         }
+
+        public static LogicBase NullLogic { get; } = new NullLogicImpl();
 
         private static IEnumerable<PluginBase> UpdatePlugins()
         {
@@ -120,6 +124,16 @@ namespace SuperSize.Service
             catch (InvalidOperationException e)
             {
                 throw new EntryPointNotFoundException("The assembly is missing a Plugin class extending PluginBase.", e);
+            }
+        }
+
+        private class NullLogicImpl : LogicBase
+        {
+            public override string Name { get; } = string.Empty;
+
+            public override Rectangle DoSize(Screen[] screens, Plugin.Config.Object? config = null)
+            {
+                throw new NotImplementedException();
             }
         }
     }

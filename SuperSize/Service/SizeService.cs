@@ -14,8 +14,7 @@ namespace SuperSize.Service
     /// </summary>
     public static class SizeService
     {
-        public static ICollection<string> KnownBuiltInScripts { get; } = new List<string>();
-
+        private static Dictionary<string, LogicBase> _lookUpTable = new();
         private static HashSet<LogicBase>? _knownLogic = null;
         public static ICollection<LogicBase> KnownLogic
         {
@@ -26,18 +25,29 @@ namespace SuperSize.Service
                     _knownLogic = PluginService.Plugins
                         .SelectMany((plugin) => plugin.AvailableLogic)
                         .ToHashSet();
+                    _lookUpTable = _knownLogic
+                        .ToDictionary((plugin) => plugin.GetType().FullName ?? plugin.GetType().Name);
                 }
                 return _knownLogic;
             }
         }
 
-        public static LogicBase SelectedLogic()
+        public static LogicBase? SelectedLogic
         {
-            var settings = Properties.Settings.Default;
-            throw new NotImplementedException("Undergoing plugin rewrite.");
+            get
+            {
+                var settings = Properties.Settings.Default;
+                return _lookUpTable.GetValueOrDefault(settings.LogicClass, PluginService.NullLogic);
+            }
+
+            set
+            {
+                var settings = Properties.Settings.Default;
+                settings.LogicClass = value?.GetType().FullName;
+            }
         }
 
-        public static void SizeWindow(IntPtr window) => SizeWindow(window, SelectedLogic());
+        public static void SizeWindow(IntPtr window) => SizeWindow(window, SelectedLogic);
 
         public static void SizeWindow(IntPtr window, LogicBase logic)
         {

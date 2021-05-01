@@ -38,5 +38,8 @@
     <Setting Name="WasOnboarded" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="LogicClass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SuperSize.CoreLogic.ExtendBeyondSpaceLogic</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

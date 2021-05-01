@@ -1,4 +1,5 @@
-﻿using SuperSize.Service;
+﻿using SuperSize.Plugin;
+using SuperSize.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,8 @@ namespace SuperSize.UI.Controls
         private void SettingsPage_Load(object sender, EventArgs e)
         {
             comboBox1.Items.AddRange(SizeService.KnownLogic.Select((logic) => logic).ToArray());
+            comboBox1.SelectedItem = SizeService.SelectedLogic;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;   // late bind this event
         }
 
         private void RenderDisplayConfiguration(Bitmap bmp)
@@ -84,6 +87,18 @@ namespace SuperSize.UI.Controls
                     (int)(scale * rect.Width),
                     (int)(scale * rect.Height));
                 gfx.DrawRectangle(previewBorder, previewRect);
+            }
+        }
+
+        private void SettingsPage_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem is LogicBase logic) {
+                SizeService.SelectedLogic = logic;
+                button4.Enabled = logic.HasConfig;
             }
         }
     }

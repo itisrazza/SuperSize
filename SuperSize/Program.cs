@@ -32,7 +32,7 @@ namespace SuperSize
             // load plugins and refuse from working on failure
             try
             {
-                PluginService.GetPlugins();
+                var _ = PluginService.Plugins;    // cache plugins
             }
             catch (PluginFailureException e)
             {

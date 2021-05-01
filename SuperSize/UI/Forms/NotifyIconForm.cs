@@ -44,7 +44,7 @@ namespace SuperSize.UI.Forms
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            openConfigForm_Click(sender, e);
         }
 
         private void contextMenuStrip_Opening(object sender, CancelEventArgs e)

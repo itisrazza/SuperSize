@@ -178,6 +178,7 @@ namespace SuperSize.UI.Controls
             this.Name = "SettingsPage";
             this.Size = new System.Drawing.Size(370, 433);
             this.Load += new System.EventHandler(this.SettingsPage_Load);
+            this.Enter += new System.EventHandler(this.SettingsPage_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

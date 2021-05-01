@@ -166,5 +166,17 @@ namespace SuperSize.Properties {
                 this["WasOnboarded"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SuperSize.CoreLogic.ExtendBeyondSpaceLogic")]
+        public string LogicClass {
+            get {
+                return ((string)(this["LogicClass"]));
+            }
+            set {
+                this["LogicClass"] = value;
+            }
+        }
     }
 }

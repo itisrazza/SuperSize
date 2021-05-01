@@ -35,7 +35,7 @@ namespace SuperSize.UI.Forms
         {
             try
             {
-                var logic = SizeService.SelectedLogic();
+                var logic = SizeService.SelectedLogic;
                 var result = logic.Calculate();
 
                 new TestForm
@@ -59,7 +59,7 @@ namespace SuperSize.UI.Forms
         {
             try
             {
-                var logic = SizeService.SelectedLogic();
+                var logic = SizeService.SelectedLogic;
                 var result = logic.Calculate();
                 _windowPreview = result;
             }

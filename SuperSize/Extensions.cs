@@ -1,8 +1,10 @@
 ﻿using SuperSize.Plugin;
+using SuperSize.Service;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Windows.Forms;
 
 namespace SuperSize
 {
@@ -25,7 +27,8 @@ namespace SuperSize
 
         public static Rectangle Calculate(this LogicBase logic)
         {
-            throw new NotImplementedException("Plugins being rewritten.");
+            if (logic == null) logic = PluginService.NullLogic;
+            return logic.DoSize(Screen.AllScreens);
         }
 
         public static string DllPath(this PluginBase plugin)
