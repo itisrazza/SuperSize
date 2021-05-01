@@ -114,7 +114,7 @@ namespace SuperSize.UI.Controls
         {
             if (comboBox1.SelectedItem is LogicBase logic) {
                 SizeService.SelectedLogic = logic;
-                button4.Enabled = logic.HasConfig;
+                settingsBtn.Enabled = logic.HasConfig;
             }
             UpdateSizePreview();
         }
@@ -149,9 +149,8 @@ namespace SuperSize.UI.Controls
             keybindPreviewLbl.Text = globalShortcut.ToString();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void settingsBtn_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

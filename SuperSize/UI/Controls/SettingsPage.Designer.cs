@@ -37,8 +37,8 @@ namespace SuperSize.UI.Controls
             this.keybindChangeBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.testBtn = new System.Windows.Forms.Button();
+            this.settingsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -131,8 +131,8 @@ namespace SuperSize.UI.Controls
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.button4);
+            this.flowLayoutPanel1.Controls.Add(this.testBtn);
+            this.flowLayoutPanel1.Controls.Add(this.settingsBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(116, 58);
@@ -141,24 +141,24 @@ namespace SuperSize.UI.Controls
             this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 70);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
-            // button3
+            // testBtn
             // 
-            this.button3.Location = new System.Drawing.Point(176, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "&Test";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.testBtn.Location = new System.Drawing.Point(176, 3);
+            this.testBtn.Name = "testBtn";
+            this.testBtn.Size = new System.Drawing.Size(75, 23);
+            this.testBtn.TabIndex = 1;
+            this.testBtn.Text = "&Test";
+            this.testBtn.UseVisualStyleBackColor = true;
+            this.testBtn.Click += new System.EventHandler(this.settingsBtn_Click);
             // 
-            // button4
+            // settingsBtn
             // 
-            this.button4.Location = new System.Drawing.Point(95, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "&Configure...";
-            this.button4.UseVisualStyleBackColor = true;
+            this.settingsBtn.Location = new System.Drawing.Point(95, 3);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(75, 23);
+            this.settingsBtn.TabIndex = 2;
+            this.settingsBtn.Text = "&Settings...";
+            this.settingsBtn.UseVisualStyleBackColor = true;
             // 
             // SettingsPage
             // 
@@ -188,7 +188,7 @@ namespace SuperSize.UI.Controls
         private System.Windows.Forms.Button keybindChangeBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button testBtn;
+        private System.Windows.Forms.Button settingsBtn;
     }
 }
