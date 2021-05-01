@@ -6,7 +6,7 @@ var indexSectionsWithContent =
   3: "acgilmop",
   4: "acdgiprst",
   5: "cikv",
-  6: "ahntv",
+  6: "adhntv",
   7: "gs"
 };
 
