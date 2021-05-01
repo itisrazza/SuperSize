@@ -5,5 +5,5 @@ var searchData=
   ['array_2',['Array',['../class_super_size_1_1_plugin_1_1_config_1_1_array.html',1,'SuperSize::Plugin::Config']]],
   ['array_2ecs_3',['Array.cs',['../_array_8cs.html',1,'']]],
   ['author_4',['Author',['../class_super_size_1_1_plugin_1_1_plugin_base.html#aa529870a67da7de4ea3f75c0bdea574d',1,'SuperSize::Plugin::PluginBase']]],
-  ['availablelogic_5',['AvailableLogic',['../class_super_size_1_1_plugin_1_1_plugin_base.html#a3fd1abab95d3905a2345f0f2b7a17b71',1,'SuperSize::Plugin::PluginBase']]]
+  ['availablelogic_5',['AvailableLogic',['../class_super_size_1_1_plugin_1_1_plugin_base.html#ab425327e3ce19749eeb95c7495afdd57',1,'SuperSize::Plugin::PluginBase']]]
 ];

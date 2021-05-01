@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['defaultconfig_12',['DefaultConfig',['../class_super_size_1_1_plugin_1_1_logic.html#a41339354a0c809cb8f347bc1410b3387',1,'SuperSize::Plugin::Logic']]],
-  ['discoverlogic_13',['DiscoverLogic',['../class_super_size_1_1_plugin_1_1_plugin_base.html#a1db3c0d7df1653a8ec3cfbb160296c4a',1,'SuperSize::Plugin::PluginBase']]],
-  ['doconfig_14',['DoConfig',['../class_super_size_1_1_plugin_1_1_logic.html#aec8e68764e8bc51dcd738a29c50ee8bb',1,'SuperSize::Plugin::Logic']]],
-  ['dosize_15',['DoSize',['../class_super_size_1_1_plugin_1_1_logic.html#a796b8c9850a30791c9f396e39a4cde7b',1,'SuperSize::Plugin::Logic']]]
+  ['defaultconfig_12',['DefaultConfig',['../class_super_size_1_1_plugin_1_1_logic_base.html#a8680c7012fde8c26d5521dc6027a5869',1,'SuperSize::Plugin::LogicBase']]],
+  ['discoverlogic_13',['DiscoverLogic',['../class_super_size_1_1_plugin_1_1_plugin_base.html#ad024aff03346daeac4210672b4f39b6f',1,'SuperSize::Plugin::PluginBase']]],
+  ['doconfig_14',['DoConfig',['../class_super_size_1_1_plugin_1_1_logic_base.html#a842b29087ca9b43c6c4f4380e227e762',1,'SuperSize::Plugin::LogicBase']]],
+  ['dosize_15',['DoSize',['../class_super_size_1_1_plugin_1_1_logic_base.html#a41b7143954fbaf9cce6cb87e42188821',1,'SuperSize::Plugin::LogicBase']]]
 ];
