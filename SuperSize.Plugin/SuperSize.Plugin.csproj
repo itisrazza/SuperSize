@@ -1,9 +1,1 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFramework>net5.0-windows</TargetFramework>
-		<Nullable>enable</Nullable>
-		<UseWindowsForms>true</UseWindowsForms>
-	</PropertyGroup>
-
-</Project>
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><PackageId>SuperSize.Plugin</PackageId><Version>0.2.0.0</Version><Authors>Raresh Nistor</Authors><Company>Team SuperSize</Company><TargetFramework>net5.0-windows</TargetFramework><Nullable>enable</Nullable><UseWindowsForms>true</UseWindowsForms><GeneratePackageOnBuild>true</GeneratePackageOnBuild><PackageLicenseExpression>Apache-2.0</PackageLicenseExpression></PropertyGroup></Project>

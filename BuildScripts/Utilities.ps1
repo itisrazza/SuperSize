@@ -1,3 +1,4 @@
+$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 
 $targetPlatforms = @(
     "win-x86"
