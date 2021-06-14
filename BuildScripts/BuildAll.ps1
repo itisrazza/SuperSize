@@ -10,8 +10,19 @@ $targetPlatforms = @(
 )
 
 # create a releases folder
-if (Test-Path "Releases") { New-Item -ItemType "directory" -Path "Releases" -Force }
-if (Test-Path "Releases/Plugins") { New-Item -ItemType "directory" -Path "Releases/Plugins" -Force }
+if (-not(Test-Path "Releases")) { New-Item -ItemType "directory" -Path "Releases" -Force }
+if (-not(Test-Path "Releases/Plugins")) { New-Item -ItemType "directory" -Path "Releases/Plugins" -Force }
+
+# build cross-platform release for plugin SDK library
+echo ""
+echo ""
+echo "++ BUILDING SDK PLUGIN"
+cd SuperSize.Plugin
+if (Test-Path "bin/$configuration/$dotnetVersion/publish") { Remove-Item -Recurse -Force "bin/$configuration/$dotnetVersion/publish" }
+dotnet publish -c $configuration -f $dotnetVersion
+dotnet pack -c $configuration
+cp "bin/Release/$dotnetVersion/publish/SuperSize.Plugin.dll" "../Releases/Plugins"
+cd ..
 
 # build cross-platform release for core logic library
 echo ""
@@ -20,7 +31,7 @@ echo "++ BUILDING BUILT-IN PLUGIN"
 cd SuperSize.CoreLogic
 if (Test-Path "bin/$configuration/$dotnetVersion/publish") { Remove-Item -Recurse -Force "bin/$configuration/$dotnetVersion/publish" }
 dotnet publish -c $configuration -f $dotnetVersion
-cp "bin/Release/$dotnetVersion/publish/SuperSize.CoreLogic.dll" "../Releases/Plugins" 
+cp "bin/Release/$dotnetVersion/publish/SuperSize.CoreLogic.dll" "../Releases/Plugins"
 cd ..
 
 
