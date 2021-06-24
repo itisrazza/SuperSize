@@ -133,7 +133,7 @@ namespace SuperSize.Service
 
             public override Rectangle DoSize(Screen[] screens, Plugin.Config.Object? config = null)
             {
-                throw new NotImplementedException();
+                return new(0, 0, 0, 0);
             }
         }
     }

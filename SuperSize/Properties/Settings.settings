@@ -41,5 +41,8 @@
     <Setting Name="LogicClass" Type="System.String" Scope="User">
       <Value Profile="(Default)">SuperSize.CoreLogic.ExtendBeyondSpaceLogic</Value>
     </Setting>
+    <Setting Name="LogicConfig" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

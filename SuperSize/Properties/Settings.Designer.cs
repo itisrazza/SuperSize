@@ -178,5 +178,17 @@ namespace SuperSize.Properties {
                 this["LogicClass"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LogicConfig {
+            get {
+                return ((string)(this["LogicConfig"]));
+            }
+            set {
+                this["LogicConfig"] = value;
+            }
+        }
     }
 }

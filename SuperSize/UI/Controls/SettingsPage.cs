@@ -112,7 +112,8 @@ namespace SuperSize.UI.Controls
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem is LogicBase logic) {
+            if (comboBox1.SelectedItem is LogicBase logic)
+            {
                 SizeService.SelectedLogic = logic;
                 settingsBtn.Enabled = logic.HasConfig;
             }
@@ -140,7 +141,7 @@ namespace SuperSize.UI.Controls
             settings.ShortcutModifier = (uint)shortcutDialog.Modifier;
             settings.Save();
 
-            
+
         }
 
         private void UpdateKeybindPreview()
@@ -151,6 +152,14 @@ namespace SuperSize.UI.Controls
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
+        }
+
+        private void settingsBtn_Click_1(object sender, EventArgs e)
+        {
+            var plugin = SizeService.SelectedLogic;
+            if (plugin == null) return;
+
+            plugin.DoConfig(ConfigService.GetConfigProvider());      // FIXME: change the config provider when that's implemented
         }
     }
 }
