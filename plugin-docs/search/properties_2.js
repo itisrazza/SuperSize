@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hasconfig_111',['HasConfig',['../class_super_size_1_1_plugin_1_1_logic_base.html#aefd3da2a20fa06cf3721b4e10dc06d82',1,'SuperSize::Plugin::LogicBase']]]
+  ['false_114',['False',['../class_super_size_1_1_plugin_1_1_config_1_1_primitive.html#ada4d2e2910d7a4f29178a5e61032b201',1,'SuperSize::Plugin::Config::Primitive']]]
 ];

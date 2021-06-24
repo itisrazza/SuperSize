@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['logicbase_35',['LogicBase',['../class_super_size_1_1_plugin_1_1_logic_base.html',1,'SuperSize::Plugin']]],
-  ['logicbase_2ecs_36',['LogicBase.cs',['../_logic_base_8cs.html',1,'']]]
+  ['keys_35',['Keys',['../class_super_size_1_1_plugin_1_1_config_1_1_object.html#a48614341fdd741565fab303d2759e7d5',1,'SuperSize::Plugin::Config::Object']]]
 ];

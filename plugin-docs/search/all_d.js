@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['config_47',['Config',['../namespace_super_size_1_1_plugin_1_1_config.html',1,'SuperSize::Plugin']]],
-  ['supersize_20plugin_20api_48',['SuperSize Plugin API',['../index.html',1,'']]],
-  ['storing_20and_20retrieving_20configuration_49',['Storing and Retrieving Configuration',['../md_config.html',1,'']]],
-  ['plugin_50',['Plugin',['../namespace_super_size_1_1_plugin.html',1,'SuperSize']]],
-  ['saveconfig_51',['SaveConfig',['../interface_super_size_1_1_plugin_1_1_i_config_provider.html#a0d6300fae45147586b4a7e2aa7970b0d',1,'SuperSize::Plugin::IConfigProvider']]],
-  ['supersize_52',['SuperSize',['../namespace_super_size.html',1,'']]]
+  ['remove_47',['Remove',['../class_super_size_1_1_plugin_1_1_config_1_1_array.html#acadafbc953781389742732a04975bc8e',1,'SuperSize.Plugin.Config.Array.Remove()'],['../class_super_size_1_1_plugin_1_1_config_1_1_object.html#a167ce3728cc812cb6bf20b2a33722f52',1,'SuperSize.Plugin.Config.Object.Remove(string key)'],['../class_super_size_1_1_plugin_1_1_config_1_1_object.html#a3bfa9a8247e49b0be5a12e3be6eda011',1,'SuperSize.Plugin.Config.Object.Remove(KeyValuePair&lt; string, IElement &gt; item)']]],
+  ['removeat_48',['RemoveAt',['../class_super_size_1_1_plugin_1_1_config_1_1_array.html#a460859ba6f47ebaad726bc1af35fb961',1,'SuperSize::Plugin::Config::Array']]]
 ];

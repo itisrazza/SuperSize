@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['this_5bint_20index_5d_53',['this[int index]',['../class_super_size_1_1_plugin_1_1_config_1_1_array.html#a10c0dfa2d6f0d44a8f441d1076d6a93e',1,'SuperSize::Plugin::Config::Array']]],
-  ['this_5bstring_20key_5d_54',['this[string key]',['../class_super_size_1_1_plugin_1_1_config_1_1_object.html#a911e85636a628cba93673fe2aef48aab',1,'SuperSize::Plugin::Config::Object']]],
-  ['tostring_55',['ToString',['../class_super_size_1_1_plugin_1_1_logic_base.html#ab478de0d48394b4e318c7c8d39bf86e9',1,'SuperSize::Plugin::LogicBase']]],
-  ['trygetvalue_56',['TryGetValue',['../class_super_size_1_1_plugin_1_1_config_1_1_object.html#af7d736e7e4bf16771d3648c48f02dafb',1,'SuperSize::Plugin::Config::Object']]]
+  ['config_49',['Config',['../namespace_super_size_1_1_plugin_1_1_config.html',1,'SuperSize::Plugin']]],
+  ['supersize_20plugin_20api_50',['SuperSize Plugin API',['../index.html',1,'']]],
+  ['storing_20and_20retrieving_20configuration_51',['Storing and Retrieving Configuration',['../md_config.html',1,'']]],
+  ['plugin_52',['Plugin',['../namespace_super_size_1_1_plugin.html',1,'SuperSize']]],
+  ['saveconfig_53',['SaveConfig',['../interface_super_size_1_1_plugin_1_1_i_config_provider.html#a0d6300fae45147586b4a7e2aa7970b0d',1,'SuperSize::Plugin::IConfigProvider']]],
+  ['supersize_54',['SuperSize',['../namespace_super_size.html',1,'']]]
 ];
