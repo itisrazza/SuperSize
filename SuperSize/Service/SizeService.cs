@@ -44,11 +44,17 @@ namespace SuperSize.Service
             {
                 var settings = Properties.Settings.Default;
                 settings.LogicClass = value?.GetType().FullName;
+                if (value?.HasConfig ?? false) ConfigService.Save(value.DefaultConfig);
                 settings.Save();
             }
         }
 
-        public static void SizeWindow(IntPtr window) => SizeWindow(window, SelectedLogic);
+        public static void SizeWindow(IntPtr window)
+        {
+            var logic = SelectedLogic;
+            if (logic == null) return; 
+            SizeWindow(window, logic);
+        }
 
         public static void SizeWindow(IntPtr window, LogicBase logic)
         {
