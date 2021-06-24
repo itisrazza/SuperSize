@@ -11,6 +11,7 @@ namespace SuperSize.Plugin.Config
     /// <summary>
     /// An array containing a list of <see cref="IElement"/>.
     /// </summary>
+    [Serializable]
     public class Array : IElement, IList<IElement>
     {
 

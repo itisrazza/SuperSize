@@ -10,9 +10,9 @@ namespace SuperSize.Plugin.Config
     /// <summary>
     /// Element primitives. May be <see cref="string"/>, <see cref="int"/>, <see cref="float"/> or <see cref="bool"/>.
     /// </summary>
+    [Serializable]
     public class Primitive : IElement
     {
-
         /// <summary>
         /// Accepted primitive types.
         /// </summary>
@@ -90,6 +90,12 @@ namespace SuperSize.Plugin.Config
         {
             Value = null;
         }
+
+        public static Primitive Null { get; } = new Primitive();
+
+        public static Primitive True { get; } = new Primitive(true);
+
+        public static Primitive False { get; } = new Primitive(false);
 
         /// <summary>
         /// Is this primitive null?

@@ -11,6 +11,7 @@ namespace SuperSize.Plugin.Config
     /// <summary>
     /// Object containing unordered key-value pairs of <see cref="string"/> to <see cref="IElement"/>.
     /// </summary>
+    [Serializable]
     public class Object : IElement, IDictionary<string, IElement>
     {
 
