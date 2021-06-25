@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['values_109',['Values',['../class_super_size_1_1_plugin_1_1_config_1_1_object.html#a14df00e8c545413c21fbbc542c3542d1',1,'SuperSize::Plugin::Config::Object']]]
+  ['pairs_110',['Pairs',['../class_super_size_1_1_plugin_1_1_config_1_1_object.html#a6a48d6722cf0eff1be85ac05227e7812',1,'SuperSize::Plugin::Config::Object']]]
 ];

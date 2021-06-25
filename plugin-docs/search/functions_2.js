@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['discoverlogic_87',['DiscoverLogic',['../class_super_size_1_1_plugin_1_1_plugin_base.html#ad024aff03346daeac4210672b4f39b6f',1,'SuperSize::Plugin::PluginBase']]],
-  ['doconfig_88',['DoConfig',['../class_super_size_1_1_plugin_1_1_logic_base.html#a842b29087ca9b43c6c4f4380e227e762',1,'SuperSize::Plugin::LogicBase']]],
-  ['dosize_89',['DoSize',['../class_super_size_1_1_plugin_1_1_logic_base.html#a41b7143954fbaf9cce6cb87e42188821',1,'SuperSize::Plugin::LogicBase']]]
+  ['discoverlogic_88',['DiscoverLogic',['../class_super_size_1_1_plugin_1_1_plugin_base.html#ad024aff03346daeac4210672b4f39b6f',1,'SuperSize::Plugin::PluginBase']]],
+  ['doconfig_89',['DoConfig',['../class_super_size_1_1_plugin_1_1_logic_base.html#a842b29087ca9b43c6c4f4380e227e762',1,'SuperSize::Plugin::LogicBase']]],
+  ['dosize_90',['DoSize',['../class_super_size_1_1_plugin_1_1_logic_base.html#a41b7143954fbaf9cce6cb87e42188821',1,'SuperSize::Plugin::LogicBase']]]
 ];
