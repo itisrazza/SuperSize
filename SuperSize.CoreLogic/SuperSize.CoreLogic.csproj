@@ -1,1 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net5.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms><Version>0.3.0.0</Version></PropertyGroup><ItemGroup><ProjectReference Include="..\SuperSize.Plugin\SuperSize.Plugin.csproj" /></ItemGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Version>0.3.0.0</Version>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\SuperSize.Plugin\SuperSize.Plugin.csproj" />
+	</ItemGroup>
+</Project>
