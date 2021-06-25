@@ -27,6 +27,8 @@ namespace SuperSize.Plugin.Config
 
         public bool IsReadOnly => ((ICollection<KeyValuePair<string, IElement>>)_dict).IsReadOnly;
 
+        public ICollection<(string Key, IElement Value)> Pairs => Keys.Select((key) => (key, this[key])).ToList();
+
         public void Add(string key, IElement value)
         {
             ((IDictionary<string, IElement>)_dict).Add(key, value);
