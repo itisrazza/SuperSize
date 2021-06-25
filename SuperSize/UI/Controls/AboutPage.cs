@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSize.UI.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,11 +24,9 @@ namespace SuperSize.UI.Controls
             groupBox2.Visible = new Random().Next(0, 10) < 2;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Reset();
-            Properties.Settings.Default.Save();
-            Application.Exit();
+            new SecretConfigForm().ShowDialog();
         }
     }
 }

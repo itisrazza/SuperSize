@@ -33,15 +33,15 @@ namespace SuperSize.UI.Forms
             this._aboutPage = new System.Windows.Forms.TabPage();
             this.aboutPage1 = new SuperSize.UI.Controls.AboutPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.pluginPage = new System.Windows.Forms.TabPage();
-            this.pluginPage1 = new SuperSize.UI.Controls.PluginPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.settingsPage2 = new SuperSize.UI.Controls.SettingsPage();
+            this.pluginPage = new System.Windows.Forms.TabPage();
+            this.pluginPage1 = new SuperSize.UI.Controls.PluginPage();
             this.settingsPage1 = new SuperSize.UI.Controls.SettingsPage();
             this._aboutPage.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.pluginPage.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.pluginPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // _aboutPage
@@ -75,6 +75,25 @@ namespace SuperSize.UI.Forms
             this.tabControl1.Size = new System.Drawing.Size(384, 461);
             this.tabControl1.TabIndex = 0;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.settingsPage2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(376, 433);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Settings";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // settingsPage2
+            // 
+            this.settingsPage2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingsPage2.Location = new System.Drawing.Point(3, 3);
+            this.settingsPage2.Name = "settingsPage2";
+            this.settingsPage2.Size = new System.Drawing.Size(370, 427);
+            this.settingsPage2.TabIndex = 0;
+            // 
             // pluginPage
             // 
             this.pluginPage.Controls.Add(this.pluginPage1);
@@ -95,25 +114,6 @@ namespace SuperSize.UI.Forms
             this.pluginPage1.Size = new System.Drawing.Size(370, 427);
             this.pluginPage1.TabIndex = 0;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.settingsPage2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(376, 433);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Settings";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // settingsPage2
-            // 
-            this.settingsPage2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.settingsPage2.Location = new System.Drawing.Point(3, 3);
-            this.settingsPage2.Name = "settingsPage2";
-            this.settingsPage2.Size = new System.Drawing.Size(370, 427);
-            this.settingsPage2.TabIndex = 0;
-            // 
             // settingsPage1
             // 
             this.settingsPage1.Location = new System.Drawing.Point(383, 165);
@@ -125,6 +125,7 @@ namespace SuperSize.UI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(384, 461);
             this.Controls.Add(this.settingsPage1);
             this.Controls.Add(this.tabControl1);
@@ -139,8 +140,8 @@ namespace SuperSize.UI.Forms
             this.Load += new System.EventHandler(this.ConfigForm_Load);
             this._aboutPage.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.pluginPage.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.pluginPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
