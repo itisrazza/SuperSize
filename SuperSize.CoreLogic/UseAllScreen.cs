@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SuperSize.CoreLogic
 {
-    public class ExtendBeyondSpaceLogic : LogicBase
+    public class UseAllScreen : LogicBase
     {
-        public override string Name { get; } = "Extend to all screen space.";
+        public override string Name { get; } = "Use all the screen real estate";
 
         public override Rectangle DoSize(Screen[] screens, SuperSize.Plugin.Config.Object config = null)
         {

@@ -30,7 +30,11 @@ namespace SuperSize.Plugin
         /// </summary>
         public virtual void DoConfig(IConfigProvider configProvider)
         {
-            // by default configuration is disabled
+            MessageBox.Show(
+                "This sizing logic does not support configuration.", 
+                Name, 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Exclamation);
         }
 
         /// <summary>

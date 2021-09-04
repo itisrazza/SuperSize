@@ -12,7 +12,7 @@ namespace SuperSize.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.2.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,30 +20,6 @@ namespace SuperSize.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool UseCustomScript {
-            get {
-                return ((bool)(this["UseCustomScript"]));
-            }
-            set {
-                this["UseCustomScript"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Script {
-            get {
-                return ((string)(this["Script"]));
-            }
-            set {
-                this["Script"] = value;
             }
         }
         
@@ -68,18 +44,6 @@ namespace SuperSize.Properties {
             }
             set {
                 this["ShortcutModifier"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Fill out completely")]
-        public string BuiltinScript {
-            get {
-                return ((string)(this["BuiltinScript"]));
-            }
-            set {
-                this["BuiltinScript"] = value;
             }
         }
         
@@ -169,7 +133,7 @@ namespace SuperSize.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SuperSize.CoreLogic.ExtendBeyondSpaceLogic")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SuperSize.CoreLogic.UseAllScreen")]
         public string LogicClass {
             get {
                 return ((string)(this["LogicClass"]));

@@ -2,20 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SuperSize.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="UseCustomScript" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="Script" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="ShortcutKey" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">27</Value>
     </Setting>
     <Setting Name="ShortcutModifier" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">8</Value>
-    </Setting>
-    <Setting Name="BuiltinScript" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Fill out completely</Value>
     </Setting>
     <Setting Name="ScreenBorderColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">45, 125, 154</Value>
@@ -39,7 +30,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="LogicClass" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SuperSize.CoreLogic.ExtendBeyondSpaceLogic</Value>
+      <Value Profile="(Default)">SuperSize.CoreLogic.UseAllScreen</Value>
     </Setting>
     <Setting Name="LogicConfig" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

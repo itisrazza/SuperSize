@@ -11,7 +11,7 @@ namespace SuperSize.CoreLogic
         public override string Author { get; } = "Raresh Nistor";
 
         public override IEnumerable<LogicBase> AvailableLogic { get; } = new List<LogicBase> {
-            new ExtendBeyondSpaceLogic(),
+            new UseAllScreen(),
         };
     }
 }

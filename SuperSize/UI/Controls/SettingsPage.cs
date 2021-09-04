@@ -1,6 +1,7 @@
 ﻿using SuperSize.Plugin;
 using SuperSize.Service;
 using SuperSize.UI.Dialogs;
+using SuperSize.UI.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,6 +121,11 @@ namespace SuperSize.UI.Controls
             UpdateSizePreview();
         }
 
+        public void Save()
+        {
+
+        }
+
         //
         // keybind stuff
         //
@@ -140,8 +146,6 @@ namespace SuperSize.UI.Controls
             settings.ShortcutKey = (uint)shortcutDialog.Key;
             settings.ShortcutModifier = (uint)shortcutDialog.Modifier;
             settings.Save();
-
-
         }
 
         private void UpdateKeybindPreview()
@@ -150,16 +154,29 @@ namespace SuperSize.UI.Controls
             keybindPreviewLbl.Text = globalShortcut.ToString();
         }
 
-        private void settingsBtn_Click(object sender, EventArgs e)
-        {
-        }
-
         private void settingsBtn_Click_1(object sender, EventArgs e)
         {
             var plugin = SizeService.SelectedLogic;
             if (plugin == null) return;
 
-            plugin.DoConfig(ConfigService.GetConfigProvider());      // FIXME: change the config provider when that's implemented
+            plugin.DoConfig(ConfigService.GetConfigProvider());
+        }
+
+        private void testBtn_Click(object sender, EventArgs e)
+        {
+            var logic = SizeService.SelectedLogic;
+            var result = logic?.Calculate();
+
+            if (result == null) {
+                MessageBox.Show("The logic didn't return a result.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            new TestForm
+            {
+                Location = result.Value.Location,
+                Size = result.Value.Size
+            }.Show();
         }
     }
 }

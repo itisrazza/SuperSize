@@ -44,6 +44,7 @@ namespace SuperSize.UI.Controls
             this.lblAuthor = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.btnShowLocation = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             sep_123 = new System.Windows.Forms.ToolStripSeparator();
             this.footerPanel.SuspendLayout();
             this.pluginMenuStrip.SuspendLayout();
@@ -75,11 +76,11 @@ namespace SuperSize.UI.Controls
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(298, 3);
+            this.btnRemove.Location = new System.Drawing.Point(273, 3);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.Size = new System.Drawing.Size(100, 23);
             this.btnRemove.TabIndex = 2;
-            this.btnRemove.Text = "&Remove";
+            this.btnRemove.Text = "&Show Folder";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
@@ -88,17 +89,18 @@ namespace SuperSize.UI.Controls
             this.linkPlugins.Dock = System.Windows.Forms.DockStyle.Fill;
             this.linkPlugins.Location = new System.Drawing.Point(3, 0);
             this.linkPlugins.Name = "linkPlugins";
-            this.linkPlugins.Size = new System.Drawing.Size(208, 29);
+            this.linkPlugins.Size = new System.Drawing.Size(158, 29);
             this.linkPlugins.TabIndex = 0;
             this.linkPlugins.TabStop = true;
             this.linkPlugins.Text = "Get additional plugins...";
             this.linkPlugins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkPlugins.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPlugins_LinkClicked);
             // 
             // btnInstall
             // 
-            this.btnInstall.Location = new System.Drawing.Point(217, 3);
+            this.btnInstall.Location = new System.Drawing.Point(167, 3);
             this.btnInstall.Name = "btnInstall";
-            this.btnInstall.Size = new System.Drawing.Size(75, 23);
+            this.btnInstall.Size = new System.Drawing.Size(100, 23);
             this.btnInstall.TabIndex = 1;
             this.btnInstall.Text = "&Install...";
             this.btnInstall.UseVisualStyleBackColor = true;
@@ -176,6 +178,13 @@ namespace SuperSize.UI.Controls
             this.btnShowLocation.Text = "Show in Explorer";
             this.btnShowLocation.Click += new System.EventHandler(this.btnShowLocation_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "dll";
+            this.openFileDialog1.FileName = "*.dll";
+            this.openFileDialog1.Filter = "DLL files|*.dll|All files|*.*";
+            this.openFileDialog1.Title = "Install SuperSize Plugin";
+            // 
             // PluginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -207,5 +216,6 @@ namespace SuperSize.UI.Controls
         private System.Windows.Forms.ToolStripMenuItem lblAuthor;
         private System.Windows.Forms.ToolStripMenuItem btnMenuRemove;
         private System.Windows.Forms.ToolStripMenuItem btnShowLocation;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

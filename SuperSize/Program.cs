@@ -1,6 +1,7 @@
 using SuperSize.Model;
 using SuperSize.OS;
 using SuperSize.Service;
+using SuperSize.UI;
 using SuperSize.UI.Forms;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,8 @@ namespace SuperSize
             // load plugins and refuse from working on failure
             try
             {
-                var _ = PluginService.Plugins;    // cache plugins
+                _ = PluginService.Plugins;    // cache plugins
+                _ = SizeService.KnownLogic;
             }
             catch (PluginFailureException e)
             {

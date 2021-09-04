@@ -16,6 +16,7 @@ namespace SuperSize.Service
     {
         private static Dictionary<string, LogicBase> _lookUpTable = new();
         private static HashSet<LogicBase>? _knownLogic = null;
+
         public static ICollection<LogicBase> KnownLogic
         {
             get

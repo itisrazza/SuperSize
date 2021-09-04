@@ -40,7 +40,7 @@ namespace SuperSize.Service
             UserPluginFolder
         );
 
-        private static IEnumerable<PluginBase>? _plugins = null;
+        private static List<PluginBase>? _plugins = null;
 
         /// <summary>
         /// Available plugins.
@@ -55,7 +55,7 @@ namespace SuperSize.Service
 
         public static LogicBase NullLogic { get; } = new NullLogicImpl();
 
-        private static IEnumerable<PluginBase> UpdatePlugins()
+        private static List<PluginBase> UpdatePlugins()
         {
             _plugins = GetPlugins();
             return _plugins;
@@ -86,6 +86,15 @@ namespace SuperSize.Service
         public static PluginBase GetPlugin(string dllPath)
         {
             return GetPluginFromAssembly(Assembly.LoadFile(dllPath));
+        }
+
+        public static void InstallPlugin(string dllPath)
+        {
+            _plugins ??= UpdatePlugins();
+            
+            var plugin = GetPlugin(dllPath);
+            File.Copy(dllPath, Path.Join(UserPluginFolder, Path.GetFileName(dllPath)), true);
+            _plugins.Add(plugin);
         }
 
         /// <summary>

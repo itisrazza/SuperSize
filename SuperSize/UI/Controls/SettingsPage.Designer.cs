@@ -149,7 +149,7 @@ namespace SuperSize.UI.Controls
             this.testBtn.TabIndex = 1;
             this.testBtn.Text = "&Test";
             this.testBtn.UseVisualStyleBackColor = true;
-            this.testBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
             // 
             // settingsBtn
             // 
@@ -165,7 +165,6 @@ namespace SuperSize.UI.Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.previewBox);
             this.Name = "SettingsPage";
