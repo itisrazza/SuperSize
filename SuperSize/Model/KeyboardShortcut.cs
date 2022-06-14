@@ -27,6 +27,12 @@ namespace SuperSize.Model
         /// </summary>
         public bool IsInvalid => Key == Keys.None || Modifier == ModifierKeys.None;
 
+        public KeyboardShortcut(Keys keys, ModifierKeys modifier)
+        {
+            Key = keys;
+            Modifier = modifier;
+        }
+
         /// <summary>
         /// A keyboard shortcut indicating no shortcut.
         /// </summary>
@@ -62,8 +68,11 @@ namespace SuperSize.Model
             foreach (var mod in Enum.GetValues<ModifierKeys>())
             {
                 if (mod == ModifierKeys.None) continue;
-                if (sb.Length > 0) sb.Append(" + ");
-                if ((Modifier & mod) == mod) sb.Append(mod);
+                if ((Modifier & mod) == mod)
+                {
+                    if (sb.Length > 0) sb.Append(" + ");
+                    sb.Append(mod);
+                }
             }
             return sb.Append(" + ").Append(Key).ToString();
         }

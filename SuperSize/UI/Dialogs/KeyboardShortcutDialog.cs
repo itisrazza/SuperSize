@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SuperSize.Model.KeyboardShortcut;
 using ModKeys = SuperSize.Model.KeyboardShortcut.ModifierKeys;
 
 namespace SuperSize.UI.Dialogs
@@ -41,7 +42,7 @@ namespace SuperSize.UI.Dialogs
             InitializeComponent();
             PopulateKeysComboBox();
             AssignModifierTags();
-            Shortcut = KeyboardShortcut.None;
+            Shortcut = None;
             okButton.Enabled = keySelector.SelectedIndex >= 0;
         }
 
@@ -52,6 +53,19 @@ namespace SuperSize.UI.Dialogs
             AssignModifierTags();
             Shortcut = shortcut;
             okButton.Enabled = keySelector.SelectedIndex >= 0;
+        }
+
+        public static KeyboardShortcut? ShowDialog(KeyboardShortcut? shortcut)
+        {
+            var dialog = new KeyboardShortcutDialog(shortcut ?? None);
+            var result = dialog.ShowDialog();
+
+            return result == DialogResult.OK ? dialog.Shortcut : null;
+        }
+
+        public static KeyboardShortcut? ShowDialog(Keys keys, ModKeys modifier)
+        {
+            return ShowDialog(new(keys, modifier));
         }
 
         private void AssignModifierTags()
@@ -73,7 +87,6 @@ namespace SuperSize.UI.Dialogs
         private void cancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

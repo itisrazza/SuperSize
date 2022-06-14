@@ -133,19 +133,14 @@ namespace SuperSize.UI.Controls
         private void keybindChangeBtn_Click(object sender, EventArgs e)
         {
             var settings = Properties.Settings.Default;
-            using var shortcutDialog = new KeyboardShortcutDialog(
-                new()
-                {
-                    Modifier = (ModifierKeys)settings.ShortcutModifier,
-                    Key = (Keys)settings.ShortcutKey
-                });
+            var shortcut = KeyboardShortcutDialog.ShowDialog((Keys)settings.ShortcutKey, (ModifierKeys)settings.ShortcutModifier);
+            if (shortcut == null) return;
 
-            var result = shortcutDialog.ShowDialog();
-            if (result != DialogResult.OK) return;
-
-            settings.ShortcutKey = (uint)shortcutDialog.Key;
-            settings.ShortcutModifier = (uint)shortcutDialog.Modifier;
+            settings.ShortcutKey = (uint)shortcut.Value.Key;
+            settings.ShortcutModifier = (uint)shortcut.Value.Modifier;
             settings.Save();
+
+            UpdateKeybindPreview();
         }
 
         private void UpdateKeybindPreview()

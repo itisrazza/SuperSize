@@ -99,12 +99,14 @@ namespace SuperSize.UI.Controls
             // 
             // keybindPreviewLbl
             // 
+            this.keybindPreviewLbl.AutoEllipsis = true;
+            this.keybindPreviewLbl.AutoSize = true;
             this.keybindPreviewLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keybindPreviewLbl.Location = new System.Drawing.Point(119, 0);
             this.keybindPreviewLbl.Name = "keybindPreviewLbl";
             this.keybindPreviewLbl.Size = new System.Drawing.Size(167, 29);
             this.keybindPreviewLbl.TabIndex = 2;
-            this.keybindPreviewLbl.Text = "-";
+            this.keybindPreviewLbl.Text = "Modifier + Keys";
             this.keybindPreviewLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // keybindChangeBtn
