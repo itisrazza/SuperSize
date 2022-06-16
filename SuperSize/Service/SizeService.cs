@@ -1,6 +1,6 @@
 ﻿using SuperSize.Model;
 using SuperSize.OS;
-using SuperSize.Plugin;
+using SuperSize.PluginBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +45,7 @@ namespace SuperSize.Service
             {
                 var settings = Properties.Settings.Default;
                 settings.LogicClass = value?.GetType().FullName;
-                if (value?.HasConfig ?? false) ConfigService.Save(value.DefaultConfig);
+                if (value?.HasConfig ?? false) SettingsService.Save(value.DefaultConfig);
                 settings.Save();
             }
         }

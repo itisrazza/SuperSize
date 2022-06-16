@@ -27,11 +27,6 @@ namespace SuperSize.PluginBase
         public abstract Settings GetLogicSettings(Guid logic);
 
         /// <summary>
-        /// Get a read-only copy of these settings.
-        /// </summary>
-        public abstract Settings GetReadOnly();
-
-        /// <summary>
         /// Save these settings.
         /// </summary>
         public abstract void Save();
@@ -40,6 +35,8 @@ namespace SuperSize.PluginBase
         /// Reload these settings. Changes made will be discarded.
         /// </summary>
         public abstract void Reload();
+
+        #region IDictionary implementation
 
         public abstract void Add(string key, string value);
 
@@ -62,5 +59,7 @@ namespace SuperSize.PluginBase
         public abstract IEnumerator<KeyValuePair<string, string>> GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        #endregion
     }
 }

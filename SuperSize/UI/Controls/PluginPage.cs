@@ -1,4 +1,4 @@
-﻿using SuperSize.Plugin;
+﻿using SuperSize.PluginBase;
 using SuperSize.Service;
 using System;
 using System.Collections.Generic;

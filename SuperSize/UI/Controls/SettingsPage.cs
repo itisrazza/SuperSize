@@ -1,4 +1,4 @@
-﻿using SuperSize.Plugin;
+﻿using SuperSize.PluginBase;
 using SuperSize.Service;
 using SuperSize.UI.Dialogs;
 using SuperSize.UI.Forms;
@@ -28,8 +28,8 @@ namespace SuperSize.UI.Controls
         {
             // add logic to the combo box
             comboBox1.Items.AddRange(SizeService.KnownLogic.Select((logic) => logic).ToArray());
-            comboBox1.SelectedItem = SizeService.SelectedLogic;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;   // late bind this event
+            comboBox1.SelectedItem = SizeService.SelectedLogic;
 
             // update components
             UpdateSizePreview();
@@ -111,7 +111,7 @@ namespace SuperSize.UI.Controls
         {
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object? sender, EventArgs e)
         {
             if (comboBox1.SelectedItem is LogicBase logic)
             {
@@ -154,7 +154,7 @@ namespace SuperSize.UI.Controls
             var plugin = SizeService.SelectedLogic;
             if (plugin == null) return;
 
-            plugin.DoConfig(ConfigService.GetConfigProvider());
+            plugin.DoConfig(SettingsService.GetSettings());
         }
 
         private void testBtn_Click(object sender, EventArgs e)
