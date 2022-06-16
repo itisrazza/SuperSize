@@ -1,4 +1,4 @@
-﻿using SuperSize.Plugin;
+﻿using SuperSize.PluginBase;
 using SuperSize.Service;
 using System;
 using System.Collections.Generic;
@@ -25,13 +25,13 @@ namespace SuperSize
             height = rectangle.Height;
         }
 
-        public static Rectangle Calculate(this LogicBase logic)
+        public static Rectangle Calculate(this Logic logic)
         {
             if (logic == null) logic = PluginService.NullLogic;
-            return logic.DoSize(Screen.AllScreens);
+            return logic.CalculateWindowSize(Screen.AllScreens, SettingsService.GetSettings(logic)).Result;
         }
 
-        public static string DllPath(this PluginBase plugin)
+        public static string DllPath(this Plugin plugin)
             => plugin.GetType().Assembly.Location;
     }
 }

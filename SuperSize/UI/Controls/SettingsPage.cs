@@ -1,15 +1,11 @@
-﻿using SuperSize.Plugin;
+﻿using SuperSize.PluginBase;
 using SuperSize.Service;
 using SuperSize.UI.Dialogs;
 using SuperSize.UI.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SuperSize.Model.KeyboardShortcut;
 
@@ -28,8 +24,8 @@ namespace SuperSize.UI.Controls
         {
             // add logic to the combo box
             comboBox1.Items.AddRange(SizeService.KnownLogic.Select((logic) => logic).ToArray());
-            comboBox1.SelectedItem = SizeService.SelectedLogic;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;   // late bind this event
+            comboBox1.SelectedItem = SizeService.SelectedLogic;
 
             // update components
             UpdateSizePreview();
@@ -111,12 +107,11 @@ namespace SuperSize.UI.Controls
         {
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem is LogicBase logic)
+            if (comboBox1.SelectedItem is Logic logic)
             {
                 SizeService.SelectedLogic = logic;
-                settingsBtn.Enabled = logic.HasConfig;
             }
             UpdateSizePreview();
         }
@@ -151,10 +146,10 @@ namespace SuperSize.UI.Controls
 
         private void settingsBtn_Click_1(object sender, EventArgs e)
         {
-            var plugin = SizeService.SelectedLogic;
-            if (plugin == null) return;
+            var logic = SizeService.SelectedLogic;
+            if (logic == null) return;
 
-            plugin.DoConfig(ConfigService.GetConfigProvider());
+            logic.ShowSettings(SettingsService.GetSettings(logic));
         }
 
         private void testBtn_Click(object sender, EventArgs e)
@@ -172,6 +167,11 @@ namespace SuperSize.UI.Controls
                 Location = result.Value.Location,
                 Size = result.Value.Size
             }.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using SuperSize.Plugin;
+using SuperSize.PluginBase;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -40,12 +40,12 @@ namespace SuperSize.Service
             UserPluginFolder
         );
 
-        private static List<PluginBase>? _plugins = null;
+        private static List<Plugin>? _plugins = null;
 
         /// <summary>
         /// Available plugins.
         /// </summary>
-        public static IEnumerable<PluginBase> Plugins
+        public static IEnumerable<Plugin> Plugins
         {
             get
             {
@@ -53,9 +53,9 @@ namespace SuperSize.Service
             }
         }
 
-        public static LogicBase NullLogic { get; } = new NullLogicImpl();
+        public static Logic NullLogic { get; } = new NullLogicImpl();
 
-        private static List<PluginBase> UpdatePlugins()
+        private static List<Plugin> UpdatePlugins()
         {
             _plugins = GetPlugins();
             return _plugins;
@@ -65,17 +65,11 @@ namespace SuperSize.Service
         /// Return a list of available plugins.
         /// </summary>
         /// <returns></returns>
-        public static List<PluginBase> GetPlugins()
+        public static List<Plugin> GetPlugins()
         {
-            var plugins = new List<PluginBase>();
-            foreach (var searchLocation in SearchLocations)
-            {
-                foreach (var file in Directory.EnumerateFiles(searchLocation, "*.dll", SearchOption.AllDirectories))
-                {
-                    plugins.Add(GetPlugin(file));
-                }
-            }
-            return plugins;
+            return SearchLocations
+                .SelectMany(location => Directory.EnumerateFiles(location, "*.dll", SearchOption.AllDirectories))
+                .SelectMany(dllFiles => GetPlugins(dllFiles)).ToList();
         }
 
         /// <summary>
@@ -83,18 +77,18 @@ namespace SuperSize.Service
         /// </summary>
         /// <param name="dllPath">Path to DLL.</param>
         /// <returns>Plugin information.</returns>
-        public static PluginBase GetPlugin(string dllPath)
+        public static IEnumerable<Plugin> GetPlugins(string dllPath)
         {
-            return GetPluginFromAssembly(Assembly.LoadFile(dllPath));
+            return GetPluginsFromAssembly(Assembly.LoadFile(dllPath));
         }
 
         public static void InstallPlugin(string dllPath)
         {
             _plugins ??= UpdatePlugins();
-            
-            var plugin = GetPlugin(dllPath);
+
+            var plugins = GetPlugins(dllPath);
             File.Copy(dllPath, Path.Join(UserPluginFolder, Path.GetFileName(dllPath)), true);
-            _plugins.Add(plugin);
+            _plugins.AddRange(plugins);
         }
 
         /// <summary>
@@ -102,17 +96,15 @@ namespace SuperSize.Service
         /// </summary>
         /// <param name="assembly">Plugin to retrieve.</param>
         /// <exception cref="EntryPointNotFoundException" />
-        private static PluginBase GetPluginFromAssembly(Assembly assembly)
+        private static IEnumerable<Plugin> GetPluginsFromAssembly(Assembly assembly)
         {
             try
             {
-                var pluginClass = GetPluginClass(assembly);
-                var pluginBase = Activator.CreateInstance(pluginClass) as PluginBase;
-                return pluginBase ?? throw new NullReferenceException();
+                return GetPluginTypes(assembly).Select(type => Activator.CreateInstance(type) as Plugin ?? throw new InvalidCastException());
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new PluginFailureException(assembly.Location, "Failed to retrieve plugin information.", e);
+                throw new PluginFailureException(assembly.Location, "Failed to load plugin assembly and information.", ex);
             }
         }
 
@@ -120,30 +112,23 @@ namespace SuperSize.Service
         /// Retrives the plugin information class from the assembly.
         /// </summary>
         /// <param name="assembly">Assembly to retrieve class from.</param>
-        /// <returns><see cref="Type"/> extending <see cref="PluginBase"/>.</returns>
+        /// <returns><see cref="Type"/> extending <see cref="Plugin"/>.</returns>
         /// <exception cref="EntryPointNotFoundException" />
-        private static Type GetPluginClass(Assembly assembly)
+        private static IEnumerable<Type> GetPluginTypes(Assembly assembly)
         {
-            try
-            {
-                return assembly.GetTypes()
-                    .Where(type => type.Name == "Plugin" && type.BaseType == typeof(PluginBase))
-                    .First();
-            }
-            catch (InvalidOperationException e)
-            {
-                throw new EntryPointNotFoundException("The assembly is missing a Plugin class extending PluginBase.", e);
-            }
+            return assembly.GetTypes().Where(type => type.BaseType == typeof(Plugin));
         }
 
-        private class NullLogicImpl : LogicBase
+        private class NullLogicImpl : Logic
         {
-            public override string Name { get; } = string.Empty;
+            public override string DisplayName => string.Empty;
 
-            public override Rectangle DoSize(Screen[] screens, Plugin.Config.Object? config = null)
+            public override Task<Rectangle> CalculateWindowSize(Screen[] screens, Settings settings)
             {
-                return new(0, 0, 0, 0);
+                throw new NotImplementedException("No size logic is available.");
             }
+
+            public override void ShowSettings(Settings settings) => DisplayNoSettingsMessage();
         }
     }
 }

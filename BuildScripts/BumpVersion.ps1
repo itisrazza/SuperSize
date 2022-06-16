@@ -45,7 +45,7 @@ Write-Host
 # write to project files
 
 [xml] $mainProj = Get-Content "SuperSize\SuperSize.csproj"
-[xml] $pluginSdkProj = Get-Content "SuperSize.Plugin\SuperSize.Plugin.csproj"
+[xml] $pluginSdkProj = Get-Content "SuperSize.PluginBase\SuperSize.PluginBase.csproj"
 [xml] $coreLogicProj = Get-Content "SuperSize.CoreLogic\SuperSize.CoreLogic.csproj"
 
 $mainProj.Project.PropertyGroup.Version = $version
@@ -61,5 +61,5 @@ $coreLogicProj.PreserveWhitespace = $true
 
 $dir = Get-Location
 $mainProj.Save("$dir\SuperSize\SuperSize.csproj")
-$pluginSdkProj.Save("$dir\SuperSize.Plugin\SuperSize.Plugin.csproj")
+$pluginSdkProj.Save("$dir\SuperSize.PluginBase\SuperSize.PluginBase.csproj")
 $coreLogicProj.Save("$dir\SuperSize.CoreLogic\SuperSize.CoreLogic.csproj")

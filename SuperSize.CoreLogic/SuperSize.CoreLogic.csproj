@@ -5,6 +5,6 @@
 		<Version>0.3.0.0</Version>
 	</PropertyGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\SuperSize.Plugin\SuperSize.Plugin.csproj" />
+		<ProjectReference Include="..\SuperSize.PluginBase\SuperSize.PluginBase.csproj" />
 	</ItemGroup>
 </Project>

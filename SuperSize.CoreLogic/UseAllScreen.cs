@@ -1,19 +1,18 @@
-﻿using SuperSize.Plugin;
+﻿using SuperSize.PluginBase;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SuperSize.CoreLogic
 {
-    public class UseAllScreen : LogicBase
+    [Guid("E9CAE8C8-02F8-4969-ABCB-28172516A3A4")]
+    public class UseAllScreen : Logic
     {
-        public override string Name { get; } = "Use all the screen real estate";
+        public override string DisplayName { get; } = "Use all the screen real estate";
 
-        public override Rectangle DoSize(Screen[] screens, SuperSize.Plugin.Config.Object config = null)
+        public override Task<Rectangle> CalculateWindowSize(Screen[] screens, Settings config)
         {
             var left = int.MaxValue;
             var top = int.MaxValue;
@@ -27,7 +26,12 @@ namespace SuperSize.CoreLogic
                 right = Math.Max(right, bounds.Right);
                 bottom = Math.Max(bottom, bounds.Bottom);
             }
-            return Rectangle.FromLTRB(left, top, right, bottom);
+            return Task.FromResult(Rectangle.FromLTRB(left, top, right, bottom));
+        }
+
+        public override void ShowSettings(Settings settings)
+        {
+            DisplayNoSettingsMessage();
         }
     }
 }
