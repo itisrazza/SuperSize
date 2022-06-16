@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['settings_2emd_8',['settings.md',['../settings_8md.html',1,'']]]
+  ['mainpage_2emd_45',['mainpage.md',['../mainpage_8md.html',1,'']]]
 ];
