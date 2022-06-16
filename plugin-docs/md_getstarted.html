@@ -67,17 +67,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>To get started with creating a plugin, you first need the <a href="https://dotnet.microsoft.com/download/dotnet">.NET SDK</a> installed. If you're using <a href="https://visualstudio.microsoft.com/">Visual Studio</a>, this comes built-in.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md1"></a>
 Creating a Windows Forms Class Library</h1>
 <p>The first step is to create a Windows Forms Class Library:</p>
 <div class="fragment"><div class="line">&gt; mkdir CoolRandomWindow</div>
 <div class="line">&gt; dotnet new winformslib</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
 Get SuperSize.Plugin</h1>
 <p>The package is not yet available on NuGet. But you can get the DLL from the releases.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Add Plugin Details</h1>
-<p>Create a new class and name it <code>Plugin</code>, extending the <a class="el" href="class_super_size_1_1_plugin_1_1_plugin_base.html">PluginBase</a> abstract class.</p>
+<p>Create a new class and name it <code>Plugin</code>, extending the PluginBase abstract class.</p>
 <div class="fragment"><div class="line">public class Plugin : PluginBase</div>
 <div class="line">{</div>
 <div class="line"> </div>
@@ -98,8 +98,33 @@ Add Plugin Details</h1>
 <div class="line">        typeof(CoolRandomWindowLogic)</div>
 <div class="line">    };</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Add Logic</h1>
+<p>To add logic, create a new class and extend the Logic class, then override DisplayName, CalculateWindowSize and ShowSettings.</p>
+<div class="fragment"><div class="line">public class UseAllScreen : Logic</div>
+<div class="line">{</div>
+<div class="line">  public override string DisplayName { get; } = &quot;Use all the screen real estate&quot;;</div>
+<div class="line"> </div>
+<div class="line">  public override Task&lt;Rectangle&gt; CalculateWindowSize(Screen[] screens, Settings config)</div>
+<div class="line">  {</div>
+<div class="line">    var left = int.MaxValue;</div>
+<div class="line">    var top = int.MaxValue;</div>
+<div class="line">    var right = int.MinValue;</div>
+<div class="line">    var bottom = int.MinValue;</div>
+<div class="line">    foreach (var screen in screens)</div>
+<div class="line">    {</div>
+<div class="line">      var bounds = screen.Bounds;</div>
+<div class="line">      left = Math.Min(left, bounds.Left);</div>
+<div class="line">      top = Math.Min(top, bounds.Top);</div>
+<div class="line">      right = Math.Max(right, bounds.Right);</div>
+<div class="line">      bottom = Math.Max(bottom, bounds.Bottom);</div>
+<div class="line">    }</div>
+<div class="line">    return Task.FromResult(Rectangle.FromLTRB(left, top, right, bottom));</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  public override void ShowSettings(Settings settings) =&gt; DisplayNoSettingsMessage();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>CalculateWindowSize receives a list of screens and the settings object to help with calculating the size for the window. For details on settings, see <a class="el" href="md_settings.html">Storing and Retrieving Settings</a>. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getstarted_2emd_75',['getstarted.md',['../getstarted_8md.html',1,'']]]
+  ['settings_2emd_8',['settings.md',['../settings_8md.html',1,'']]]
 ];
