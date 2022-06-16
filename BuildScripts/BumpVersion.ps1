@@ -48,9 +48,9 @@ Write-Host
 [xml] $pluginSdkProj = Get-Content "SuperSize.PluginBase\SuperSize.PluginBase.csproj"
 [xml] $coreLogicProj = Get-Content "SuperSize.CoreLogic\SuperSize.CoreLogic.csproj"
 
-$mainProj.Project.PropertyGroup.Version = $version
-$mainProj.Project.PropertyGroup.FileVersion = $version
-$mainProj.Project.PropertyGroup.InformationalVersion = $version
+$mainProj.Project.PropertyGroup[0].Version = $version
+$mainProj.Project.PropertyGroup[0].FileVersion = $version
+$mainProj.Project.PropertyGroup[0].InformationalVersion = $version
 
 $pluginSdkProj.Project.PropertyGroup.Version = $version
 $coreLogicProj.Project.PropertyGroup.Version = $version

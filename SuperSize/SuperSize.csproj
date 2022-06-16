@@ -6,24 +6,24 @@
 		<Nullable>enable</Nullable>
 		<StartupObject>SuperSize.Program</StartupObject>
 		<ApplicationIcon>Logo.ico</ApplicationIcon>
-		<Version>0.3.0.0</Version>
-		<FileVersion>0.3.0.0</FileVersion>
-		<InformationalVersion>0.3.0.0</InformationalVersion>
+		<Version>0.4.0.0</Version>
+		<FileVersion>0.4.0.0</FileVersion>
+		<InformationalVersion>0.4.0.0</InformationalVersion>
 		<MinimumPlatformVersion>7.0</MinimumPlatformVersion>
 		<UseWPF>True</UseWPF>
 		<DebugType>embedded</DebugType>
 		<SignAssembly>False</SignAssembly>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
-	  <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
-	  <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
 	</PropertyGroup>
 	<ItemGroup>
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\SuperSize.PluginBase\SuperSize.PluginBase.csproj" />
