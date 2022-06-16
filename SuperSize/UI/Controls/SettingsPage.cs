@@ -3,13 +3,9 @@ using SuperSize.Service;
 using SuperSize.UI.Dialogs;
 using SuperSize.UI.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SuperSize.Model.KeyboardShortcut;
 
@@ -113,10 +109,9 @@ namespace SuperSize.UI.Controls
 
         private void comboBox1_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem is LogicBase logic)
+            if (comboBox1.SelectedItem is Logic logic)
             {
                 SizeService.SelectedLogic = logic;
-                settingsBtn.Enabled = logic.HasConfig;
             }
             UpdateSizePreview();
         }
@@ -151,10 +146,10 @@ namespace SuperSize.UI.Controls
 
         private void settingsBtn_Click_1(object sender, EventArgs e)
         {
-            var plugin = SizeService.SelectedLogic;
-            if (plugin == null) return;
+            var logic = SizeService.SelectedLogic;
+            if (logic == null) return;
 
-            plugin.DoConfig(SettingsService.GetSettings());
+            logic.ShowSettings(SettingsService.GetSettings(logic));
         }
 
         private void testBtn_Click(object sender, EventArgs e)
@@ -172,6 +167,11 @@ namespace SuperSize.UI.Controls
                 Location = result.Value.Location,
                 Size = result.Value.Size
             }.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

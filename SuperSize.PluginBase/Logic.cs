@@ -58,5 +58,10 @@ namespace SuperSize.PluginBase
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Exclamation);
         }
+
+        public override string ToString()
+        {
+            return DisplayName;
+        }
     }
 }

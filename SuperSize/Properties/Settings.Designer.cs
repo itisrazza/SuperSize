@@ -157,9 +157,10 @@ namespace SuperSize.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Generic.Dictionary LogicSettings {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LogicSettings {
             get {
-                return ((global::System.Collections.Generic.Dictionary)(this["LogicSettings"]));
+                return ((string)(this["LogicSettings"]));
             }
             set {
                 this["LogicSettings"] = value;

@@ -21,6 +21,11 @@ namespace SuperSize.Service
         /// </summary>
         public static Settings GetSettings(Guid logicGuid, bool readOnly = false)
         {
+            if (!_logicConfig.ContainsKey(logicGuid))
+            {
+                _logicConfig[logicGuid] = new();
+            }
+
             return new SettingsImpl(new(_logicConfig[logicGuid]), logicGuid);
         }
 

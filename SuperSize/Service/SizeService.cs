@@ -14,17 +14,17 @@ namespace SuperSize.Service
     /// </summary>
     public static class SizeService
     {
-        private static Dictionary<string, LogicBase> _lookUpTable = new();
-        private static HashSet<LogicBase>? _knownLogic = null;
+        private static Dictionary<string, Logic> _lookUpTable = new();
+        private static HashSet<Logic>? _knownLogic = null;
 
-        public static ICollection<LogicBase> KnownLogic
+        public static ICollection<Logic> KnownLogic
         {
             get
             {
                 if (_knownLogic == null)
                 {
                     _knownLogic = PluginService.Plugins
-                        .SelectMany((plugin) => plugin.AvailableLogic)
+                        .SelectMany((plugin) => plugin.Logic)
                         .ToHashSet();
                     _lookUpTable = _knownLogic
                         .ToDictionary((plugin) => plugin.GetType().FullName ?? plugin.GetType().Name);
@@ -33,7 +33,7 @@ namespace SuperSize.Service
             }
         }
 
-        public static LogicBase? SelectedLogic
+        public static Logic? SelectedLogic
         {
             get
             {
@@ -45,7 +45,6 @@ namespace SuperSize.Service
             {
                 var settings = Properties.Settings.Default;
                 settings.LogicClass = value?.GetType().FullName;
-                if (value?.HasConfig ?? false) SettingsService.Save(value.DefaultConfig);
                 settings.Save();
             }
         }
@@ -57,7 +56,7 @@ namespace SuperSize.Service
             SizeWindow(window, logic);
         }
 
-        public static void SizeWindow(IntPtr window, LogicBase logic)
+        public static void SizeWindow(IntPtr window, Logic logic)
         {
             NativeImports.SetForegroundWindow(window);
             NativeImports.ShowWindowAsync(window, nCmdShow: 1 /* regular */);

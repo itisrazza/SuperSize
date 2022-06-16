@@ -19,15 +19,15 @@ namespace SuperSize.UI.Controls
             InitializeComponent();
         }
 
-        private PluginBase? SelectedPlugin => pluginListView.SelectedItems.Count == 0
+        private Plugin? SelectedPlugin => pluginListView.SelectedItems.Count == 0
             ? null
-            : pluginListView.SelectedItems[0].Tag as PluginBase;
+            : pluginListView.SelectedItems[0].Tag as Plugin;
 
         private void PluginPage_Load(object sender, EventArgs e)
         {
             foreach (var plugin in PluginService.Plugins)
             {
-                var item = new ListViewItem(new string[] { plugin.Name, plugin.Author, plugin.DllPath() })
+                var item = new ListViewItem(new string[] { plugin.DisplayName, plugin.Author, plugin.DllPath() })
                 {
                     Tag = plugin
                 };
@@ -49,14 +49,14 @@ namespace SuperSize.UI.Controls
 
         private void UpdatePluginMenuStrip()
         {
-            lblName.Text = SelectedPlugin?.Name;
+            lblName.Text = SelectedPlugin?.DisplayName;
             lblAuthor.Text = SelectedPlugin?.Author;
         }
 
         private void btnShowLocation_Click(object sender, EventArgs e)
         {
             var plugin = SelectedPlugin;
-            if (plugin == null) return;
+            if (plugin is null) return;
 
             Utilities.ShowInExplorer(plugin.DllPath());
         }

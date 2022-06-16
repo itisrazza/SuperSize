@@ -35,7 +35,7 @@
     <Setting Name="LogicConfig" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="LogicSettings" Type="System.Collections.Generic.Dictionary" Scope="User">
+    <Setting Name="LogicSettings" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
