@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperSize.Plugin
+namespace SuperSize.PluginBase
 {
     public abstract class Plugin
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SuperSize.Plugin
+namespace SuperSize.PluginBase
 {
 
     public abstract class Logic
