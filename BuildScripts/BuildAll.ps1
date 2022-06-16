@@ -17,11 +17,11 @@ if (-not(Test-Path "Releases/Plugins")) { New-Item -ItemType "directory" -Path "
 echo ""
 echo ""
 echo "++ BUILDING SDK PLUGIN"
-cd SuperSize.Plugin
+cd SuperSize.PluginBase
 if (Test-Path "bin/$configuration/$dotnetVersion/publish") { Remove-Item -Recurse -Force "bin/$configuration/$dotnetVersion/publish" }
 dotnet publish -c $configuration -f $dotnetVersion
 dotnet pack -c $configuration
-cp "bin/Release/$dotnetVersion/publish/SuperSize.Plugin.dll" "../Releases/Plugins"
+cp "bin/Release/$dotnetVersion/publish/SuperSize.PluginBase.dll" "../Releases/Plugins"
 cd ..
 
 # build cross-platform release for core logic library
