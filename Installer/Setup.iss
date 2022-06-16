@@ -60,6 +60,3 @@ Filename: "{app}\windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"; Parameters: "
 
 [InstallDelete]
 Type: files; Name: "{app}\windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"
-
-Name: "{app}\Plugins"
-Name: "{app}\Plugins"
