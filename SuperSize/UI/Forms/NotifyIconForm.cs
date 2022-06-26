@@ -68,9 +68,9 @@ namespace SuperSize.UI.Forms
             Hide();
 
             // if the user hasn't been onboarded, do that now
-            if (!Properties.Settings.Default.WasOnboarded)
+            //if (!Properties.Settings.Default.WasOnboarded)
             {
-                new WelcomeForm().Show();
+                new WelcomeWindow().Show();
             }
         }
 

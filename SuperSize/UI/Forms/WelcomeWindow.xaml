@@ -1,0 +1,32 @@
+﻿<Window x:Class="SuperSize.UI.Forms.WelcomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
+        xmlns:local="clr-namespace:SuperSize.UI.Forms" xmlns:shell1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Welcome to SuperSize" 
+        Width="320" Height="300"
+        ResizeMode="NoResize" 
+        WindowStyle="None"
+        Icon="/Resources/Logo.64.png" 
+        Closing="Window_Closing" 
+        WindowStartupLocation="CenterScreen">
+    <shell1:WindowChrome.WindowChrome>
+        <shell1:WindowChrome CaptionHeight="200"
+                             CornerRadius="16,16,16,16"
+                             GlassFrameThickness="0"
+                             UseAeroCaptionButtons="False"/>
+    </shell1:WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="HeroImage" VerticalAlignment="Top" Width="320" Height="200"/>
+        <TextBlock x:Name="HeroDescription" Margin="10,200,10,40" TextWrapping="WrapWithOverflow"><Run Language="en-nz" Text="Welcome to SuperSize."/></TextBlock>
+        <Button x:Name="SkipButton" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Height="25" Margin="10,0,0,10" Click="SkipButton_Click">Skip</Button>
+        <Button x:Name="NextButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Height="25" Margin="0,0,10,10" Click="NextButton_Click">Next</Button>
+        <Button x:Name="StartButton" Visibility="Hidden" VerticalAlignment="Bottom" Height="25" Margin="95,0,90,10" Click="SkipButton_Click">Start using SuperSize</Button>
+    </Grid>
+</Window>
