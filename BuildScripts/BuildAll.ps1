@@ -1,12 +1,12 @@
 . .\BuildScripts\Utilities.ps1
 
 $configuration = "Release"
-$dotnetVersion = "net5.0-windows"
+$dotnetVersion = "net7.0-windows"
 $targetPlatforms = @(
     "win-x86"
     "win-x64"
     # "win-arm"
-    # "win-arm64"
+    "win-arm64"
 )
 
 # create a releases folder

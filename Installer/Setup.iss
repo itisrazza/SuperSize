@@ -44,8 +44,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\SuperSize\bin\Release\net5.0-windows\{#AppPlatform}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\SuperSize\bin\Release\net5.0-windows\{#AppPlatform}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs 32bit
+Source: "..\SuperSize\bin\Release\net7.0-windows\{#AppPlatform}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\SuperSize\bin\Release\net7.0-windows\{#AppPlatform}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs 32bit
 Source: "windowsdesktop-runtime-5.0.4-{#AppPlatform}.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\Releases\Plugins\SuperSize.CoreLogic.dll"; DestDir: "{app}\Plugins"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
