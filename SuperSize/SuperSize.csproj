@@ -1,82 +1,82 @@
-<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0-windows</TargetFramework>
-		<UseWindowsForms>true</UseWindowsForms>
-		<Nullable>enable</Nullable>
-		<StartupObject>SuperSize.Program</StartupObject>
-		<ApplicationIcon>Logo.ico</ApplicationIcon>
-		<Version>0.4.0.0</Version>
-		<FileVersion>0.4.0.0</FileVersion>
-		<InformationalVersion>0.4.0.0</InformationalVersion>
-		<MinimumPlatformVersion>7.0</MinimumPlatformVersion>
-		<UseWPF>True</UseWPF>
-		<DebugType>embedded</DebugType>
-		<SignAssembly>False</SignAssembly>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
-	</PropertyGroup>
-	<ItemGroup>
-	  <None Remove="Resources\Bella.jpg" />
-	  <None Remove="Resources\Dev Build Warning.png" />
-	  <None Remove="Resources\Finish.png" />
-	  <None Remove="Resources\Get More Plugins.png" />
-	  <None Remove="Resources\Keyboard Shortcut.png" />
-	  <None Remove="Resources\Logo.128.png" />
-	  <None Remove="Resources\Logo.1281.png" />
-	  <None Remove="Resources\Logo.64.png" />
-	  <None Remove="Resources\Script.128.png" />
-	  <None Remove="Resources\System Tray.png" />
-	  <None Remove="Resources\Welcome.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\SuperSize.PluginBase\SuperSize.PluginBase.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Resource Include="Resources\Bella.jpg" />
-	  <Resource Include="Resources\Dev Build Warning.png" />
-	  <Resource Include="Resources\Finish.png" />
-	  <Resource Include="Resources\Get More Plugins.png" />
-	  <Resource Include="Resources\Keyboard Shortcut.png" />
-	  <Resource Include="Resources\Logo.128.png" />
-	  <Resource Include="Resources\Logo.1281.png" />
-	  <Resource Include="Resources\Logo.64.png" />
-	  <Resource Include="Resources\Script.128.png" />
-	  <Resource Include="Resources\System Tray.png" />
-	  <Resource Include="Resources\Welcome.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Update="Properties\Resources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Resources.resx</DependentUpon>
-		</Compile>
-		<Compile Update="Properties\Settings.Designer.cs">
-			<DesignTimeSharedInput>True</DesignTimeSharedInput>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Settings.settings</DependentUpon>
-		</Compile>
-	</ItemGroup>
-	<ItemGroup>
-		<EmbeddedResource Update="Properties\Resources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-		<None Update="Properties\Settings.settings">
-			<Generator>SettingsSingleFileGenerator</Generator>
-			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
-		</None>
-	</ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+        <Nullable>enable</Nullable>
+        <StartupObject>SuperSize.Program</StartupObject>
+        <ApplicationIcon>Logo.ico</ApplicationIcon>
+        <Version>0.4.1.0</Version>
+        <FileVersion>0.4.1.0</FileVersion>
+        <InformationalVersion>0.4.1.0</InformationalVersion>
+        <MinimumPlatformVersion>7.0</MinimumPlatformVersion>
+        <UseWPF>True</UseWPF>
+        <DebugType>embedded</DebugType>
+        <SignAssembly>False</SignAssembly>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="Resources\Bella.jpg" />
+        <None Remove="Resources\Dev Build Warning.png" />
+        <None Remove="Resources\Finish.png" />
+        <None Remove="Resources\Get More Plugins.png" />
+        <None Remove="Resources\Keyboard Shortcut.png" />
+        <None Remove="Resources\Logo.128.png" />
+        <None Remove="Resources\Logo.1281.png" />
+        <None Remove="Resources\Logo.64.png" />
+        <None Remove="Resources\Script.128.png" />
+        <None Remove="Resources\System Tray.png" />
+        <None Remove="Resources\Welcome.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\SuperSize.PluginBase\SuperSize.PluginBase.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Resource Include="Resources\Bella.jpg" />
+        <Resource Include="Resources\Dev Build Warning.png" />
+        <Resource Include="Resources\Finish.png" />
+        <Resource Include="Resources\Get More Plugins.png" />
+        <Resource Include="Resources\Keyboard Shortcut.png" />
+        <Resource Include="Resources\Logo.128.png" />
+        <Resource Include="Resources\Logo.1281.png" />
+        <Resource Include="Resources\Logo.64.png" />
+        <Resource Include="Resources\Script.128.png" />
+        <Resource Include="Resources\System Tray.png" />
+        <Resource Include="Resources\Welcome.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Properties\Settings.Designer.cs">
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="Properties\Settings.settings">
+            <Generator>SettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
+    </ItemGroup>
 </Project>
