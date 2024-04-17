@@ -23,9 +23,9 @@ namespace SuperSize.UI.Controls
         private void SettingsPage_Load(object sender, EventArgs e)
         {
             // add logic to the combo box
-            comboBox1.Items.AddRange(SizeService.KnownLogic.Select((logic) => logic).ToArray());
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;   // late bind this event
-            comboBox1.SelectedItem = SizeService.SelectedLogic;
+            _logicComboBox.Items.AddRange(SizeService.KnownLogic.Select((logic) => logic).ToArray());
+            _logicComboBox.SelectedIndexChanged += LogicComboBoxChanged;   // late bind this event
+            _logicComboBox.SelectedItem = SizeService.SelectedLogic;
 
             // update components
             UpdateSizePreview();
@@ -107,18 +107,13 @@ namespace SuperSize.UI.Controls
         {
         }
 
-        private void comboBox1_SelectedIndexChanged(object? sender, EventArgs e)
+        private void LogicComboBoxChanged(object? sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem is Logic logic)
+            if (_logicComboBox.SelectedItem is Logic logic)
             {
                 SizeService.SelectedLogic = logic;
             }
             UpdateSizePreview();
-        }
-
-        public void Save()
-        {
-
         }
 
         //

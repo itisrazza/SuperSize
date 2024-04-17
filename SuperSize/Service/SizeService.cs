@@ -11,8 +11,12 @@ namespace SuperSize.Service
     /// </summary>
     public static class SizeService
     {
-        private static Dictionary<string, Logic> _lookUpTable = new();
-        private static HashSet<Logic> _knownLogic = new() { new CoreLogic.ExpandFromCentre(), new CoreLogic.UseAllScreen(), };
+        private static HashSet<Logic> _knownLogic = new() { 
+            new CoreLogic.ExpandFromCentre(),
+            new CoreLogic.UseAllScreen(),
+        };
+
+        private static Dictionary<string, Logic> _lookUpTable = new(_knownLogic.Select((logic) => new KeyValuePair<string, Logic>(logic.GetType().FullName!, logic)));
 
         public static ICollection<Logic> KnownLogic => _knownLogic;
 
