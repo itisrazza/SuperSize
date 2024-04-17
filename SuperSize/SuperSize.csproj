@@ -13,6 +13,7 @@
 		<UseWPF>True</UseWPF>
 		<DebugType>embedded</DebugType>
 		<SignAssembly>False</SignAssembly>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>

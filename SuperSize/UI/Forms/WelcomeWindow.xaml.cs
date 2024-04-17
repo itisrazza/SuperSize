@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Accessibility;
+using SuperSize.OS;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -6,10 +8,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -70,6 +74,17 @@ namespace SuperSize.UI.Forms
             var settings = Properties.Settings.Default;
             settings.WasOnboarded = true;
             settings.Save();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var _wih = new WindowInteropHelper(this);
+
+            unsafe
+            {
+                uint value = 2;
+                NativeImports.DwmSetWindowAttribute(_wih.Handle, 33, &value, sizeof(uint));
+            }
         }
     }
 }

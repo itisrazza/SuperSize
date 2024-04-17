@@ -125,7 +125,7 @@ namespace SuperSize.Service
 
             public override Task<Rectangle> CalculateWindowSize(Screen[] screens, Settings settings)
             {
-                throw new NotImplementedException("No size logic is available.");
+                return Task.FromResult(new Rectangle(0, 0, 800, 600));
             }
 
             public override void ShowSettings(Settings settings) => DisplayNoSettingsMessage();

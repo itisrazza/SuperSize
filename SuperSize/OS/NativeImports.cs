@@ -61,6 +61,9 @@ namespace SuperSize.OS
         /// <see cref="Model.Window.SetPosition(int, int, int, int)"/>
         [DllImport("user32.dll")]
         public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
+
+        [DllImport("dwmapi.dll")]
+        public static extern unsafe int DwmSetWindowAttribute(IntPtr hWnd, uint dwAttribute, void* pvAttribute, uint cbAttribute);
             
         public static class HWnd
         {
