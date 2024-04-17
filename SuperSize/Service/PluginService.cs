@@ -9,6 +9,7 @@ using System.Reflection;
 using SuperSize.PluginBase;
 using System.Drawing;
 using System.Windows.Forms;
+using SuperSize.CoreLogic;
 
 namespace SuperSize.Service
 {
@@ -69,7 +70,9 @@ namespace SuperSize.Service
         {
             return SearchLocations
                 .SelectMany(location => Directory.EnumerateFiles(location, "*.dll", SearchOption.AllDirectories))
-                .SelectMany(dllFiles => GetPlugins(dllFiles)).ToList();
+                .SelectMany(dllFiles => GetPlugins(dllFiles))
+                .Prepend(new CoreLogic.CoreLogic())
+                .ToList();
         }
 
         /// <summary>

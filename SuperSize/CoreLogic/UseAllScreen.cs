@@ -1,6 +1,7 @@
 ﻿using SuperSize.PluginBase;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,8 @@ namespace SuperSize.CoreLogic
 
         public override Task<Rectangle> CalculateWindowSize(Screen[] screens, Settings config)
         {
+
+
             var left = int.MaxValue;
             var top = int.MaxValue;
             var right = int.MinValue;

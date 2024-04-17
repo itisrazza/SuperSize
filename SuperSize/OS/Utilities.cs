@@ -36,6 +36,7 @@ namespace SuperSize.OS
 
             return list;
         }
+
         public static Rectangle GetAllScreenBounds()
         {
             var top = 0;

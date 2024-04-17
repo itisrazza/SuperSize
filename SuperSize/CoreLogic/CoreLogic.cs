@@ -14,6 +14,9 @@ namespace SuperSize.CoreLogic
 
         public override string Author { get; } = "Raresh Nistor";
 
-        public override IEnumerable<Logic> Logic => ImmutableList.Create(new UseAllScreen());
+        public override IEnumerable<Logic> Logic => ImmutableList.CreateRange(new Logic[] {
+            new UseAllScreen(),
+            new ExpandFromCentre(),
+        });
     }
 }
