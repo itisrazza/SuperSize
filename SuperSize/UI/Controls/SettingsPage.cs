@@ -1,4 +1,4 @@
-﻿using SuperSize.PluginBase;
+﻿using SuperSize.Model;
 using SuperSize.Service;
 using SuperSize.UI.Dialogs;
 using SuperSize.UI.Forms;

@@ -30,23 +30,6 @@ namespace SuperSize
             // preflight stuff
             ValidateDirectoryStructure();
 
-            // load plugins and refuse from working on failure
-            try
-            {
-                _ = PluginService.Plugins;    // cache plugins
-                _ = SizeService.KnownLogic;
-            }
-            catch (PluginFailureException e)
-            {
-                MessageBox.Show(
-                    e.ToString(),
-                    $"Failed to load \"{e.PluginPath}\"",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop);
-                Environment.ExitCode = 1;
-                return;
-            }
-
             // start the application
             ChangeHotkey(GetGlobalKeyboardShortcut());
             Application.Run(new NotifyIconForm());
@@ -64,12 +47,7 @@ namespace SuperSize
 
         public static void ValidateDirectoryStructure()
         {
-            // app folder stuff (should exist in distributable, create for testing)
-            CreateDirectoryIfNotExists(PluginService.ApplicationPluginFolder);
-
-            // create AppData folder stuff
             CreateDirectoryIfNotExists(AppDataDirectory);
-            CreateDirectoryIfNotExists(PluginService.UserPluginFolder);
         }
 
         private static void CreateDirectoryIfNotExists(string path)

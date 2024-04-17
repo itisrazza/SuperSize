@@ -40,9 +40,6 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\SuperSize.PluginBase\SuperSize.PluginBase.csproj" />
-    </ItemGroup>
-    <ItemGroup>
         <Resource Include="Resources\Bella.jpg" />
         <Resource Include="Resources\Dev Build Warning.png" />
         <Resource Include="Resources\Finish.png" />

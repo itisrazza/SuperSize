@@ -1,43 +1,38 @@
-﻿using SuperSize.PluginBase;
+﻿using SuperSize.Model;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SuperSize.CoreLogic
+namespace SuperSize.CoreLogic;
+
+[Guid("C5E84694-AEFD-4FEB-9FCC-765CA37B9A2C")]
+public class ExpandFromCentre : Logic
 {
-    [Guid("C5E84694-AEFD-4FEB-9FCC-765CA37B9A2C")]
-    public class ExpandFromCentre : Logic
+    public override string DisplayName { get; } = "Expand from centre";
+
+    public override Task<Rectangle> CalculateWindowSize(Settings config)
     {
-        public override string DisplayName { get; } = "Expand from centre";
+        var primary = Screen.PrimaryScreen.Bounds;
+        var centre = new Point(primary.Left + primary.Width / 2, primary.Height/ 2);
 
-        public override Task<Rectangle> CalculateWindowSize(Screen[] screens, Settings config)
-        {
-            var primary = Screen.PrimaryScreen.Bounds;
-            var centre = new Point(primary.Left + primary.Width / 2, primary.Height/ 2);
+        var allBounds = OS.Utilities.GetAllScreenBounds();
+        var targetTop = Math.Abs(centre.Y - allBounds.Top);
+        var targetRight = Math.Abs(centre.X - allBounds.Right);
+        var targetBottom = Math.Abs(centre.Y - allBounds.Bottom);
+        var targetLeft = Math.Abs(centre.X - allBounds.Left);
 
-            var allBounds = OS.Utilities.GetAllScreenBounds();
-            var targetTop = Math.Abs(centre.Y - allBounds.Top);
-            var targetRight = Math.Abs(centre.X - allBounds.Right);
-            var targetBottom = Math.Abs(centre.Y - allBounds.Bottom);
-            var targetLeft = Math.Abs(centre.X - allBounds.Left);
+        var targetWidth = Math.Min(targetLeft, targetRight);
+        var targetHeight = Math.Min(targetTop, targetBottom);
 
-            var targetWidth = Math.Min(targetLeft, targetRight);
-            var targetHeight = Math.Min(targetTop, targetBottom);
-
-            return Task.FromResult(
-                Rectangle.FromLTRB(
-                    centre.X - targetWidth,
-                    centre.Y - targetHeight, 
-                    2 * targetWidth, 
-                    2 * targetHeight
-                )
-            );
-        }
-
-        public override void ShowSettings(Settings settings)
-        {
-        }
+        return Task.FromResult(
+            Rectangle.FromLTRB(
+                centre.X - targetWidth,
+                centre.Y - targetHeight, 
+                2 * targetWidth, 
+                2 * targetHeight
+            )
+        );
     }
 }

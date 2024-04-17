@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSize.Test", "SuperSize.Test\SuperSize.Test.csproj", "{0756A4D4-A83E-4062-8527-70092B7284E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSize.PluginBase", "SuperSize.PluginBase\SuperSize.PluginBase.csproj", "{3DC55B46-8BB5-480F-AC1E-7D9C44E375D1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +26,6 @@ Global
 		{0756A4D4-A83E-4062-8527-70092B7284E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0756A4D4-A83E-4062-8527-70092B7284E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0756A4D4-A83E-4062-8527-70092B7284E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3DC55B46-8BB5-480F-AC1E-7D9C44E375D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DC55B46-8BB5-480F-AC1E-7D9C44E375D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DC55B46-8BB5-480F-AC1E-7D9C44E375D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DC55B46-8BB5-480F-AC1E-7D9C44E375D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

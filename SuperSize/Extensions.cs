@@ -1,9 +1,6 @@
-﻿using SuperSize.PluginBase;
+﻿using SuperSize.Model;
 using SuperSize.Service;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SuperSize
@@ -27,11 +24,12 @@ namespace SuperSize
 
         public static Rectangle Calculate(this Logic logic)
         {
-            if (logic == null) logic = PluginService.NullLogic;
-            return logic.CalculateWindowSize(Screen.AllScreens, SettingsService.GetSettings(logic)).Result;
-        }
+            if (logic == null)
+            {
+                return Rectangle.Empty;
+            }
 
-        public static string DllPath(this Plugin plugin)
-            => plugin.GetType().Assembly.Location;
+            return logic.CalculateWindowSize(SettingsService.GetSettings(logic)).Result;
+        }
     }
 }

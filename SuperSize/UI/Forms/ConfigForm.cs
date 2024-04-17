@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SuperSize.Model;
-using Screen = SuperSize.Model.Screen;
 using SuperSize.OS;
 using static SuperSize.Model.KeyboardShortcut;
 using SuperSize.Service;

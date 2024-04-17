@@ -2,21 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SuperSize.PluginBase
+namespace SuperSize.Model
 {
+    /// <summary>
+    /// Interfaces with the logic settings storage provider.
+    /// </summary>
     public abstract class Settings : IDictionary<string, string>
     {
-        public abstract ICollection<string> Keys { get; }
-
-        public abstract ICollection<string> Values { get; }
-
-        public abstract int Count { get; }
-
-        public abstract bool IsReadOnly { get; }
-
-        public abstract string this[string key] { get; set; }
-
         /// <summary>
         /// Retrieves a read-only of the settings for another logic.
         /// <para />
@@ -37,6 +33,16 @@ namespace SuperSize.PluginBase
         public abstract void Reload();
 
         #region IDictionary implementation
+
+        public abstract ICollection<string> Keys { get; }
+
+        public abstract ICollection<string> Values { get; }
+
+        public abstract int Count { get; }
+
+        public abstract bool IsReadOnly { get; }
+
+        public abstract string this[string key] { get; set; }
 
         public abstract void Add(string key, string value);
 

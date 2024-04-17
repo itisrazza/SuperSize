@@ -1,11 +1,8 @@
 ﻿using SuperSize.Model;
 using SuperSize.OS;
-using SuperSize.PluginBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SuperSize.Service
 {
@@ -15,30 +12,16 @@ namespace SuperSize.Service
     public static class SizeService
     {
         private static Dictionary<string, Logic> _lookUpTable = new();
-        private static HashSet<Logic>? _knownLogic = null;
+        private static HashSet<Logic> _knownLogic = new() { new CoreLogic.ExpandFromCentre(), new CoreLogic.UseAllScreen(), };
 
-        public static ICollection<Logic> KnownLogic
-        {
-            get
-            {
-                if (_knownLogic == null)
-                {
-                    _knownLogic = PluginService.Plugins
-                        .SelectMany((plugin) => plugin.Logic)
-                        .ToHashSet();
-                    _lookUpTable = _knownLogic
-                        .ToDictionary((plugin) => plugin.GetType().FullName ?? plugin.GetType().Name);
-                }
-                return _knownLogic;
-            }
-        }
+        public static ICollection<Logic> KnownLogic => _knownLogic;
 
         public static Logic? SelectedLogic
         {
             get
             {
                 var settings = Properties.Settings.Default;
-                return _lookUpTable.GetValueOrDefault(settings.LogicClass, PluginService.NullLogic);
+                return _lookUpTable.GetValueOrDefault(settings.LogicClass, new CoreLogic.UseAllScreen());
             }
 
             set
