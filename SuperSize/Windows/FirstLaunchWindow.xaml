@@ -1,0 +1,31 @@
+﻿<controls:MicaWindow x:Class="SuperSize.Windows.FirstLaunchWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:controls="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
+                     xmlns:local="clr-namespace:SuperSize.Windows"
+                     mc:Ignorable="d"
+                     Title="SuperSize"
+                     Height="350"
+                     Width="328"
+                     ResizeMode="NoResize"
+                     WindowStartupLocation="CenterScreen">
+    <DockPanel VerticalAlignment="Stretch">
+        <Image Name="HeroImage"
+               DockPanel.Dock="Top"
+               Source="pack://application:,,,/Assets/FirstLaunch/Welcome.png"
+               Margin="4" />
+        <controls:Button Name="NextButton"
+                         Click="OnNextButtonClicked"
+                         DockPanel.Dock="Bottom"
+                         Margin="8"
+                         Padding="8, 4">
+            Next
+        </controls:Button>
+
+        <TextBlock Name="HeroText" 
+                   Margin="8, 0" 
+                   TextWrapping="Wrap" />
+    </DockPanel>
+</controls:MicaWindow>

@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MicaWPF" Version="6.2.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Assets\FirstLaunch\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\FirstLaunch\DevBuildWarning.png" />
+      <Resource Include="Assets\FirstLaunch\DevBuildWarning.png" />
+      <None Remove="Assets\FirstLaunch\Finish.png" />
+      <Resource Include="Assets\FirstLaunch\Finish.png" />
+      <None Remove="Assets\FirstLaunch\GetMorePlugins.png" />
+      <Resource Include="Assets\FirstLaunch\GetMorePlugins.png" />
+      <None Remove="Assets\FirstLaunch\KeyboardShortcut.png" />
+      <Resource Include="Assets\FirstLaunch\KeyboardShortcut.png" />
+      <None Remove="Assets\FirstLaunch\SystemTray.png" />
+      <Resource Include="Assets\FirstLaunch\SystemTray.png" />
+      <None Remove="Assets\FirstLaunch\Welcome.png" />
+      <Resource Include="Assets\FirstLaunch\Welcome.png" />
+    </ItemGroup>
+
+</Project>
