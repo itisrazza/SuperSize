@@ -1,4 +1,4 @@
-﻿<controls:MicaWindow x:Class="SuperSize.MainWindow"
+﻿<controls:MicaWindow x:Class="SuperSize.Windows.SettingsWindow"
                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,8 @@
                      mc:Ignorable="d"
                      Title="SuperSize Settings"
                      Width="320" Height="500"
-                     ResizeMode="NoResize">
+                     ResizeMode="NoResize"
+                     Closing="OnWindowClosing">
     <StackPanel>
         <TextBlock Margin="8" TextWrapping="Wrap">
             Alright. Let's start from scratch again.

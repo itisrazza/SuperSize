@@ -1,0 +1,39 @@
+name: Releases
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      # prep the environment
+      - uses: actions/checkout@v1
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "7.0.102"
+      - uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install innosetup
+
+      # build and test the code
+      - run: dotnet build
+      - run: dotnet test
+
+      # publish and archive the different executables
+      - name: Build executables
+        run: ./BuildScripts/BuildAll.ps1
+      - name: Build installer
+        run: ./BuildScripts/BuildInstaller.ps1
+
+      # publish releases
+      - name: Publish release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            Releases/win-x86-installer.exe
+            Releases/win-x86-portable.zip
+            Releases/win-x64-portable.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

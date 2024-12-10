@@ -1,0 +1,31 @@
+name: Nightlies
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      # prep the environment
+      - uses: actions/checkout@v1
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "7.0.102"
+
+      # publish and archive the different executables
+      - name: Build executables
+        run: ./BuildScripts/BuildAll.ps1
+
+      # publish artifacts
+      - uses: actions/upload-artifact@v3
+        with:
+          name: "Windows (32-bit)"
+          path: Releases/win-x86-portable.zip
+      - uses: actions/upload-artifact@v3
+        with:
+          name: "Windows (64-bit)"
+          path: Releases/win-x64-portable.zip
+      - uses: actions/upload-artifact@v3
+        with:
+          name: "Windows (ARM64)"
+          path: Releases/win-arm64-portable.zip
