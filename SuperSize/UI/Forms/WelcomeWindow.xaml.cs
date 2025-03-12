@@ -18,10 +18,9 @@ public partial class WelcomeWindow : Window
     public static List<(string Image, string Text)> UserIntroduction = new()
     {
         { ("Welcome.png", "Kia ora. Welcome to SuperSize. Let’s get you up to speed.") },
-        { ("System Tray.png", "SuperSize runs in the background. You can access it’s settings by right clicking its icon in the system tray.") },
-        { ("Keyboard Shortcut.png", "To super-size the active window, use Windows + Esc. You can change the keyboard shortcut in the settings.") },
-        { ("Dev Build Warning.png", "This is an active development build. Please report any issues on GitHub. See ‘Send Feedback’ in the SuperSize tray menu.") },
-        { ("Get More Plugins.png", "You can add custom logic to SuperSize. Check out the official Python plugin and development kit from the SuperSize tray menu.") },
+        { ("SystemTray.png", "SuperSize runs in the background. You can access it’s settings by right clicking its icon in the system tray.") },
+        { ("KeyboardShortcut.png", "To super-size the active window, use Windows + Esc. You can change the keyboard shortcut in the settings.") },
+        { ("DevBuildWarning.png", "This is an active development build. Please report any issues on GitHub. See ‘Send Feedback’ in the SuperSize tray menu.") },
         { ("Finish.png", "Ka pai. You are ready to go.") }
     };
 

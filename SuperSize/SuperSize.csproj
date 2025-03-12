@@ -44,15 +44,22 @@
     <ItemGroup>
         <None Remove="Resources\Bella.jpg" />
         <None Remove="Resources\Dev Build Warning.png" />
+        <None Remove="Resources\DevBuildWarning.png" />
         <None Remove="Resources\Finish.png" />
         <None Remove="Resources\Get More Plugins.png" />
+        <None Remove="Resources\GetMorePlugins.png" />
         <None Remove="Resources\Keyboard Shortcut.png" />
+        <None Remove="Resources\KeyboardShortcut.png" />
         <None Remove="Resources\Logo.128.png" />
         <None Remove="Resources\Logo.1281.png" />
         <None Remove="Resources\Logo.64.png" />
         <None Remove="Resources\Script.128.png" />
         <None Remove="Resources\System Tray.png" />
+        <None Remove="Resources\SystemTray.png" />
         <None Remove="Resources\Welcome.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Logo.ico" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="IronPython" Version="3.4.1" />
@@ -66,15 +73,13 @@
     </ItemGroup>
     <ItemGroup>
         <Resource Include="Resources\Bella.jpg" />
-        <Resource Include="Resources\Dev Build Warning.png" />
+        <Resource Include="Resources\DevBuildWarning.png" />
         <Resource Include="Resources\Finish.png" />
-        <Resource Include="Resources\Get More Plugins.png" />
-        <Resource Include="Resources\Keyboard Shortcut.png" />
+        <Resource Include="Resources\GetMorePlugins.png" />
+        <Resource Include="Resources\KeyboardShortcut.png" />
         <Resource Include="Resources\Logo.128.png" />
-        <Resource Include="Resources\Logo.1281.png" />
         <Resource Include="Resources\Logo.64.png" />
-        <Resource Include="Resources\Script.128.png" />
-        <Resource Include="Resources\System Tray.png" />
+        <Resource Include="Resources\SystemTray.png" />
         <Resource Include="Resources\Welcome.png" />
     </ItemGroup>
     <ItemGroup>

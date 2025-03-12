@@ -1,8 +1,8 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="2.5" width="15" height="11" rx="2.5" fill="black" stroke="white"/>
-<rect x="2" y="4" width="12" height="8" rx="1" fill="white"/>
-<rect x="9.03528" y="4.1363" width="4" height="1" rx="0.5" transform="rotate(15 9.03528 4.1363)" fill="black"/>
-<rect x="10.8978" y="8.77646" width="4" height="1" rx="0.5" transform="rotate(-75 10.8978 8.77646)" fill="black"/>
-<rect x="6.96473" y="11.8637" width="4" height="1" rx="0.5" transform="rotate(-165 6.96473 11.8637)" fill="black"/>
+<rect x="1.25" y="3.25" width="13.5" height="9.5" rx="1.75" fill="black" stroke="white" stroke-width="0.5"/>
+<rect x="4.28769" y="1.57009" width="10.5" height="10.5" rx="1.25" transform="rotate(15 4.28769 1.57009)" fill="white" stroke="black" stroke-width="0.5"/>
+<rect x="9.03527" y="4.1363" width="4" height="1" rx="0.5" transform="rotate(15 9.03527 4.1363)" fill="black"/>
+<rect x="10.8978" y="8.77645" width="4" height="1" rx="0.5" transform="rotate(-75 10.8978 8.77645)" fill="black"/>
+<rect x="6.96472" y="11.8637" width="4" height="1" rx="0.5" transform="rotate(-165 6.96472 11.8637)" fill="black"/>
 <rect x="5.10222" y="7.22354" width="4" height="1" rx="0.5" transform="rotate(105 5.10222 7.22354)" fill="black"/>
 </svg>

@@ -31,11 +31,11 @@ namespace SuperSize.UI.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             _aboutPage = new System.Windows.Forms.TabPage();
-            aboutPage1 = new Controls.AboutPage();
+            aboutPage1 = new SuperSize.UI.Controls.AboutPage();
             tabControl1 = new System.Windows.Forms.TabControl();
             _homePage = new System.Windows.Forms.TabPage();
-            settingsPage2 = new Controls.SettingsPage();
-            settingsPage1 = new Controls.SettingsPage();
+            settingsPage2 = new SuperSize.UI.Controls.SettingsPage();
+            settingsPage1 = new SuperSize.UI.Controls.SettingsPage();
             _aboutPage.SuspendLayout();
             tabControl1.SuspendLayout();
             _homePage.SuspendLayout();
