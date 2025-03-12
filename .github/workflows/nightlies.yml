@@ -19,4 +19,9 @@ jobs:
       # publish artifacts
       - uses: actions/upload-artifact@v4
         with:
-          pattern: Releases/*-slim.zip
+          name: Windows AMD64
+          path: Releases/win-x64-slim.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Windows ARM64
+          path: Releases/win-arm64-slim.zip
