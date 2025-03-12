@@ -12,6 +12,8 @@ namespace SuperSize.OS
     /// </summary>
     internal static class NativeImports
     {
+        public const int GWL_STYLE = -16;
+
         /// <see cref="KeyboardHook.RegisterHotKey(Model.KeyboardShortcut.ModifierKeys, System.Windows.Forms.Keys)"/>
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
@@ -64,7 +66,10 @@ namespace SuperSize.OS
 
         [DllImport("dwmapi.dll")]
         public static extern unsafe int DwmSetWindowAttribute(IntPtr hWnd, uint dwAttribute, void* pvAttribute, uint cbAttribute);
-            
+
+        [DllImport("user32.dll")]
+        public static extern long GetWindowLongPtrA(IntPtr hWnd, int index);
+
         public static class HWnd
         {
             public static IntPtr Bottom { get; } = new IntPtr(1);

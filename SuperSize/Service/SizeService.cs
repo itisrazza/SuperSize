@@ -14,6 +14,7 @@ namespace SuperSize.Service
         private static HashSet<Logic> _knownLogic = new() { 
             new CoreLogic.ExpandFromCentre(),
             new CoreLogic.UseAllScreen(),
+            new CoreLogic.PythonScript(),
         };
 
         private static Dictionary<string, Logic> _lookUpTable = new(_knownLogic.Select((logic) => new KeyValuePair<string, Logic>(logic.GetType().FullName!, logic)));
@@ -57,6 +58,11 @@ namespace SuperSize.Service
                 calculateSize.Width,
                 calculateSize.Height,
                 uFlags: 0);
+        }
+
+        private static bool CanResize(IntPtr window)
+        {
+            return true;
         }
     }
 }

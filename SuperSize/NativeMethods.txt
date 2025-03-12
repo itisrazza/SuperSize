@@ -1,0 +1,14 @@
+RegisterHotKey
+UnregisterHotKey
+EnumWindows
+GetWindowText
+GetWindowTextLength
+IsWindowVisible
+GetShellWindow
+BringWindowToTop
+ShowWindowAsync
+SetForegroundWindow
+GetForegroundWindow
+SetWindowPos
+DwmSetWindowAttribute
+GetWindowLongPtrA

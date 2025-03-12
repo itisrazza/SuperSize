@@ -82,6 +82,7 @@ namespace SuperSize.UI.Controls
             _logicComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             _logicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             _logicComboBox.FormattingEnabled = true;
+            _logicComboBox.IntegralHeight = false;
             _logicComboBox.Location = new System.Drawing.Point(119, 32);
             _logicComboBox.Name = "_logicComboBox";
             _logicComboBox.Size = new System.Drawing.Size(248, 23);
