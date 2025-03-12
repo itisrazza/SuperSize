@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using Windows.Win32;
 using static SuperSize.Model.KeyboardShortcut;
+using Windows.Win32.Foundation;
+using Windows.Win32.UI.Input.KeyboardAndMouse;
 
 namespace SuperSize.OS
 {
@@ -74,7 +77,7 @@ namespace SuperSize.OS
             _currentId = _currentId + 1;
 
             // register the hot key.
-            if (!NativeImports.RegisterHotKey(_window.Handle, _currentId, (uint)modifier, (uint)key))
+            if (!PInvoke.RegisterHotKey(new HWND( _window.Handle), _currentId, (HOT_KEY_MODIFIERS)modifier, (uint)key))
             {
                 throw new InvalidOperationException("Couldn’t register the hot key.");
             }
@@ -92,7 +95,7 @@ namespace SuperSize.OS
             // unregister all the registered hot keys.
             for (int i = _currentId; i > 0; i--)
             {
-                NativeImports.UnregisterHotKey(_window.Handle, i);
+                PInvoke.UnregisterHotKey(new HWND(_window.Handle), i);
             }
 
             // dispose the inner native window.

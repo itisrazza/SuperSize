@@ -1,13 +1,12 @@
-﻿using SuperSize.OS;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SuperSize.OS.NativeImports;
+using Windows.Win32;
+using Windows.Win32.Foundation;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace SuperSize.Model
 {
@@ -16,9 +15,20 @@ namespace SuperSize.Model
     /// </summary>
     public class Window : IWin32Window
     {
-        public IntPtr Handle { get; }
+        internal HWND Handle { get; }
 
-        public Window(IntPtr hWnd)
+        nint IWin32Window.Handle
+        {
+            get
+            {
+                unsafe
+                {
+                    return (nint)Handle.Value;
+                }
+            }
+        }
+
+        internal Window(HWND hWnd)
         {
             Handle = hWnd;
         }
@@ -27,17 +37,16 @@ namespace SuperSize.Model
         {
             get
             {
-                var length = GetWindowTextLength(Handle);
-                var sb = new StringBuilder(length);
-                GetWindowText(Handle, sb, length + 1);
-                // TODO: check for Win32 errors (0 could either mean, no title, or error)
-                return sb.ToString();
+                var length = PInvoke.GetWindowTextLength(Handle);
+                var str = new char[length + 1];
+                PInvoke.GetWindowText(Handle, str.AsSpan());
+                return new string(str);
             }
         }
 
-        public bool Visible => IsWindowVisible(Handle);
+        public bool Visible => PInvoke.IsWindowVisible(Handle);
 
-        public static Window ShellWindow => new(GetShellWindow());
+        public static Window ShellWindow => new(PInvoke.GetShellWindow());
 
         public static IEnumerable<Window> Windows
         {
@@ -47,20 +56,21 @@ namespace SuperSize.Model
             }
         }
 
-        public static Window GetForegroundWindow() => new Window(NativeImports.GetForegroundWindow());
 
-        public void BringToTop() => BringWindowToTop(Handle);
+        public static Window GetForegroundWindow() => new Window(PInvoke.GetForegroundWindow());
 
-        public void Show(int nCmdShow) => ShowWindowAsync(Handle, nCmdShow);
+        public void BringToTop() => PInvoke.BringWindowToTop(Handle);
 
-        public void Focus() => SetForegroundWindow(Handle);
-        
+        internal void Show(SHOW_WINDOW_CMD nCmdShow) => PInvoke.ShowWindowAsync(Handle, nCmdShow);
+
+        public void Focus() => PInvoke.SetForegroundWindow(Handle);
+
         public void SetPosition(Rectangle rectangle) => SetPosition(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
 
         private void SetPosition(int x, int y, int width, int height)
         {
-            var hresult = SetWindowPos(
-                Handle, 
+            var hresult = PInvoke.SetWindowPos(
+                Handle,
                 hWndInsertAfter: new(0),    // move the window to the top
                 x, y, width, height, 0);
             if (!hresult)

@@ -6,31 +6,34 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
+using Windows.Win32;
+using Windows.Win32.UI.WindowsAndMessaging;
+using Windows.Win32.Foundation;
+using SuperSize.Model;
 
 namespace SuperSize.OS
 {
     public static class Utilities
     {
-        public static List<(IntPtr Handle, string Title)> GetOpenWindows()
+        public static List<(Window Window, string Title)> GetOpenWindows()
         {
-            var list = new List<(IntPtr Handle, string Title)>();
-            var shellWindow = NativeImports.GetShellWindow();
-            NativeImports.EnumWindows(delegate (IntPtr hWnd, int lparam)
+            var list = new List<(Window Window, string Title)>();
+            var shellWindow = PInvoke.GetShellWindow();
+
+            PInvoke.EnumWindows(delegate (HWND hWnd, LPARAM lparam)
             {
                 // ignore the shell window and hidden windows
                 if (hWnd == shellWindow) return true;
-                if (!NativeImports.IsWindowVisible(hWnd)) return true;
+                if (!PInvoke.IsWindowVisible(hWnd)) return true;
 
                 // get window title
-                var strLength = NativeImports.GetWindowTextLength(hWnd);
-                var strBuilder = new StringBuilder(strLength);
-                NativeImports.GetWindowText(hWnd, strBuilder, strLength + 1);
-
-                // ignore it if the title is empty
-                if (strBuilder.ToString() == string.Empty) return true;
+                var textLength = PInvoke.GetWindowTextLength(hWnd);
+                if (textLength == 0) return true;
+                var text = new char[textLength];
+                PInvoke.GetWindowText(hWnd, text.AsSpan());
 
                 // add to dict
-                list.Add((hWnd, strBuilder.ToString()));
+                list.Add((new Window(hWnd), new string(text)));
                 return true;
             }, 0);
 

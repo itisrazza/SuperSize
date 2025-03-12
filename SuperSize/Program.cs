@@ -71,12 +71,12 @@ namespace SuperSize
             _keyboardHook.KeyPressed += (_, _) =>
             {
                 var window = Window.GetForegroundWindow();
-                SuperSizeWindow(window.Handle);
+                SuperSizeWindow(window);
             };
             _keyboardHook.RegisterHotKey(shortcut.Modifier, shortcut.Key);
         }
 
-        public static void SuperSizeWindow(IntPtr window)
+        public static void SuperSizeWindow(Window window)
         {
             SizeService.SizeWindow(window);
         }

@@ -3,6 +3,9 @@ using SuperSize.OS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Windows.Win32;
+using Windows.Win32.Foundation;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace SuperSize.Service
 {
@@ -37,22 +40,24 @@ namespace SuperSize.Service
             }
         }
 
-        public static void SizeWindow(IntPtr window)
+        public static void SizeWindow(Window window)
         {
             var logic = SelectedLogic;
-            if (logic == null) return; 
+            if (logic == null) return;
             SizeWindow(window, logic);
         }
 
-        public static void SizeWindow(IntPtr window, Logic logic)
+        public static void SizeWindow(Window window, Logic logic)
         {
-            NativeImports.SetForegroundWindow(window);
-            NativeImports.ShowWindowAsync(window, nCmdShow: 1 /* regular */);
+            if (!CanResize(window)) return;
+
+            PInvoke.SetForegroundWindow(window.Handle);
+            PInvoke.ShowWindowAsync(window.Handle, SHOW_WINDOW_CMD.SW_NORMAL);
 
             var calculateSize = logic.Calculate();
-            NativeImports.SetWindowPos(
-                window,
-                NativeImports.HWnd.Top,
+            PInvoke.SetWindowPos(
+                window.Handle,
+                HWND.HWND_TOP,
                 calculateSize.X,
                 calculateSize.Y,
                 calculateSize.Width,
@@ -60,7 +65,7 @@ namespace SuperSize.Service
                 uFlags: 0);
         }
 
-        private static bool CanResize(IntPtr window)
+        private static bool CanResize(Window window)
         {
             return true;
         }
