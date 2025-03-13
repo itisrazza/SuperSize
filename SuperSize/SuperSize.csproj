@@ -6,16 +6,16 @@
         <Nullable>enable</Nullable>
         <StartupObject>SuperSize.Program</StartupObject>
         <ApplicationIcon>Logo.ico</ApplicationIcon>
-        <Version>0.4.1.0</Version>
-        <FileVersion>0.4.1.0</FileVersion>
-        <InformationalVersion>0.4.1.0</InformationalVersion>
+        <Version>0.4.9.0</Version>
+        <FileVersion>0.4.9.0</FileVersion>
+        <InformationalVersion>0.4.9.0</InformationalVersion>
         <MinimumPlatformVersion>7.0</MinimumPlatformVersion>
         <UseWPF>True</UseWPF>
         <DebugType>embedded</DebugType>
         <SignAssembly>False</SignAssembly>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <Platforms>AnyCPU;x64;ARM64</Platforms>
+        <Platforms>x64;ARM64</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <PlatformTarget>AnyCPU</PlatformTarget>
