@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SuperSize.UI.Forms
@@ -17,13 +11,24 @@ namespace SuperSize.UI.Forms
             InitializeComponent();
         }
 
-        private void TestForm_Load(object sender, EventArgs e)
+        public static void Show(Rectangle rectangle)
+        {
+            new TestForm
+            {
+                Location = rectangle.Location,
+                Size = rectangle.Size,
+            }.Show();
+        }
+
+        private void OnLoad(object sender, EventArgs e)
         {
             titleLabel.Text = $"Test Window - {Location.X}, {Location.Y} ({Width}x{Height})";
             horizontalLabel.Text = Width.ToString();
             verticalLabel.Text = Height.ToString();
         }
 
-        private void TestForm_Click(object sender, EventArgs e) => Close();
+        private void OnClick(object sender, EventArgs e) => Close();
+
+        private void OnFocusLeave(object sender, EventArgs e) => Close();
     }
 }

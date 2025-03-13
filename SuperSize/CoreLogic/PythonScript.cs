@@ -36,7 +36,7 @@ internal sealed class PythonScript : Logic
 
     public override void ShowSettings(Settings settings)
     {
-        new ScriptEditorDialog().ShowDialog();
+        new PythonScriptEditor().ShowDialog();
     }
 
     private void PythonSetup()
