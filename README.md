@@ -21,4 +21,4 @@ SuperSize can be downloaded from [GitHub Releases][release].
 
 This is a fairly standard .NET application, clone it and open [the solution](SuperSize.sln) with Visual Studio or Rider, restore NuGet packages and click **Run**. You will need the [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or newer.
 
-Developer documentation is kept [in the wiki](https://github.com/itisrazza/SuperSize/wiki/For-Developers).
+Developer documentation is kept [in the wiki](https://github.com/itisrazza/SuperSize/wiki/For-Developers). The project roadmap is available [here](https://github.com/users/itisrazza/projects/7).
