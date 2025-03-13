@@ -6,9 +6,9 @@
         <Nullable>enable</Nullable>
         <StartupObject>SuperSize.Program</StartupObject>
         <ApplicationIcon>Logo.ico</ApplicationIcon>
-        <Version>0.4.9.0</Version>
-        <FileVersion>0.4.9.0</FileVersion>
-        <InformationalVersion>0.4.9.0</InformationalVersion>
+        <Version>0.4.9.1</Version>
+        <FileVersion>0.4.9.1</FileVersion>
+        <InformationalVersion>0.4.9.1</InformationalVersion>
         <MinimumPlatformVersion>7.0</MinimumPlatformVersion>
         <UseWPF>True</UseWPF>
         <DebugType>embedded</DebugType>
