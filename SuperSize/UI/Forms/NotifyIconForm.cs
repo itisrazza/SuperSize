@@ -85,7 +85,7 @@ namespace SuperSize.UI.Forms
             Task.Run(() =>
             {
                 Thread.Sleep(100);
-                MessageBox.Show(Window.GetForegroundWindow().Text);
+                MessageBox.Show(OSWindow.GetForegroundWindow().Text);
             });
         }
 

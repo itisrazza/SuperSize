@@ -70,7 +70,7 @@ namespace SuperSize
             _keyboardHook = new();
             _keyboardHook.KeyPressed += (_, _) =>
             {
-                var window = Window.GetForegroundWindow();
+                var window = OSWindow.GetForegroundWindow();
                 SuperSizeWindow(window);
             };
             try
@@ -86,7 +86,7 @@ namespace SuperSize
             }
         }
 
-        public static void SuperSizeWindow(Window window)
+        public static void SuperSizeWindow(OSWindow window)
         {
             SizeService.SizeWindow(window);
         }
