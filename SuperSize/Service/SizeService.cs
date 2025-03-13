@@ -1,6 +1,4 @@
 ﻿using SuperSize.Model;
-using SuperSize.OS;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Win32;
@@ -14,7 +12,7 @@ namespace SuperSize.Service
     /// </summary>
     public static class SizeService
     {
-        private static HashSet<Logic> _knownLogic = new() { 
+        private static HashSet<Logic> _knownLogic = new() {
             new CoreLogic.ExpandFromCentre(),
             new CoreLogic.UseAllScreen(),
             new CoreLogic.PythonScript(),
@@ -40,14 +38,14 @@ namespace SuperSize.Service
             }
         }
 
-        public static void SizeWindow(Window window)
+        public static void SizeWindow(OSWindow window)
         {
             var logic = SelectedLogic;
             if (logic == null) return;
             SizeWindow(window, logic);
         }
 
-        public static void SizeWindow(Window window, Logic logic)
+        public static void SizeWindow(OSWindow window, Logic logic)
         {
             if (!CanResize(window)) return;
 
@@ -65,9 +63,12 @@ namespace SuperSize.Service
                 uFlags: 0);
         }
 
-        private static bool CanResize(Window window)
+        private static bool CanResize(OSWindow window)
         {
-            return true;
+            if (Properties.Settings.Default.ResizeNonResizableAnyway) return true;
+
+            var style = (WINDOW_STYLE)PInvoke.GetWindowLong(window.Handle, WINDOW_LONG_PTR_INDEX.GWL_STYLE);
+            return (style & (WINDOW_STYLE.WS_THICKFRAME | WINDOW_STYLE.WS_SIZEBOX)) != 0;
         }
     }
 }

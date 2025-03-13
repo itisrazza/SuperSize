@@ -13,7 +13,7 @@ namespace SuperSize.Model
     /// <summary>
     /// Wrapper class for native windows.
     /// </summary>
-    public class Window : IWin32Window
+    public class OSWindow : IWin32Window
     {
         internal HWND Handle { get; }
 
@@ -28,7 +28,7 @@ namespace SuperSize.Model
             }
         }
 
-        internal Window(HWND hWnd)
+        internal OSWindow(HWND hWnd)
         {
             Handle = hWnd;
         }
@@ -46,18 +46,18 @@ namespace SuperSize.Model
 
         public bool Visible => PInvoke.IsWindowVisible(Handle);
 
-        public static Window ShellWindow => new(PInvoke.GetShellWindow());
+        public static OSWindow ShellWindow => new(PInvoke.GetShellWindow());
 
-        public static IEnumerable<Window> Windows
+        public static IEnumerable<OSWindow> Windows
         {
             get
             {
-                return new List<Window>();
+                return new List<OSWindow>();
             }
         }
 
 
-        public static Window GetForegroundWindow() => new Window(PInvoke.GetForegroundWindow());
+        public static OSWindow GetForegroundWindow() => new OSWindow(PInvoke.GetForegroundWindow());
 
         public void BringToTop() => PInvoke.BringWindowToTop(Handle);
 

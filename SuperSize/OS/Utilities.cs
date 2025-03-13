@@ -15,9 +15,9 @@ namespace SuperSize.OS
 {
     public static class Utilities
     {
-        public static List<(Window Window, string Title)> GetOpenWindows()
+        public static List<(OSWindow Window, string Title)> GetOpenWindows()
         {
-            var list = new List<(Window Window, string Title)>();
+            var list = new List<(OSWindow Window, string Title)>();
             var shellWindow = PInvoke.GetShellWindow();
 
             PInvoke.EnumWindows(delegate (HWND hWnd, LPARAM lparam)
@@ -33,7 +33,7 @@ namespace SuperSize.OS
                 PInvoke.GetWindowText(hWnd, text.AsSpan());
 
                 // add to dict
-                list.Add((new Window(hWnd), new string(text)));
+                list.Add((new OSWindow(hWnd), new string(text)));
                 return true;
             }, 0);
 
