@@ -107,7 +107,7 @@ namespace SuperSize.UI.Dialogs
 
         private void keySelector_SelectedValueChanged(object sender, EventArgs e)
         {
-            _shortcut.Key = (Keys)keySelector.SelectedItem;
+            _shortcut.Key = (Keys)keySelector.SelectedItem!;
         }
     }
 }
