@@ -73,7 +73,17 @@ namespace SuperSize
                 var window = Window.GetForegroundWindow();
                 SuperSizeWindow(window);
             };
-            _keyboardHook.RegisterHotKey(shortcut.Modifier, shortcut.Key);
+            try
+            {
+                _keyboardHook.RegisterHotKey(shortcut.Modifier, shortcut.Key);
+            }
+            catch (HookRegistrationException e)
+            {
+                MessageBox.Show($"Failed to register hotkey: {e.Message}\nPlease open SuperSize settings and change it.", "SuperSize", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                _keyboardHook.Dispose();
+                _keyboardHook = null;
+            }
         }
 
         public static void SuperSizeWindow(Window window)
