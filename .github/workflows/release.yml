@@ -2,7 +2,7 @@ name: Releases
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build:
@@ -30,9 +30,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            Releases/win-x64.zip
+            Releases/win-x64-slim.zip
             Releases/win-x64-selfcontained.zip
-            Releases/win-arm64.zip
+            Releases/win-arm64-slim.zip
             Releases/win-arm64-selfcontained.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
