@@ -29,64 +29,65 @@ namespace SuperSize.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.horizontalLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.verticalLabel = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            horizontalLabel = new System.Windows.Forms.Label();
+            titleLabel = new System.Windows.Forms.Label();
+            verticalLabel = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // horizontalLabel
             // 
-            this.horizontalLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.horizontalLabel.Location = new System.Drawing.Point(0, 456);
-            this.horizontalLabel.Name = "horizontalLabel";
-            this.horizontalLabel.Size = new System.Drawing.Size(640, 24);
-            this.horizontalLabel.TabIndex = 0;
-            this.horizontalLabel.Text = "640";
-            this.horizontalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.horizontalLabel.Click += new System.EventHandler(this.TestForm_Click);
+            horizontalLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            horizontalLabel.Location = new System.Drawing.Point(0, 456);
+            horizontalLabel.Name = "horizontalLabel";
+            horizontalLabel.Size = new System.Drawing.Size(640, 24);
+            horizontalLabel.TabIndex = 0;
+            horizontalLabel.Text = "640";
+            horizontalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            horizontalLabel.Click += OnClick;
             // 
             // titleLabel
             // 
-            this.titleLabel.BackColor = System.Drawing.Color.DarkBlue;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(0, 0);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(640, 24);
-            this.titleLabel.TabIndex = 3;
-            this.titleLabel.Text = "Test Window";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.titleLabel.Click += new System.EventHandler(this.TestForm_Click);
+            titleLabel.BackColor = System.Drawing.Color.DarkBlue;
+            titleLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            titleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            titleLabel.ForeColor = System.Drawing.Color.White;
+            titleLabel.Location = new System.Drawing.Point(0, 0);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new System.Drawing.Size(640, 24);
+            titleLabel.TabIndex = 3;
+            titleLabel.Text = "Test Window";
+            titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            titleLabel.Click += OnClick;
             // 
             // verticalLabel
             // 
-            this.verticalLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.verticalLabel.Location = new System.Drawing.Point(576, 24);
-            this.verticalLabel.Name = "verticalLabel";
-            this.verticalLabel.Size = new System.Drawing.Size(64, 432);
-            this.verticalLabel.TabIndex = 4;
-            this.verticalLabel.Text = "480";
-            this.verticalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.verticalLabel.Click += new System.EventHandler(this.TestForm_Click);
+            verticalLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            verticalLabel.Location = new System.Drawing.Point(576, 24);
+            verticalLabel.Name = "verticalLabel";
+            verticalLabel.Size = new System.Drawing.Size(64, 432);
+            verticalLabel.TabIndex = 4;
+            verticalLabel.Text = "480";
+            verticalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            verticalLabel.Click += OnClick;
             // 
             // TestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(640, 480);
-            this.Controls.Add(this.verticalLabel);
-            this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.horizontalLabel);
-            this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TestForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "TestForm";
-            this.Load += new System.EventHandler(this.TestForm_Load);
-            this.Click += new System.EventHandler(this.TestForm_Click);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.LightGray;
+            ClientSize = new System.Drawing.Size(640, 480);
+            Controls.Add(verticalLabel);
+            Controls.Add(titleLabel);
+            Controls.Add(horizontalLabel);
+            ForeColor = System.Drawing.Color.Black;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Name = "TestForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            Text = "TestForm";
+            Load += OnLoad;
+            Click += OnClick;
+            Leave += OnFocusLeave;
+            ResumeLayout(false);
 
         }
 

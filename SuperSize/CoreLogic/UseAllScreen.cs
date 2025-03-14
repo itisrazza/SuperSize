@@ -12,7 +12,7 @@ public class UseAllScreen : Logic
 {
     public override string DisplayName { get; } = "Use all the screen real estate";
 
-    public override Task<Rectangle> CalculateWindowSize(Settings config)
+    public override Task<LogicResult> CalculateWindowSize(Settings config)
     {
         var left = int.MaxValue;
         var top = int.MaxValue;
@@ -26,6 +26,6 @@ public class UseAllScreen : Logic
             right = Math.Max(right, bounds.Right);
             bottom = Math.Max(bottom, bounds.Bottom);
         }
-        return Task.FromResult(Rectangle.FromLTRB(left, top, right, bottom));
+        return Task.FromResult(LogicResult.OK(Rectangle.FromLTRB(left, top, right, bottom)));
     }
 }
