@@ -34,7 +34,15 @@ namespace SuperSize.UI.Controls
 
         private void UpdateSizePreview()
         {
-            _windowPreview = SizeService.SelectedLogic?.Calculate();
+            try
+            {
+                _windowPreview = SizeService.SelectedLogic?.Calculate();
+            }
+            catch (Exception ex)
+            {
+                _windowPreview = null;
+            }
+
             var bmp = new Bitmap(previewBox.Width, previewBox.Height);
             RenderDisplayConfiguration(bmp);
             previewBox.Image?.Dispose();
@@ -152,7 +160,8 @@ namespace SuperSize.UI.Controls
             var logic = SizeService.SelectedLogic;
             var result = logic?.Calculate();
 
-            if (result == null) {
+            if (result == null)
+            {
                 MessageBox.Show("The logic didn't return a result.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

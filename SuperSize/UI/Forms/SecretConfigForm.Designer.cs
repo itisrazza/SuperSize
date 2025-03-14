@@ -29,95 +29,98 @@ namespace SuperSize.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            button3 = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
+            propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            flowLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.DarkRed;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(8);
-            this.label1.Size = new System.Drawing.Size(464, 36);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Changing these settings is very dangerous and may lead to permanent loss of data." +
-    " Good luck!";
+            label1.BackColor = System.Drawing.Color.DarkRed;
+            label1.Dock = System.Windows.Forms.DockStyle.Top;
+            label1.ForeColor = System.Drawing.Color.White;
+            label1.Location = new System.Drawing.Point(0, 0);
+            label1.Name = "label1";
+            label1.Padding = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            label1.Size = new System.Drawing.Size(464, 52);
+            label1.TabIndex = 0;
+            label1.Text = "Changing these settings may leave SuperSize in an unusable state. You are at your own risk.";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 316);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(8, 8, 0, 8);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(464, 45);
-            this.flowLayoutPanel1.TabIndex = 1;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new System.Drawing.Point(0, 336);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(8, 9, 0, 9);
+            flowLayoutPanel1.Size = new System.Drawing.Size(464, 49);
+            flowLayoutPanel1.TabIndex = 1;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(378, 11);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "&Cancel";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.Location = new System.Drawing.Point(378, 12);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(75, 25);
+            button3.TabIndex = 2;
+            button3.Text = "&Cancel";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(297, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "&OK";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Location = new System.Drawing.Point(297, 12);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(75, 25);
+            button2.TabIndex = 1;
+            button2.Text = "&OK";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(216, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "&Reset";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new System.Drawing.Point(216, 12);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(75, 25);
+            button1.TabIndex = 0;
+            button1.Text = "&Reset";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // propertyGrid1
             // 
-            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGrid1.Location = new System.Drawing.Point(0, 36);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(464, 280);
-            this.propertyGrid1.TabIndex = 2;
+            propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            propertyGrid1.Location = new System.Drawing.Point(0, 52);
+            propertyGrid1.Name = "propertyGrid1";
+            propertyGrid1.Size = new System.Drawing.Size(464, 284);
+            propertyGrid1.TabIndex = 2;
             // 
             // SecretConfigForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 361);
-            this.Controls.Add(this.propertyGrid1);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label1);
-            this.Name = "SecretConfigForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Advanced Settings";
-            this.Load += new System.EventHandler(this.SecretConfigForm_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(464, 385);
+            Controls.Add(propertyGrid1);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(label1);
+            Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "SecretConfigForm";
+            ShowIcon = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Advanced Settings";
+            Load += SecretConfigForm_Load;
+            flowLayoutPanel1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

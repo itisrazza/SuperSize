@@ -12,10 +12,10 @@ public class ExpandFromCentre : Logic
 {
     public override string DisplayName { get; } = "Expand from centre";
 
-    public override Task<Rectangle> CalculateWindowSize(Settings config)
+    public override Task<LogicResult> CalculateWindowSize(Settings config)
     {
         var primary = Screen.PrimaryScreen.Bounds;
-        var centre = new Point(primary.Left + primary.Width / 2, primary.Height/ 2);
+        var centre = new Point(primary.Left + primary.Width / 2, primary.Height / 2);
 
         var allBounds = OS.Utilities.GetAllScreenBounds();
         var targetTop = Math.Abs(centre.Y - allBounds.Top);
@@ -26,13 +26,12 @@ public class ExpandFromCentre : Logic
         var targetWidth = Math.Min(targetLeft, targetRight);
         var targetHeight = Math.Min(targetTop, targetBottom);
 
-        return Task.FromResult(
+        return Task.FromResult(LogicResult.OK(
             Rectangle.FromLTRB(
                 centre.X - targetWidth,
-                centre.Y - targetHeight, 
-                2 * targetWidth, 
+                centre.Y - targetHeight,
+                2 * targetWidth,
                 2 * targetHeight
-            )
-        );
+        )));
     }
 }

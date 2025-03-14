@@ -1,5 +1,7 @@
 ﻿using SuperSize.Model;
 using SuperSize.Service;
+using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -29,7 +31,21 @@ namespace SuperSize
                 return Rectangle.Empty;
             }
 
-            return logic.CalculateWindowSize(SettingsService.GetSettings(logic)).Result;
+            var settings = SettingsService.GetSettings(logic);
+            var result = logic.CalculateWindowSize(settings).Result;
+            
+            if (result.TryGetRectangle(out var rectangle))
+            {
+                return rectangle;
+            }
+
+            if (result.HasException)
+            {
+                throw new Exception("Logic returned an exception", result.Exception!);
+            }
+
+            Debug.Print($"Logic returned no result: {result.NoResultMessage}");
+            return Rectangle.Empty;
         }
     }
 }
