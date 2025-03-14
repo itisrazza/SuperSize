@@ -18,6 +18,8 @@ namespace SuperSize.Service
         /// </summary>
         public static Settings GetSettings(Guid logicGuid, bool readOnly = false)
         {
+            Load();
+
             if (!_logicConfig.ContainsKey(logicGuid))
             {
                 _logicConfig[logicGuid] = new();
@@ -82,6 +84,7 @@ namespace SuperSize.Service
             public override void Save()
             {
                 _logicConfig[LogicGuid] = new(_data);
+                SettingsService.Save();
             }
 
             public override void Reload()

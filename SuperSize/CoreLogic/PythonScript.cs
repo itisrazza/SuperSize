@@ -1,12 +1,8 @@
-﻿using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
-using SuperSize.Model;
+﻿using SuperSize.Model;
 using SuperSize.Scripting.Python;
 using SuperSize.UI.Dialogs;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,15 +14,11 @@ internal sealed class PythonScript : Logic
 {
     public override string DisplayName => "Scripting: Python";
 
-    public override Task<Rectangle> CalculateWindowSize(Settings settings) => Task.Run(() =>
+    public override Task<LogicResult> CalculateWindowSize(Settings settings) => Task.Run(() =>
         {
             if (!settings.TryGetValue("Script", out var script))
             {
-                MessageBox.Show(
-                    "There is no script loaded. Please create or import a script.",
-                    "SuperSize - Missing Python Script", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw new Exception("TODO: No script loaded. Better exception pls");
+                return LogicResult.NoResult("No script loaded");
             }
 
             var context = new PythonContext();
@@ -34,19 +26,15 @@ internal sealed class PythonScript : Logic
 
             if (context.Result is Rectangle result)
             {
-                return result;
-
+                return LogicResult.OK(result);
             }
 
-            MessageBox.Show(
-                "The script did not yield a result. Please check the script.",
-                "SuperSize - No Yield",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            throw new Exception("TODO: Script didn't yield(). Better exception pls");
+            return LogicResult.NoResult("Script didn't yield");
         });
 
     public override void ShowSettings(Settings settings)
     {
-        new PythonScriptEditor().ShowDialog();
+        using var dialog = new PythonScriptEditor(settings);
+        dialog.ShowDialog();
     }
 }
