@@ -1,4 +1,5 @@
 ﻿using SuperSize.Model;
+using SuperSize.OS;
 using SuperSize.Service;
 using SuperSize.UI.Dialogs;
 using SuperSize.UI.Forms;
@@ -30,6 +31,8 @@ namespace SuperSize.UI.Controls
             // update components
             UpdateSizePreview();
             UpdateKeybindPreview();
+
+            _systemStartupCheckbox.Checked = SystemStartup.IsRegistered();
         }
 
         private void UpdateSizePreview()
@@ -152,7 +155,8 @@ namespace SuperSize.UI.Controls
             var logic = SizeService.SelectedLogic;
             var result = logic?.Calculate();
 
-            if (result == null) {
+            if (result == null)
+            {
                 MessageBox.Show("The logic didn't return a result.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -167,6 +171,20 @@ namespace SuperSize.UI.Controls
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void OnSystemStartupChanged(object sender, EventArgs e)
+        {
+            if (sender is not CheckBox checkBox) return;
+
+            if (checkBox.Checked)
+            {
+                SystemStartup.Register();
+            }
+            else
+            {
+                SystemStartup.Unregister();
+            }
         }
     }
 }
