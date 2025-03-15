@@ -1,13 +1,11 @@
 ﻿using SuperSize.Model;
 using SuperSize.Service;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace SuperSize
 {
     public static class Extensions
     {
-
         public static void Deconstruct(this Size size, out int width, out int height)
         {
             width = size.Width;

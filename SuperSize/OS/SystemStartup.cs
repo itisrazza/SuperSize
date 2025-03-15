@@ -1,7 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Reflection;
-using System.Windows;
 
 namespace SuperSize.OS;
 
@@ -24,10 +22,16 @@ public static class SystemStartup
         StartupRegKey.SetValue(RegistryValueName, ExecutablePath);
     }
 
+    /// <summary>
+    /// Unregister the applicatiom from startup.
+    /// </summary>
     public static void Unregister()
     {
         StartupRegKey.DeleteValue(RegistryValueName);
     }
 
+    /// <summary>
+    /// Check if the application registration is current.
+    /// </summary>
     public static bool IsRegistered() => StartupRegKey.GetValue(RegistryValueName, "").ToString() == ExecutablePath;
 }
