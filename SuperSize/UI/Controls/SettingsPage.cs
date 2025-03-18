@@ -177,13 +177,20 @@ namespace SuperSize.UI.Controls
         {
             if (sender is not CheckBox checkBox) return;
 
-            if (checkBox.Checked)
+            try
             {
-                SystemStartup.Register();
+                if (checkBox.Checked)
+                {
+                    SystemStartup.Register();
+                }
+                else
+                {
+                    SystemStartup.Unregister();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                SystemStartup.Unregister();
+                MessageBox.Show(ex.Message, "SuperSize", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
