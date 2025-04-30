@@ -59,7 +59,10 @@ namespace SuperSize.Service
 
         public static void Load()
         {
-            var doc = JsonDocument.Parse(Properties.Settings.Default.LogicSettings);
+            var raw = Properties.Settings.Default.LogicSettings;
+            if (raw.Trim() == string.Empty) return;
+
+            var doc = JsonDocument.Parse(raw);
             _logicConfig = doc.RootElement.EnumerateObject()
                 .Select(obj => (Guid.Parse(obj.Name), obj.Value.EnumerateObject()
                     .Select(obj => (obj.Name, obj.Value.GetString()!))

@@ -1,4 +1,5 @@
-﻿using SuperSize.Model;
+﻿using Microsoft.Web.WebView2.Core;
+using SuperSize.Model;
 using SuperSize.Scripting.Python;
 using SuperSize.UI.Forms;
 using System;
@@ -51,5 +52,16 @@ public partial class PythonScriptEditor : Form
     {
         Settings["Script"] = _scriptEditor.Text;
         Settings.Save();
+    }
+
+    private void OnWebViewInitialised(object sender, CoreWebView2InitializationCompletedEventArgs e)
+    {
+        _helpViewer.CoreWebView2.NewWindowRequested += OnWebViewNewWindowRequested;
+    }
+
+    private void OnWebViewNewWindowRequested(object? sender, CoreWebView2NewWindowRequestedEventArgs e)
+    {
+        e.Handled = true;
+        _ = Windows.System.Launcher.LaunchUriAsync(new Uri(e.Uri));
     }
 }

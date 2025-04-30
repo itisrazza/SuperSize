@@ -41,13 +41,13 @@
             _showHelpButton = new System.Windows.Forms.ToolStripButton();
             _splitContainer = new System.Windows.Forms.SplitContainer();
             _scriptEditor = new System.Windows.Forms.TextBox();
-            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            _helpViewer = new Microsoft.Web.WebView2.WinForms.WebView2();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)_splitContainer).BeginInit();
             _splitContainer.Panel1.SuspendLayout();
             _splitContainer.Panel2.SuspendLayout();
             _splitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)_helpViewer).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
@@ -142,7 +142,7 @@
             // 
             // _splitContainer.Panel2
             // 
-            _splitContainer.Panel2.Controls.Add(webView21);
+            _splitContainer.Panel2.Controls.Add(_helpViewer);
             _splitContainer.Size = new System.Drawing.Size(624, 416);
             _splitContainer.SplitterDistance = 344;
             _splitContainer.TabIndex = 1;
@@ -157,18 +157,19 @@
             _scriptEditor.Size = new System.Drawing.Size(344, 416);
             _scriptEditor.TabIndex = 0;
             // 
-            // webView21
+            // _helpViewer
             // 
-            webView21.AllowExternalDrop = true;
-            webView21.CreationProperties = null;
-            webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            webView21.Dock = System.Windows.Forms.DockStyle.Fill;
-            webView21.Location = new System.Drawing.Point(0, 0);
-            webView21.Name = "webView21";
-            webView21.Size = new System.Drawing.Size(276, 416);
-            webView21.Source = new System.Uri("https://www.youtube.com/watch?v=ZHgyQGoeaB0", System.UriKind.Absolute);
-            webView21.TabIndex = 0;
-            webView21.ZoomFactor = 1D;
+            _helpViewer.AllowExternalDrop = false;
+            _helpViewer.CreationProperties = null;
+            _helpViewer.DefaultBackgroundColor = System.Drawing.Color.White;
+            _helpViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            _helpViewer.Location = new System.Drawing.Point(0, 0);
+            _helpViewer.Name = "_helpViewer";
+            _helpViewer.Size = new System.Drawing.Size(276, 416);
+            _helpViewer.Source = new System.Uri("https://supersize.razza.io/python", System.UriKind.Absolute);
+            _helpViewer.TabIndex = 0;
+            _helpViewer.ZoomFactor = 1D;
+            _helpViewer.CoreWebView2InitializationCompleted += OnWebViewInitialised;
             // 
             // PythonScriptEditor
             // 
@@ -188,7 +189,7 @@
             _splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)_splitContainer).EndInit();
             _splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_helpViewer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,7 +204,7 @@
         private System.Windows.Forms.ToolStripButton _saveButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.TextBox _scriptEditor;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Microsoft.Web.WebView2.WinForms.WebView2 _helpViewer;
         private System.Windows.Forms.ToolStripButton _newScriptButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton _showHelpButton;

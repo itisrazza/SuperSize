@@ -68,7 +68,7 @@ public class PythonContext
         Scope.SetVariable("screens", PythonHelpers.Screens);
         Scope.SetVariable("point", PythonHelpers.Point);
         Scope.SetVariable("rectangle", PythonHelpers.Rectangle);
-        Scope.SetVariable("yield", delegate (Rectangle rectangle)
+        Scope.SetVariable("save_size", (Rectangle rectangle) =>
         {
             Result = rectangle;
         });
