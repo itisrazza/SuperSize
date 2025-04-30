@@ -1,33 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.System;
 
-namespace SuperSize
+namespace SuperSize;
+
+public static class Utilities
 {
-    public static class Utilities
+    public static Task OpenLink(string link) => _ = OpenLink(new Uri(link));
+
+    public static async Task OpenLink(Uri uri) => await Launcher.LaunchUriAsync(uri);
+
+    public static async Task ShowInExplorer(string path)
     {
-        public static void OpenLink(string link)
-        {
-            var procInfo = new ProcessStartInfo();
-            procInfo.FileName = "cmd.exe";
-            procInfo.ArgumentList.Add("/c");
-            procInfo.ArgumentList.Add("start");
-            procInfo.ArgumentList.Add(link);
-            Process.Start(procInfo);
-        }
+        var file = await StorageFile.GetFileFromPathAsync(path);
+        var folder = await file.GetParentAsync();
 
-        public static void OpenLink(Uri uri) => OpenLink(uri.ToString());
+        var options = new FolderLauncherOptions();
+        options.ItemsToSelect.Add(file);
 
-        public static void ShowInExplorer(string path)
-        {
-            var procInfo = new ProcessStartInfo();
-            procInfo.FileName = "explorer.exe";
-            procInfo.ArgumentList.Add("/select,");
-            procInfo.ArgumentList.Add(path);
-            Process.Start(procInfo);
-        }
+        await Launcher.LaunchFolderAsync(folder, options);
     }
 }
