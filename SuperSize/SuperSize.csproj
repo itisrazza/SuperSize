@@ -1,21 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net8.0-windows</TargetFramework>
+        <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
         <UseWindowsForms>true</UseWindowsForms>
         <Nullable>enable</Nullable>
         <StartupObject>SuperSize.Program</StartupObject>
         <ApplicationIcon>Logo.ico</ApplicationIcon>
         <Version>0.4.9.1</Version>
-        <FileVersion>0.4.9.1</FileVersion>
         <InformationalVersion>0.4.9.1</InformationalVersion>
         <MinimumPlatformVersion>7.0</MinimumPlatformVersion>
         <UseWPF>True</UseWPF>
         <DebugType>embedded</DebugType>
-        <SignAssembly>False</SignAssembly>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
         <Platforms>x64;ARM64</Platforms>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,12 +61,13 @@
       <Content Include="Logo.ico" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="IronPython" Version="3.4.1" />
+        <PackageReference Include="IronPython" Version="3.4.2" />
+        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3124.44" />
         <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.183">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="System.Memory" Version="4.6.0" />
         <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.0" />
     </ItemGroup>

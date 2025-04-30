@@ -1,7 +1,7 @@
 . .\BuildScripts\Utilities.ps1
 
 $configuration = "Release"
-$dotnetVersion = "net8.0-windows"
+$dotnetVersion = Get-DotnetVersion
 
 # create a releases folder
 if (-not(Test-Path "Releases")) { New-Item -ItemType "directory" -Path "Releases" -Force }

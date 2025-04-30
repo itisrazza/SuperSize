@@ -18,6 +18,8 @@ namespace SuperSize.Service
         /// </summary>
         public static Settings GetSettings(Guid logicGuid, bool readOnly = false)
         {
+            Load();
+
             if (!_logicConfig.ContainsKey(logicGuid))
             {
                 _logicConfig[logicGuid] = new();
@@ -57,7 +59,10 @@ namespace SuperSize.Service
 
         public static void Load()
         {
-            var doc = JsonDocument.Parse(Properties.Settings.Default.LogicSettings);
+            var raw = Properties.Settings.Default.LogicSettings;
+            if (raw.Trim() == string.Empty) return;
+
+            var doc = JsonDocument.Parse(raw);
             _logicConfig = doc.RootElement.EnumerateObject()
                 .Select(obj => (Guid.Parse(obj.Name), obj.Value.EnumerateObject()
                     .Select(obj => (obj.Name, obj.Value.GetString()!))
@@ -82,6 +87,7 @@ namespace SuperSize.Service
             public override void Save()
             {
                 _logicConfig[LogicGuid] = new(_data);
+                SettingsService.Save();
             }
 
             public override void Reload()

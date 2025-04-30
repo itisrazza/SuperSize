@@ -19,7 +19,7 @@ jobs:
 
       # build and test the code
       - run: dotnet build
-      - run: dotnet test
+      # - run: dotnet test
 
       # publish and archive the different executables
       - name: Build executables

@@ -13,3 +13,10 @@ function Get-ProjectVersion () {
         $_.Node.InnerXML
     }
 }
+
+function Get-DotnetVersion () {
+    Select-Xml -Path SuperSize/SuperSize.csproj -XPath "/Project/PropertyGroup/TargetFramework" |
+    ForEach-Object {
+        $_.Node.InnerText
+    }
+}

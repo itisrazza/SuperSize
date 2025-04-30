@@ -37,7 +37,15 @@ namespace SuperSize.UI.Controls
 
         private void UpdateSizePreview()
         {
-            _windowPreview = SizeService.SelectedLogic?.Calculate();
+            try
+            {
+                _windowPreview = SizeService.SelectedLogic?.Calculate();
+            }
+            catch (Exception ex)
+            {
+                _windowPreview = null;
+            }
+
             var bmp = new Bitmap(previewBox.Width, previewBox.Height);
             RenderDisplayConfiguration(bmp);
             previewBox.Image?.Dispose();

@@ -1,11 +1,8 @@
-﻿using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
-using SuperSize.Model;
+﻿using SuperSize.Model;
+using SuperSize.Scripting.Python;
 using SuperSize.UI.Dialogs;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,53 +14,27 @@ internal sealed class PythonScript : Logic
 {
     public override string DisplayName => "Scripting: Python";
 
-    private ScriptRuntime _scriptRuntime;
-    private ScriptScope _scriptScope;
-    private ScriptEngine _scriptEngine;
+    public override Task<LogicResult> CalculateWindowSize(Settings settings) => Task.Run(() =>
+        {
+            if (!settings.TryGetValue("Script", out var script))
+            {
+                return LogicResult.NoResult("No script loaded");
+            }
 
-    public PythonScript()
-    {
-        _scriptRuntime = Python.CreateRuntime();
-        _scriptScope = _scriptRuntime.CreateScope();
-        _scriptEngine = _scriptRuntime.GetEngine("Python");
-        PythonSetup();
-    }
+            var context = new PythonContext();
+            context.Execute(script!);
 
-    public override Task<Rectangle> CalculateWindowSize(Settings settings)
-    {
-        return Task.FromResult(new Rectangle(0, 0, 0, 0));
-    }
+            if (context.Result is Rectangle result)
+            {
+                return LogicResult.OK(result);
+            }
+
+            return LogicResult.NoResult("Script didn't yield");
+        });
 
     public override void ShowSettings(Settings settings)
     {
-        new ScriptEditorDialog().ShowDialog();
-    }
-
-    private void PythonSetup()
-    {
-        _scriptRuntime.LoadAssembly(Assembly.GetExecutingAssembly());
-        _scriptRuntime.LoadAssembly(Assembly.Load("System.Drawing"));
-        _scriptRuntime.LoadAssembly(Assembly.Load("System.Windows.Forms"));
-
-        PopulatePythonScope(new()
-        {
-            { "alert", new Action<object>(message => MessageBox.Show(message.ToString())) },
-
-            // screen detail
-            { "get_screens", new Func<Screen[]>(() => Screen.AllScreens) },
-            { "get_all_screen_bounds", new Func<Rectangle>(() => OS.Utilities.GetAllScreenBounds()) },
-
-            // python shorthands .NET object constructors
-            { "rectangle", new Func<int, int, int, int, Rectangle>((x, y, w, h) => new Rectangle(x, y, w, h)) },
-            { "point", new Func<int, int, Point>((x, y) => new Point(x, y)) },
-        });
-    }
-
-    private void PopulatePythonScope(Dictionary<string, object?> values)
-    {
-        foreach (var (key, value) in values)
-        {
-            _scriptScope.SetVariable(key, value);
-        }
+        using var dialog = new PythonScriptEditor(settings);
+        dialog.ShowDialog();
     }
 }

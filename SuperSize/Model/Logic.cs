@@ -17,7 +17,7 @@ public abstract class Logic
 
     public virtual Dictionary<string, string> InitialSettings { get; } = new();
 
-    public abstract Task<Rectangle> CalculateWindowSize(Settings settings);
+    public abstract Task<LogicResult> CalculateWindowSize(Settings settings);
 
     public virtual void ShowSettings(Settings settings) => throw new NotImplementedException();
 
