@@ -39,6 +39,7 @@ namespace SuperSize.UI.Controls
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             testBtn = new System.Windows.Forms.Button();
             settingsBtn = new System.Windows.Forms.Button();
+            _systemStartupCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)previewBox).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -57,22 +58,24 @@ namespace SuperSize.UI.Controls
             // 
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(_logicComboBox, 1, 1);
             tableLayoutPanel1.Controls.Add(keybindLabel, 0, 0);
             tableLayoutPanel1.Controls.Add(keybindPreviewLbl, 1, 0);
             tableLayoutPanel1.Controls.Add(keybindChangeBtn, 2, 0);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 1, 2);
+            tableLayoutPanel1.Controls.Add(_systemStartupCheckbox, 1, 3);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 165);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.6666641F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new System.Drawing.Size(370, 268);
             tableLayoutPanel1.TabIndex = 1;
             // 
@@ -106,14 +109,14 @@ namespace SuperSize.UI.Controls
             keybindPreviewLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             keybindPreviewLbl.Location = new System.Drawing.Point(119, 0);
             keybindPreviewLbl.Name = "keybindPreviewLbl";
-            keybindPreviewLbl.Size = new System.Drawing.Size(167, 29);
+            keybindPreviewLbl.Size = new System.Drawing.Size(90, 29);
             keybindPreviewLbl.TabIndex = 2;
             keybindPreviewLbl.Text = "Modifier + Keys";
             keybindPreviewLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // keybindChangeBtn
             // 
-            keybindChangeBtn.Location = new System.Drawing.Point(292, 3);
+            keybindChangeBtn.Location = new System.Drawing.Point(215, 3);
             keybindChangeBtn.Name = "keybindChangeBtn";
             keybindChangeBtn.Size = new System.Drawing.Size(75, 23);
             keybindChangeBtn.TabIndex = 3;
@@ -142,7 +145,7 @@ namespace SuperSize.UI.Controls
             flowLayoutPanel1.Location = new System.Drawing.Point(116, 58);
             flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(254, 70);
+            flowLayoutPanel1.Size = new System.Drawing.Size(254, 63);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // testBtn
@@ -164,6 +167,18 @@ namespace SuperSize.UI.Controls
             settingsBtn.Text = "&Settings...";
             settingsBtn.UseVisualStyleBackColor = true;
             settingsBtn.Click += settingsBtn_Click_1;
+            // 
+            // _systemStartupCheckbox
+            // 
+            _systemStartupCheckbox.AutoSize = true;
+            tableLayoutPanel1.SetColumnSpan(_systemStartupCheckbox, 2);
+            _systemStartupCheckbox.Location = new System.Drawing.Point(119, 124);
+            _systemStartupCheckbox.Name = "_systemStartupCheckbox";
+            _systemStartupCheckbox.Size = new System.Drawing.Size(128, 19);
+            _systemStartupCheckbox.TabIndex = 6;
+            _systemStartupCheckbox.Text = "Start with Windows";
+            _systemStartupCheckbox.UseVisualStyleBackColor = true;
+            _systemStartupCheckbox.CheckedChanged += OnSystemStartupChanged;
             // 
             // SettingsPage
             // 
@@ -194,5 +209,6 @@ namespace SuperSize.UI.Controls
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button testBtn;
         private System.Windows.Forms.Button settingsBtn;
+        private System.Windows.Forms.CheckBox _systemStartupCheckbox;
     }
 }
