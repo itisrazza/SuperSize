@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuperSize Python Help</title>
+  </head>
+  <body>
+    <header>
+      <main>
+        <img src="logo.svg" height="24" />
+        SuperSize Python Help
+      </main>
+      <nav>
+        <a href="https://itisrazza.github.io/SuperSize" target="_blank"
+          >Website</a
+        >
+        <a href="https://docs.python.org/3/index.html" target="_blank"
+          >Python Docs</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <section id="python-api">
+        <h2>Python functions</h2>
+        <p>
+          The following functions are provided to make writing logic in Python
+          easier.
+        </p>
+        <p>
+          A subset of the
+          <a href="https://docs.python.org/3/index.html" target="_blank"
+            >Python standard library</a
+          >
+          is already available.
+        </p>
+
+        <article id="screens">
+          <h3><code>screens()</code></h2>
+          <p>
+            Returns a list of
+            <a
+              href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.screen"
+              target="_blank"
+              ><code>Screen</code></a
+            >
+            objects.
+          </p>
+        </article>
+
+        <article id="point">
+          <h3><code>point(x, y)</code></h2>
+          <p>
+            Returns a
+            <a href="#"><code>Point</code></a>
+            object at the specified coordinates.
+          </p>
+        </article>
+
+        <article id="rectangle">
+          <h3><code>rectangle(x, y, width, height)</code></h2>
+          <p>
+            Returns a
+            <a href="https://learn.microsoft.com/en-us/dotnet/api/system.drawing.rectangle" target="_blank"><code>Rectangle</code></a>
+            object at the specified coordinates.
+          </p>
+        </article>
+
+        <article id="save_size">
+          <h3><code>save_size(rectangle)</code></h2>
+          <p>
+            Accepts a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.drawing.rectangle" target="_blank"><code>Rectangle</code></a> as the size logic
+            result. The selected window will be resized to its coordinates.
+          </p>
+        </article>
+      </section>
+
+      <section id="import-dotnet">
+        <h2>Reference .NET Code</h2>
+        <p>You can also reference .NET code from within Python.</p>
+
+        <pre># add reference to .NET assembly
+import clr
+clr.AddReference("System.Windows.Forms")
+
+# import classes
+from System.Windows.Forms import Form
+
+# use classes
+form = Form()
+form.ShowDialog()</pre>
+      </section>
+
+      <section id="limitations">
+        <h2>Limitations</h2>
+        <ul>
+            <li>Asynchronous scripts are not supported. <a href="#save_size"><code>save_size</code></a> must have been called before the main body finishes executing.</li>
+        </ul>
+      </section>
+    </main>
+
+    <style>
+      :root {
+        font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+        font-size: 12px;
+
+        user-select: none;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 1rem 0 0.5rem;
+      }
+
+      :target {
+        animation: target-background 1s forwards;
+      }
+
+      @keyframes target-background {
+        0% {
+            background-color: #ffff88;
+            box-shadow: 0 0 0 8px #ffff88;
+        }
+
+        100% {
+            background-color: #ffffcc;
+            box-shadow: 0 0 0 8px #ffffcc;
+        }
+      }
+
+      pre {
+        user-select: text;
+        background-color: #eeeeee;
+        padding: 8px;
+        border-radius: 4px;
+        overflow-x: auto;
+      }
+
+      body > header {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      body > header > main {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 4px;
+        font-size: 14px;
+        padding: 4px 8px;
+      }
+
+      body > header > nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        a {
+          padding: 4px 8px;
+          color: unset;
+          text-decoration: none;
+
+          &:not(:last-child) {
+            border-right: 1px solid #e0e0e0;
+          }
+
+          &:hover {
+            background-color: #e0e0e0;
+          }
+        }
+      }
+
+      body > main {
+        padding: 8px;
+      }
+    </style>
+  </body>
+</html>
