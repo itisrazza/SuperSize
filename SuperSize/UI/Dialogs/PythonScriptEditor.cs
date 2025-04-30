@@ -12,12 +12,16 @@ namespace SuperSize.UI.Dialogs;
 
 public partial class PythonScriptEditor : Form
 {
+    private string BaseTitle;
+
     private Settings Settings { get; }
 
     public PythonScriptEditor(Settings settings)
     {
         Settings = settings;
         InitializeComponent();
+
+        BaseTitle = Text;
 
         if (settings.TryGetValue("Script", out var script))
         {
@@ -59,6 +63,8 @@ public partial class PythonScriptEditor : Form
     {
         Settings["Script"] = _scriptEditor.Text;
         Settings.Save();
+
+        UpdateTitle();
     }
 
     private void OnImportClicked(object sender, EventArgs e)
@@ -172,5 +178,23 @@ public partial class PythonScriptEditor : Form
             e.Cancel = true;
             return;
         }
+    }
+
+    private void OnNewScriptClicked(object sender, EventArgs e)
+    {
+        if (!ExportCurrentScript()) return;
+
+        _scriptEditor.Text = Encoding.UTF8.GetString(Properties.Resources.PythonSample);
+        SaveScript();
+    }
+
+    private void OnScriptEditorTextChange(object sender, EventArgs e)
+    {
+        UpdateTitle();
+    }
+
+    private void UpdateTitle()
+    {
+        Text = BaseTitle + (IsEditorDirty() ? " (unsaved)" : "");
     }
 }

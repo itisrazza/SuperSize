@@ -1,0 +1,13 @@
+# SuperSize - Python Script
+#
+# Click on 'Show Help' for API documentation.
+
+all_screens = screens()
+
+left = min([screen.WorkingArea.Left for screen in all_screens])
+right = max([screen.WorkingArea.Right for screen in all_screens])
+top = min([screen.WorkingArea.Top for screen in all_screens])
+bottom = max([screen.WorkingArea.Bottom for screen in all_screens])
+
+result = rectangle(left, top, right - left, bottom - top)
+save_size(result)

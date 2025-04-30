@@ -86,6 +86,7 @@
             _newScriptButton.Name = "_newScriptButton";
             _newScriptButton.Size = new System.Drawing.Size(84, 22);
             _newScriptButton.Text = "New Script";
+            _newScriptButton.Click += OnNewScriptClicked;
             // 
             // _saveButton
             // 
@@ -162,6 +163,7 @@
             _scriptEditor.Name = "_scriptEditor";
             _scriptEditor.Size = new System.Drawing.Size(624, 416);
             _scriptEditor.TabIndex = 0;
+            _scriptEditor.TextChanged += OnScriptEditorTextChange;
             // 
             // _helpViewer
             // 
