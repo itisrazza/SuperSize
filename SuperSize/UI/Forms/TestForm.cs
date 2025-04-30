@@ -20,6 +20,15 @@ namespace SuperSize.UI.Forms
             }.Show();
         }
 
+        public static void ShowDialog(Rectangle rectangle, IWin32Window? owner = null)
+        {
+            new TestForm
+            {
+                Location = rectangle.Location,
+                Size = rectangle.Size,
+            }.ShowDialog(owner);
+        }
+
         private void OnLoad(object sender, EventArgs e)
         {
             titleLabel.Text = $"Test Window - {Location.X}, {Location.Y} ({Width}x{Height})";
