@@ -96,7 +96,7 @@ namespace SuperSize.UI.Forms
 
         private void sendFeedback_Click(object sender, EventArgs e)
         {
-            Utilities.OpenLink("https://github.com/thegreatrazz/SuperSize/issues/new");
+            Utilities.OpenLink("https://github.com/itisrazza/SuperSize/issues/new");
         }
     }
 }

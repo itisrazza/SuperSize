@@ -19,7 +19,7 @@ to and it's extensible with plugins for ultimate adaptability.
 
 SuperSize can be downloaded from [GitHub Releases][release].
 
-[release]: https://github.com/thegreatrazz/SuperSize/releases
+[release]: https://github.com/itisrazza/SuperSize/releases
 
 ## Contributing to SuperSize
 
