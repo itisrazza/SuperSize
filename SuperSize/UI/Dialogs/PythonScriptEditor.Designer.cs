@@ -203,6 +203,7 @@
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Python Script Editor - SuperSize";
             FormClosing += OnFormClosing;
+            Load += OnFormLoad;
             _toolStrip.ResumeLayout(false);
             _toolStrip.PerformLayout();
             _splitContainer.Panel1.ResumeLayout(false);

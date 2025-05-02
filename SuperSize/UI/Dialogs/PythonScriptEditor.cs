@@ -1,5 +1,6 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SuperSize.Model;
+using SuperSize.Properties;
 using SuperSize.Scripting.Python;
 using SuperSize.UI.Forms;
 using System;
@@ -7,26 +8,22 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using SettingsDelegate = SuperSize.Model.Settings;
 
 namespace SuperSize.UI.Dialogs;
 
 public partial class PythonScriptEditor : Form
 {
-    private string BaseTitle;
+    private readonly string BaseTitle;
 
-    private Settings Settings { get; }
+    private SettingsDelegate Settings { get; }
 
-    public PythonScriptEditor(Settings settings)
+    public PythonScriptEditor(SettingsDelegate settings)
     {
         Settings = settings;
         InitializeComponent();
 
         BaseTitle = Text;
-
-        if (settings.TryGetValue("Script", out var script))
-        {
-            _scriptEditor.Text = script;
-        }
     }
 
 
@@ -157,6 +154,8 @@ public partial class PythonScriptEditor : Form
 
     private bool IsEditorDirty()
     {
+        if (!Settings.ContainsKey("Script")) return true;
+
         return _scriptEditor.Text != Settings["Script"];
     }
 
@@ -183,7 +182,11 @@ public partial class PythonScriptEditor : Form
     private void OnNewScriptClicked(object sender, EventArgs e)
     {
         if (!ExportCurrentScript()) return;
+        LoadNewScript();
+    }
 
+    private void LoadNewScript()
+    {
         _scriptEditor.Text = Encoding.UTF8.GetString(Properties.Resources.PythonSample);
         SaveScript();
     }
@@ -196,5 +199,17 @@ public partial class PythonScriptEditor : Form
     private void UpdateTitle()
     {
         Text = BaseTitle + (IsEditorDirty() ? " (unsaved)" : "");
+    }
+
+    private void OnFormLoad(object sender, EventArgs e)
+    {
+        if (Settings.TryGetValue("Script", out var script))
+        {
+            _scriptEditor.Text = script;
+        }
+        else
+        {
+            LoadNewScript();
+        }
     }
 }
