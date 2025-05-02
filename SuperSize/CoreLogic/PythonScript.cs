@@ -2,8 +2,10 @@
 using SuperSize.Scripting.Python;
 using SuperSize.UI.Dialogs;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +15,11 @@ namespace SuperSize.CoreLogic;
 internal sealed class PythonScript : Logic
 {
     public override string DisplayName => "Scripting: Python";
+
+    public override Dictionary<string, string> InitialSettings => new()
+    {
+        ["Script"] = Encoding.UTF8.GetString(Properties.Resources.PythonSample),
+    };
 
     public override Task<LogicResult> CalculateWindowSize(Settings settings) => Task.Run(() =>
         {
