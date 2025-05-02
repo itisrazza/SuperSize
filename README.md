@@ -2,16 +2,20 @@
 <h1 align="center">SuperSize</h1>
 <p align="center">Customisable, Multi-Display Resizer</p>
 
-**SuperSize** is a utility which maximises your window to multiple displays for maximum work (or play) efficiency. It includes a number of presets to maximise to and it's extensible with plugins for ultimate adaptability.
+**SuperSize** is a utility which maximises your window to multiple displays for
+maximum work (or play) efficiency. It includes a number of presets to maximise
+to and it's extensible with plugins for ultimate adaptability.
 
 [![downloads](https://img.shields.io/github/downloads/itisrazza/SuperSize/total)](#download)
 [![licence](https://img.shields.io/github/license/itisrazza/SuperSize)](LICENSE)
 [![build status](https://img.shields.io/github/actions/workflow/status/itisrazza/SuperSize/nightlies.yml?branch=master&label=build)](https://github.com/itisrazza/SuperSize/actions/workflows/nightlies.yml)
 [![unit tests status](https://img.shields.io/github/actions/workflow/status/itisrazza/SuperSize/unit-testing.yml?branch=master&label=tests)](https://github.com/itisrazza/SuperSize/actions/workflows/unit-testing.yml)
 
+<p align="center"><img src="Assets/Animation.gif" height="240"></p>
+
 ## Download
 
-![current preview version](https://img.shields.io/github/v/release/itisrazza/SuperSize?include_prereleases&display_name=tag&label=preview%20version)
+[![current preview version](https://img.shields.io/github/v/release/itisrazza/SuperSize?include_prereleases&display_name=tag&label=preview%20version)][release]
 
 SuperSize can be downloaded from [GitHub Releases][release].
 
